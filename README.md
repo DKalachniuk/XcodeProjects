@@ -55,4 +55,6 @@ If you don't want to spend money, you can still support me if you will share thi
 - add Sparkle framework to check for updates automatically
 
 # Special Thanks
-Special thanks to [Solokub](https://github.com/Solokub) for providing awesome logo. 🥳
+Special thanks to 
+- [Solokub](https://github.com/Solokub) - for providing awesome logo. 🥳
+- [Gui Rambo](https://gumroad.com/insidegui) - for his awesome project "StatusBuddy"
