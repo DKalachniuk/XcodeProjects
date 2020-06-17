@@ -1,6 +1,12 @@
 # XcodeProjects
 Don't write "pod install", "pod update" and "cd <your project>" anymore
   
+# When do you need this tool
+- when you need to change directory to  your project in terminal 
+- when you type <pod install> and <pod update> in terminal
+- when you need to open your project in SourceTree and you want to do it quickly
+- when you have a lot of projects or modules/frameworks and you need to switch between them quickly
+  
 # How to install this
 Go to release section in this repo and download the binary. Drag & drop XcodeProjects.app to your Application folder. Enjoy
 
