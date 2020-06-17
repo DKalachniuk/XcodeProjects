@@ -20,6 +20,7 @@
 		C8412E4F2412A2A00066A8A5 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8412E4E2412A2A00066A8A5 /* StatusViewController.swift */; };
 		C8412E512412A2F00066A8A5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8412E502412A2F00066A8A5 /* MainView.swift */; };
 		C8412E822412A70F0066A8A5 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8412E812412A70F0066A8A5 /* Project.swift */; };
+		C8456CF1249A540F00BAEF17 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8456CF0249A540F00BAEF17 /* PlusButton.swift */; };
 		C8AE963524997AC000E6B080 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE963424997AC000E6B080 /* String+Components.swift */; };
 		C8AE96372499818200E6B080 /* CharacterSet+All.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE96362499818200E6B080 /* CharacterSet+All.swift */; };
 		C8F450F1241632D1002B9D69 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F0241632D1002B9D69 /* ProjectCell.swift */; };
@@ -74,6 +75,7 @@
 		C8412E4E2412A2A00066A8A5 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		C8412E502412A2F00066A8A5 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C8412E812412A70F0066A8A5 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		C8456CF0249A540F00BAEF17 /* PlusButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
 		C8AE963424997AC000E6B080 /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
 		C8AE96362499818200E6B080 /* CharacterSet+All.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+All.swift"; sourceTree = "<group>"; };
 		C8F450F0241632D1002B9D69 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		C8412E4C2412A2950066A8A5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C8456CEF249A53F000BAEF17 /* Buttons */,
 				C8F450EF241632C3002B9D69 /* Cells */,
 				C8412E522412A2F20066A8A5 /* Views */,
 				C8412E4D2412A29A0066A8A5 /* Controllers */,
@@ -195,7 +198,6 @@
 				C80D1227241583E800CBCB0F /* PreferencesView.swift */,
 				C8412E502412A2F00066A8A5 /* MainView.swift */,
 				C8F451002416950D002B9D69 /* ProjectMenuView.swift */,
-				C8088D552418E5F5001239CB /* TerminalCommandButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +228,15 @@
 				C8F450F924165C21002B9D69 /* UserDefaultsWrapper.swift */,
 			);
 			path = PropertyWrappers;
+			sourceTree = "<group>";
+		};
+		C8456CEF249A53F000BAEF17 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				C8456CF0249A540F00BAEF17 /* PlusButton.swift */,
+				C8088D552418E5F5001239CB /* TerminalCommandButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		C8F450EF241632C3002B9D69 /* Cells */ = {
@@ -376,6 +387,7 @@
 				C8F451012416950D002B9D69 /* ProjectMenuView.swift in Sources */,
 				C8F450FF24167592002B9D69 /* NSWorkspace+Execute.swift in Sources */,
 				C8412E4B2412A23B0066A8A5 /* EventMonitor.swift in Sources */,
+				C8456CF1249A540F00BAEF17 /* PlusButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

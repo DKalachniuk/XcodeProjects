@@ -23,13 +23,7 @@ struct MainView: View {
                 TextField("Search", text: $searchTerm)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
-                Button(action: addProject) {
-                    Image("add")
-                        .resizable()
-                        .renderingMode(.template)
-                        .frame(width: 16, height: 16)
-                        .foregroundColor(Color.white)
-                }.buttonStyle(BorderlessButtonStyle())
+                PlusButton(action: addProject)
 
                 PreferencesView()
             }.padding(EdgeInsets(top: 10, leading: 14, bottom: 4, trailing: 14))
@@ -42,13 +36,7 @@ struct MainView: View {
                     VStack {
                         HStack {
                             Text("Please add a project")
-                            Button(action: addProject) {
-                                Image("add")
-                                    .resizable()
-                                    .renderingMode(.template)
-                                    .frame(width: 16, height: 16)
-                                    .foregroundColor(Color.white)
-                            }.buttonStyle(BorderlessButtonStyle())
+                            PlusButton(action: addProject)
                         }
                     }
 
