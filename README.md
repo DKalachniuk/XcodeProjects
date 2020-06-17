@@ -18,12 +18,18 @@ Now you can press on the project you want and you will see options that you can 
 ![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/blob/master/Images/example_context_menu.png?raw=true)
 
 **Open in Terminal** - opens the path of the project in terminal. Handy to quicly switch to the folder of the project
+
 **Show in Finder** - opens the folder of the project in Finder
+
 **Open in Sourcetree** - opens the folder of the project in Sourcetree(if you have Sourcetree)
+
 **Open Workspace** - opens the workspace/project in Xcode(known issue -> workspace should have the same name as folder)
 
+
 **Pod install** - runs "pod install" command in terminal for the project
+
 **Pod update** - runs "pod update" command in terminal for the project
+
 
 **Remove from the list** - removes project from the list
 
