@@ -45,4 +45,4 @@ If you don't want to spend money, you can still support me if you will share thi
 - add carthage support
 - add sorting to the list of projects
 - configure the actions when you press on the project. so you will be able to see only those that you need
-
+- update commands logic so some commands like: open workspace, open in finder, open in Sorcetree will not use terminal to open the files
