@@ -31,7 +31,7 @@ struct Project: Identifiable, Codable {
 extension Project {
 
     var urlPath: URL? {
-        URL(string: path)
+        URL(fileURLWithPath: path)
     }
 
     var workspaceURL: URL? {
