@@ -35,11 +35,11 @@ extension Project {
     }
 
     var workspaceURL: URL? {
-        urlPath?.appendingPathComponent(name + ".xcworkspace")
+        FileManager.default.getWorkspaceFrom(project: self)
     }
 
     var projectURL: URL? {
-        urlPath?.appendingPathComponent(name + ".xcodeproj")
+        FileManager.default.getXcodeProjFrom(project: self)
     }
 }
 

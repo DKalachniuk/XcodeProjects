@@ -10,7 +10,17 @@ import Foundation
 
 extension FileManager {
 
-    func contentsOfProject(_ project: Project) -> [URL]? {
+    func getWorkspaceFrom(project: Project) -> URL? {
+        filter(urls: contentsOf(project: project), by: "xcworkspace")?.first
+    }
+
+    func getXcodeProjFrom(project: Project) -> URL? {
+        filter(urls: contentsOf(project: project), by: "xcodeproj")?.first
+    }
+}
+
+private extension FileManager {
+    func contentsOf(project: Project) -> [URL]? {
         guard let urlPath = project.urlPath else {
             return nil
         }
@@ -21,5 +31,9 @@ extension FileManager {
             print("Error while enumerating files \(urlPath): \(error.localizedDescription)")
             return nil
         }
+    }
+
+    func filter(urls: [URL]?, by pathExtension: String) -> [URL]? {
+        urls?.filter({ $0.pathExtension == "xcworkspace"})
     }
 }
