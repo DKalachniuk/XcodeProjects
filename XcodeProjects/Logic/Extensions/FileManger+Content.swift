@@ -34,6 +34,6 @@ private extension FileManager {
     }
 
     func filter(urls: [URL]?, by pathExtension: String) -> [URL]? {
-        urls?.filter({ $0.pathExtension == "xcworkspace"})
+        urls?.filter({ $0.pathExtension == pathExtension})
     }
 }
