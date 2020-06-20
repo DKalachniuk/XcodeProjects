@@ -16,7 +16,7 @@ struct ProjectMenuView: View {
     var body: some View {
         MenuButton(label:
         Text(self.project.name).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))) {
-            TerminalCommandButton(project: self.project, command: .open)
+            TerminalCommandButton(project: self.project, command: .openInTerminal)
             TerminalCommandButton(project: self.project, command: .finder)
             TerminalCommandButton(project: self.project, command: .sourceTree)
             TerminalCommandButton(project: self.project, command: .openWorkspace)

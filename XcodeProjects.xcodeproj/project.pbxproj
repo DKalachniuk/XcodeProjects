@@ -21,6 +21,8 @@
 		C8412E512412A2F00066A8A5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8412E502412A2F00066A8A5 /* MainView.swift */; };
 		C8412E822412A70F0066A8A5 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8412E812412A70F0066A8A5 /* Project.swift */; };
 		C8456CF1249A540F00BAEF17 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8456CF0249A540F00BAEF17 /* PlusButton.swift */; };
+		C8573C44249D6EA600E1F969 /* FileManger+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C43249D6EA600E1F969 /* FileManger+Content.swift */; };
+		C8573C49249E77E400E1F969 /* TerminalScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C48249E77E400E1F969 /* TerminalScript.swift */; };
 		C8AE963524997AC000E6B080 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE963424997AC000E6B080 /* String+Components.swift */; };
 		C8AE96372499818200E6B080 /* CharacterSet+All.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE96362499818200E6B080 /* CharacterSet+All.swift */; };
 		C8F450F1241632D1002B9D69 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F0241632D1002B9D69 /* ProjectCell.swift */; };
@@ -76,6 +78,8 @@
 		C8412E502412A2F00066A8A5 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C8412E812412A70F0066A8A5 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		C8456CF0249A540F00BAEF17 /* PlusButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
+		C8573C43249D6EA600E1F969 /* FileManger+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManger+Content.swift"; sourceTree = "<group>"; };
+		C8573C48249E77E400E1F969 /* TerminalScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalScript.swift; sourceTree = "<group>"; };
 		C8AE963424997AC000E6B080 /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
 		C8AE96362499818200E6B080 /* CharacterSet+All.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+All.swift"; sourceTree = "<group>"; };
 		C8F450F0241632D1002B9D69 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 			children = (
 				C8F450F5241638C2002B9D69 /* TerminalCommand.swift */,
 				C8412E812412A70F0066A8A5 /* Project.swift */,
+				C8573C48249E77E400E1F969 /* TerminalScript.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				C8F450FE24167592002B9D69 /* NSWorkspace+Execute.swift */,
 				C8AE963424997AC000E6B080 /* String+Components.swift */,
 				C8AE96362499818200E6B080 /* CharacterSet+All.swift */,
+				C8573C43249D6EA600E1F969 /* FileManger+Content.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -385,9 +391,11 @@
 				C80D122F2415842B00CBCB0F /* SharedFileList.m in Sources */,
 				C8088D562418E5F5001239CB /* TerminalCommandButton.swift in Sources */,
 				C8F451012416950D002B9D69 /* ProjectMenuView.swift in Sources */,
+				C8573C44249D6EA600E1F969 /* FileManger+Content.swift in Sources */,
 				C8F450FF24167592002B9D69 /* NSWorkspace+Execute.swift in Sources */,
 				C8412E4B2412A23B0066A8A5 /* EventMonitor.swift in Sources */,
 				C8456CF1249A540F00BAEF17 /* PlusButton.swift in Sources */,
+				C8573C49249E77E400E1F969 /* TerminalScript.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
