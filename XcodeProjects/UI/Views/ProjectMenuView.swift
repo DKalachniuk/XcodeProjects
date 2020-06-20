@@ -19,7 +19,6 @@ struct ProjectMenuView: View {
             TerminalCommandButton(project: self.project, command: .openInTerminal)
             TerminalCommandButton(project: self.project, command: .finder)
             TerminalCommandButton(project: self.project, command: .sourceTree)
-            TerminalCommandButton(project: self.project, command: .openWorkspace)
 
             VStack { Divider() }
             TerminalCommandButton(project: self.project, command: .podInstall)

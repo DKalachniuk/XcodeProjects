@@ -13,7 +13,20 @@ struct ProjectCell: View {
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
-        ProjectMenuView(project: self.project).environmentObject(preferences)
+        HStack {
+            ProjectMenuView(project: self.project).environmentObject(preferences)
+            Spacer()
+            Button(action: {
+                NSWorkspace.execute(command: .openWorkspace, forProject: self.project)
+            }) {
+                Image("xcode")
+                    .resizable()
+                    .renderingMode(.original)
+                    .frame(width: 25, height: 25, alignment: .center)
+            }
+            .buttonStyle(BorderlessButtonStyle())
+        }
+
     }
 }
 

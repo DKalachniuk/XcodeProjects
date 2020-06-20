@@ -23,7 +23,7 @@ struct MainView: View {
                 TextField("Search", text: $searchTerm)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
-                PlusButton(action: addProject)
+                AddProjectButton(action: addProject)
 
                 PreferencesView()
             }.padding(EdgeInsets(top: 10, leading: 14, bottom: 4, trailing: 14))
@@ -36,7 +36,7 @@ struct MainView: View {
                     VStack {
                         HStack {
                             Text("Please add a project")
-                            PlusButton(action: addProject)
+                            AddProjectButton(action: addProject)
                         }
                     }
 
