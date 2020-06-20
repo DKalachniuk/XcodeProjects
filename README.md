@@ -29,7 +29,7 @@ Now you can press on the project you want and you will see options that you can 
 
 **Open in Sourcetree** - opens the folder of the project in Sourcetree(if you have Sourcetree)
 
-**Open Workspace** - opens the workspace/project in Xcode(known issue -> workspace should have the same name as folder)
+**Open Workspace** - opens the workspace/project in Xcode
 
 
 **Pod install** - runs "pod install" command in terminal for the project
@@ -54,10 +54,11 @@ If you want to support this project, feel free to send some coffee money to this
 If you don't want to spend money, you can still support me if you will share this tool with your colleagues and tell them how nice it is and how it improved your workflow.
 
 # TODO
-- add carthage support
+- add command to support carthage update
 - add sorting to the list of projects
+- add favorites projects
 - configure the actions when you press on the project. so you will be able to see only those that you need
-- update commands logic so some commands like: open workspace, open in finder, open in Sorcetree will not use terminal to open the files
+- ~~update commands logic so some commands like: open workspace, open in finder will not use terminal to open the files~~
 - add Sparkle framework to check for updates automatically
 
 # Special Thanks
