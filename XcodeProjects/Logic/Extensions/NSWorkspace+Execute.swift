@@ -44,7 +44,7 @@ private extension NSWorkspace {
     }
 
     static func executeInTerminal(command: TerminalCommand, project: Project) {
-        guard let scriptText = command.scriptTextFor(project) else {
+        guard let scriptText = command.script(for: project) else {
             return
         }
         let script = NSAppleScript(source: scriptText)
