@@ -43,10 +43,6 @@ Also it is possible to drag projects around. Simple perform drag from the empty 
 
 ![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/blob/master/Images/example_drag_and_drop.png?raw=true)
 
-# Known issues
-
-- workspace/project file should have the same name as folder. Otherwise it won't be opened
-
 # Support
 Just simple star ⭐️ will make my life happier :) 
 
