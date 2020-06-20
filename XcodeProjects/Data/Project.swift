@@ -31,15 +31,15 @@ struct Project: Identifiable, Codable {
 extension Project {
 
     var urlPath: URL? {
-        URL(string: path)
+        URL(fileURLWithPath: path)
     }
 
     var workspaceURL: URL? {
-        urlPath?.appendingPathComponent(name + ".xcworkspace")
+        FileManager.default.getWorkspaceFrom(project: self)
     }
 
     var projectURL: URL? {
-        urlPath?.appendingPathComponent(name + ".xcodeproj")
+        FileManager.default.getXcodeProjFrom(project: self)
     }
 }
 
