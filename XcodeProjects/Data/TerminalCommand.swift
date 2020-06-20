@@ -8,49 +8,61 @@
 
 import Foundation
 
+enum ExecutionMethod {
+    case inTerminal
+    case justOpen
+}
+
 enum TerminalCommand: String {
     case podInstall = "Pod install"
     case podUpdate = "Pod update"
     case finder = "Show in Finder"
-    case open = "Open in Terminal"
+    case openInTerminal = "Open in Terminal"
     case sourceTree = "Open in Sourcetree"
     case openWorkspace = "Open Workspace"
 
-    var command: String {
+    var executionMethod: ExecutionMethod {
+        switch self {
+            case .podUpdate, .podInstall, .openInTerminal, .sourceTree:
+                return .inTerminal
+            case .finder, .openWorkspace:
+                return .justOpen
+        }
+    }
+
+    var command: String? {
         switch self {
         case .podInstall:
             return "pod install"
         case .podUpdate:
             return "pod update"
-        case .open:
+        case .openInTerminal:
             return "cd "
-        case .finder:
-            return "open ."
         case .sourceTree:
             return "open -a SourceTree"
-        case .openWorkspace:
-            return "open "
+        default:
+            return nil
         }
     }
 
-    func scriptTextFor(_ project: Project) -> String {
-        let commandString = "\(TerminalCommand.open.command) \(project.path)"
-        var twoLines = commandString.doScript
-        if self != .open {
-            twoLines.append("\n")
-            var commandValue = command
+    func scriptTextFor(_ project: Project) -> String? {
+        guard let openInTerminalCommand = TerminalCommand.openInTerminal.command, var commandValue = command else {
+            return nil
+        }
+        let commandString = "\(openInTerminalCommand) \(project.path)"
+        var twoLinesScript = commandString.doScript
+        if self != .openInTerminal {
+            twoLinesScript.append("\n")
             if self == .sourceTree {
                 commandValue += " \(project.path)"
-            } else if self == .openWorkspace {
-                commandValue += project.workspaceURL?.absoluteString ?? project.projectURL?.absoluteString ?? ""
-            }
-            twoLines.append(commandValue.doScript)
+            } 
+            twoLinesScript.append(commandValue.doScript)
         }
         let scriptText = """
         tell application "Terminal"
         if not (exists window 1) then reopen
         activate
-        \(twoLines)
+        \(twoLinesScript)
         end tell
         """
         return scriptText
