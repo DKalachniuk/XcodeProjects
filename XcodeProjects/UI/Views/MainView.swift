@@ -28,7 +28,7 @@ struct MainView: View {
                 PreferencesView()
             }.padding(EdgeInsets(top: 10, leading: 14, bottom: 4, trailing: 14))
 
-            Divider().padding([.top, .bottom], 6)
+            Divider().padding([.top], 3)
 
             if projects.isEmpty {
                 Spacer()
