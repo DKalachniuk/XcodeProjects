@@ -20,10 +20,11 @@ enum TerminalCommand: String {
     case openInTerminal = "Open in Terminal"
     case sourceTree = "Open in Sourcetree"
     case openWorkspace = "Open Workspace"
+    case clearXcodeDerivedData = "Clear Xcode derived data"
 
     var executionMethod: ExecutionMethod {
         switch self {
-            case .podUpdate, .podInstall, .openInTerminal, .sourceTree:
+            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData:
                 return .inTerminal
             case .finder, .openWorkspace:
                 return .justOpen
@@ -40,6 +41,8 @@ enum TerminalCommand: String {
                 return "cd "
             case .sourceTree:
                 return "open -a SourceTree"
+            case .clearXcodeDerivedData:
+                return "rm -rf ~/Library/Developer/Xcode/DerivedData"
             default:
                 return nil
         }
