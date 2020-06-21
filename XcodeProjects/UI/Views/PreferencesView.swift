@@ -34,6 +34,9 @@ struct PreferencesView: View {
                 VStack { Divider() }
             }
 
+            Button(action: clearDerivedData, label: { Text("Clear Xcode derived data") })
+            VStack { Divider() }
+            
             Button(action: quit, label: { Text("Quit") })
         }
         .menuButtonStyle(BorderlessButtonMenuButtonStyle())
@@ -47,7 +50,7 @@ private extension PreferencesView {
     }
 
     func openGithub() {
-        if let githubURL = URL(string: "") {
+        if let githubURL = URL(string: "https://github.com/DKalachniuk/XcodeProjects") {
              _ = NSWorkspace.shared.open(githubURL)
         }
     }
@@ -58,6 +61,10 @@ private extension PreferencesView {
 
     func quit() {
         NSApp.terminate(nil)
+    }
+
+    func clearDerivedData() {
+        NSWorkspace.execute(command: .clearXcodeDerivedData)
     }
 }
 
