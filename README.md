@@ -1,10 +1,10 @@
 # XcodeProjects
-Don't write "pod install", "pod update" and "cd <your project>" anymore
+Switch between projects in 2 clicks. Don't write "pod install", "pod update" and "cd <your project>" anymore
   
 # When do you need this tool
-- when you need to change directory to  your project in terminal 
-- when you type <pod install> and <pod update> in terminal
-- when you need to open your project in SourceTree and you want to do it quickly
+- when you need to change directory of your project in the terminal 
+- when you type <pod install> and <pod update> in the terminal
+- when you want quickly open your project in "SourceTree"
 - when you have a lot of projects or modules/frameworks and you need to switch between them quickly
   
 # How to install this
@@ -15,11 +15,13 @@ After first run of the app
 
 ![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/blob/master/Images/example_empty_list.png?raw=true)
 
-you need to press + button and add folders with you projects within dialog.
+click "+" button and add folder(s) of you project(s) within dialog.
 
 ![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/blob/master/Images/example_list_of_projects.png?raw=true)
 
-Now you can press on the project you want and you will see options that you can interact with 
+**Click "arrows" button to open your xcode workspace/project**
+
+**Click "..." button to see the options** 
 
 ![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/blob/master/Images/example_context_menu.png?raw=true)
 
@@ -29,8 +31,6 @@ Now you can press on the project you want and you will see options that you can 
 
 **Open in Sourcetree** - opens the folder of the project in Sourcetree(if you have Sourcetree)
 
-**Open Workspace** - opens the workspace/project in Xcode
-
 
 **Pod install** - runs "pod install" command in terminal for the project
 
@@ -39,7 +39,7 @@ Now you can press on the project you want and you will see options that you can 
 
 **Remove from the list** - removes project from the list
 
-Also it is possible to drag projects around. Simple perform drag from the empty space of the project
+Also it is possible to drag projects around.
 
 ![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/blob/master/Images/example_drag_and_drop.png?raw=true)
 
@@ -49,12 +49,15 @@ Just simple star ⭐️ will make my life happier :)
 If you want to support this project, feel free to send some coffee money to this [link](paypal.me/dkalachniuk)
 If you don't want to spend money, you can still support me if you will share this tool with your colleagues and tell them how nice it is and how it improved your workflow.
 
-# TODO
+# Ideas
 - add command to support carthage update
 - add sorting to the list of projects
 - add favorites projects
 - configure the actions when you press on the project. so you will be able to see only those that you need
+
+# TODO
 - ~~update commands logic so some commands like: open workspace, open in finder will not use terminal to open the files~~
+- ~~put action "open in Xcode" in the main view~~
 - add Sparkle framework to check for updates automatically
 
 # Special Thanks
