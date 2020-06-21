@@ -18,8 +18,6 @@ struct ProjectCell: View {
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
                 .frame(width: 223, height: 30, alignment: .leading)
 
-            //Spacer()
-
             Button(action: {
                 NSWorkspace.execute(command: .openWorkspace, forProject: self.project)
             }) {
@@ -30,8 +28,6 @@ struct ProjectCell: View {
             }
                 .buttonStyle(BorderlessButtonStyle())
                 .padding([.trailing], 5)
-
-            //Spacer()
 
             ProjectMenuView(project: self.project).environmentObject(preferences)
         }
