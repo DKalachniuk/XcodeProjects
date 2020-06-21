@@ -34,8 +34,7 @@ struct ProjectMenuView: View {
         }
         .menuButtonStyle(BorderlessButtonMenuButtonStyle())
         .frame(width: 220, height: 30, alignment: .center)
-        .background(Color.gray.opacity(0.5))
-        .cornerRadius(5)
+
     }
 }
 

@@ -19,13 +19,16 @@ struct ProjectCell: View {
             Button(action: {
                 NSWorkspace.execute(command: .openWorkspace, forProject: self.project)
             }) {
-                Image("xcode")
+                Image("arrow")
                     .resizable()
-                    .renderingMode(.original)
-                    .frame(width: 25, height: 25, alignment: .center)
+                    .renderingMode(.template)
+                    .frame(width: 18, height: 15, alignment: .center)
             }
             .buttonStyle(BorderlessButtonStyle())
+            .padding([.trailing], 5)
         }
+        .background(Color.gray.opacity(0.5))
+        .cornerRadius(5)
 
     }
 }
