@@ -26,7 +26,7 @@ struct MainView: View {
                 AddProjectButton(action: addProject)
 
                 PreferencesView()
-            }.padding(EdgeInsets(top: 10, leading: 10, bottom: 4, trailing: 10))
+            }.padding(EdgeInsets(top: 11, leading: 10, bottom: 5, trailing: 10))
 
             Divider().padding([.top], 3)
 
@@ -52,7 +52,7 @@ struct MainView: View {
                     .onMove(perform: move)
                 }
                 .listStyle(SidebarListStyle())
-                .padding(EdgeInsets(top: 6, leading: -8, bottom: 6, trailing: -4))
+                .padding(EdgeInsets(top: 4, leading: -8, bottom: 6, trailing: -4))
 
             }
         }

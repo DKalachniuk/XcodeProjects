@@ -35,7 +35,7 @@ struct ProjectCell: View {
                 ProjectMenuView(project: self.project).environmentObject(preferences)
             }
             .frame(width: nil, height: 30, alignment: .center)
-            .background(Color.gray.opacity(0.5))
+            .background(Color.gray.opacity(0.25))
             .cornerRadius(5)
             Spacer().frame(width: nil, height: 5, alignment: .center)
         }
