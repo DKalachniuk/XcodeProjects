@@ -14,8 +14,12 @@ struct ProjectCell: View {
 
     var body: some View {
         HStack {
-            ProjectMenuView(project: self.project).environmentObject(preferences)
-            Spacer()
+            Text(self.project.name)
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+                .frame(width: 223, height: 30, alignment: .leading)
+
+            //Spacer()
+
             Button(action: {
                 NSWorkspace.execute(command: .openWorkspace, forProject: self.project)
             }) {
@@ -24,8 +28,12 @@ struct ProjectCell: View {
                     .renderingMode(.template)
                     .frame(width: 18, height: 15, alignment: .center)
             }
-            .buttonStyle(BorderlessButtonStyle())
-            .padding([.trailing], 5)
+                .buttonStyle(BorderlessButtonStyle())
+                .padding([.trailing], 5)
+
+            //Spacer()
+
+            ProjectMenuView(project: self.project).environmentObject(preferences)
         }
         .background(Color.gray.opacity(0.5))
         .cornerRadius(5)
