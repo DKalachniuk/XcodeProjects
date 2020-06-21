@@ -7,16 +7,19 @@
 //
 
 import Foundation
+import AppKit
 
 struct Project: Identifiable, Codable {
 
     let id: UUID = UUID()
     let name: String
     let path: String
+    let color: CodableColor
 
     init(name: String, path: String) {
         self.name = name
         self.path = path
+        self.color = CodableColor(color: [NSColor.orange, NSColor.blue, NSColor.yellow, NSColor.red, NSColor.green].randomElement()!)
     }
 
     init?(url: URL) {

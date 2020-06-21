@@ -16,7 +16,15 @@ struct ProjectCell: View {
         VStack {
             Spacer().frame(width: nil, height: 5, alignment: .center)
             HStack {
-                Text(self.project.name)
+
+                Spacer().frame(width: 8)
+
+                ProjectIcon(project: self.project)
+
+                Spacer().frame(width: 8)
+
+                Text(self.project.name.capitalized)
+                    .font(.system(size: 14, weight: Font.Weight.semibold))
                     .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
 
                 Spacer()
@@ -27,14 +35,14 @@ struct ProjectCell: View {
                     Image("arrow")
                         .resizable()
                         .renderingMode(.template)
-                        .frame(width: 18, height: 15, alignment: .center)
+                    .frame(width: 18, height: 15, alignment: .center)
                 }
                 .buttonStyle(BorderlessButtonStyle())
                 .padding([.trailing], 5)
 
                 ProjectMenuView(project: self.project).environmentObject(preferences)
             }
-            .frame(width: nil, height: 30, alignment: .center)
+            .frame(width: nil, height: 40, alignment: .center)
             .background(Color.gray.opacity(0.25))
             .cornerRadius(5)
             Spacer().frame(width: nil, height: 5, alignment: .center)
