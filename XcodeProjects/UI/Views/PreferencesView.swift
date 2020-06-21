@@ -50,7 +50,7 @@ private extension PreferencesView {
     }
 
     func openGithub() {
-        if let githubURL = URL(string: "") {
+        if let githubURL = URL(string: "https://github.com/DKalachniuk/XcodeProjects") {
              _ = NSWorkspace.shared.open(githubURL)
         }
     }
