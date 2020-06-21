@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct PlusButton: View {
+struct AddProjectButton: View {
 
     let action: (() -> Void)
 

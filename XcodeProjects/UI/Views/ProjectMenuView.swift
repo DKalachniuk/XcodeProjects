@@ -14,12 +14,10 @@ struct ProjectMenuView: View {
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
-        MenuButton(label:
-        Text(self.project.name).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))) {
+        MenuButton(label: Text("􀍠")) {
             TerminalCommandButton(project: self.project, command: .openInTerminal)
             TerminalCommandButton(project: self.project, command: .finder)
             TerminalCommandButton(project: self.project, command: .sourceTree)
-            TerminalCommandButton(project: self.project, command: .openWorkspace)
 
             VStack { Divider() }
             TerminalCommandButton(project: self.project, command: .podInstall)
@@ -34,9 +32,8 @@ struct ProjectMenuView: View {
 
         }
         .menuButtonStyle(BorderlessButtonMenuButtonStyle())
-        .frame(width: 220, height: 30, alignment: .center)
-        .background(Color.gray.opacity(0.5))
-        .cornerRadius(5)
+        .frame(width: 20, height: 30, alignment: .center)
+
     }
 }
 

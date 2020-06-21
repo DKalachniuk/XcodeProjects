@@ -23,12 +23,12 @@ struct MainView: View {
                 TextField("Search", text: $searchTerm)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
-                PlusButton(action: addProject)
+                AddProjectButton(action: addProject)
 
                 PreferencesView()
-            }.padding(EdgeInsets(top: 10, leading: 14, bottom: 4, trailing: 14))
+            }.padding(EdgeInsets(top: 11, leading: 10, bottom: 5, trailing: 10))
 
-            Divider().padding([.top, .bottom], 6)
+            Divider().padding([.top], 3)
 
             if projects.isEmpty {
                 Spacer()
@@ -36,7 +36,7 @@ struct MainView: View {
                     VStack {
                         HStack {
                             Text("Please add a project")
-                            PlusButton(action: addProject)
+                            AddProjectButton(action: addProject)
                         }
                     }
 
@@ -51,6 +51,8 @@ struct MainView: View {
                     }
                     .onMove(perform: move)
                 }
+                .padding(0)
+
             }
         }
     }

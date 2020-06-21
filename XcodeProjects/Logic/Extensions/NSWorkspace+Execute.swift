@@ -10,7 +10,7 @@ import SwiftUI
 
 extension NSWorkspace {
 
-    static func execute(command: TerminalCommand, forProject project: Project) {
+    static func execute(command: TerminalCommand, forProject project: Project? = nil) {
         switch command.executionMethod {
             case .inTerminal:
                 executeInTerminal(command: command, project: project)
@@ -30,20 +30,20 @@ extension NSWorkspace {
 }
 
 private extension NSWorkspace {
-    static func open(project: Project, withCommand command: TerminalCommand) {
+    static func open(project: Project?, withCommand command: TerminalCommand) {
         switch command {
             case .openWorkspace:
-                guard let url = project.workspaceURL ?? project.projectURL else { return }
+                guard let url = project?.workspaceURL ?? project?.projectURL else { return }
                 NSWorkspace.shared.open(url)
             case .finder:
-                guard let url = project.urlPath else { return }
+                guard let url = project?.urlPath else { return }
                 NSWorkspace.shared.activateFileViewerSelecting([url])
             default:
                 break
         }
     }
 
-    static func executeInTerminal(command: TerminalCommand, project: Project) {
+    static func executeInTerminal(command: TerminalCommand, project: Project?) {
         guard let scriptText = command.script(for: project) else {
             return
         }
