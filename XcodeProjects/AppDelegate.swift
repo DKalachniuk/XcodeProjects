@@ -24,7 +24,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-
         updateButton()
 
         popover.contentViewController = statusController

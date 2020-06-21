@@ -20,7 +20,7 @@
 		C8412E4F2412A2A00066A8A5 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8412E4E2412A2A00066A8A5 /* StatusViewController.swift */; };
 		C8412E512412A2F00066A8A5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8412E502412A2F00066A8A5 /* MainView.swift */; };
 		C8412E822412A70F0066A8A5 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8412E812412A70F0066A8A5 /* Project.swift */; };
-		C8456CF1249A540F00BAEF17 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8456CF0249A540F00BAEF17 /* PlusButton.swift */; };
+		C8456CF1249A540F00BAEF17 /* AddProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8456CF0249A540F00BAEF17 /* AddProjectButton.swift */; };
 		C8573C44249D6EA600E1F969 /* FileManger+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C43249D6EA600E1F969 /* FileManger+Content.swift */; };
 		C8573C49249E77E400E1F969 /* TerminalScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C48249E77E400E1F969 /* TerminalScript.swift */; };
 		C8AE963524997AC000E6B080 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE963424997AC000E6B080 /* String+Components.swift */; };
@@ -77,7 +77,7 @@
 		C8412E4E2412A2A00066A8A5 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		C8412E502412A2F00066A8A5 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C8412E812412A70F0066A8A5 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		C8456CF0249A540F00BAEF17 /* PlusButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
+		C8456CF0249A540F00BAEF17 /* AddProjectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectButton.swift; sourceTree = "<group>"; };
 		C8573C43249D6EA600E1F969 /* FileManger+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManger+Content.swift"; sourceTree = "<group>"; };
 		C8573C48249E77E400E1F969 /* TerminalScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalScript.swift; sourceTree = "<group>"; };
 		C8AE963424997AC000E6B080 /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 		C8456CEF249A53F000BAEF17 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				C8456CF0249A540F00BAEF17 /* PlusButton.swift */,
+				C8456CF0249A540F00BAEF17 /* AddProjectButton.swift */,
 				C8088D552418E5F5001239CB /* TerminalCommandButton.swift */,
 			);
 			path = Buttons;
@@ -394,7 +394,7 @@
 				C8573C44249D6EA600E1F969 /* FileManger+Content.swift in Sources */,
 				C8F450FF24167592002B9D69 /* NSWorkspace+Execute.swift in Sources */,
 				C8412E4B2412A23B0066A8A5 /* EventMonitor.swift in Sources */,
-				C8456CF1249A540F00BAEF17 /* PlusButton.swift in Sources */,
+				C8456CF1249A540F00BAEF17 /* AddProjectButton.swift in Sources */,
 				C8573C49249E77E400E1F969 /* TerminalScript.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
