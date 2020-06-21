@@ -14,7 +14,6 @@ struct ProjectCell: View {
 
     var body: some View {
         VStack {
-            Spacer().frame(width: nil, height: 5, alignment: .center)
             HStack {
                 Text(self.project.name)
                     .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
@@ -37,7 +36,6 @@ struct ProjectCell: View {
             .frame(width: nil, height: 30, alignment: .center)
             .background(Color.gray.opacity(0.25))
             .cornerRadius(5)
-            Spacer().frame(width: nil, height: 5, alignment: .center)
         }
 
     }
