@@ -48,9 +48,16 @@ enum TerminalCommand: String {
         }
     }
 
-    func script(for project: Project) -> String? {
+    func script(for project: Project?) -> String? {
+        // script for clearXcodeDerivedData command
+        guard self != .clearXcodeDerivedData else {
+            let command = TerminalCommand.clearXcodeDerivedData.command
+            let terminalScript = TerminalScript(command: command?.wrapedInScript ?? "")
+            return terminalScript.script
+        }
+        // script for other in terminal commands
         guard let openInTerminalCommand = TerminalCommand.openInTerminal.command,
-            var commandValue = command else {
+            var commandValue = command, let project = project else {
                 return nil
         }
         let commandString = "\(openInTerminalCommand) \(project.path)"
