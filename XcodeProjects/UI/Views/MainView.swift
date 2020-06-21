@@ -51,8 +51,7 @@ struct MainView: View {
                     }
                     .onMove(perform: move)
                 }
-                .listStyle(SidebarListStyle())
-                .padding(EdgeInsets(top: 4, leading: -8, bottom: 6, trailing: -4))
+                .padding(0)
 
             }
         }

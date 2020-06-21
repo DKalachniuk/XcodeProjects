@@ -14,7 +14,6 @@ struct ProjectCell: View {
 
     var body: some View {
         VStack {
-            Spacer().frame(width: nil, height: 5, alignment: .center)
             HStack {
 
                 Spacer().frame(width: 8)
@@ -45,7 +44,6 @@ struct ProjectCell: View {
             .frame(width: nil, height: 40, alignment: .center)
             .background(Color.gray.opacity(0.25))
             .cornerRadius(5)
-            Spacer().frame(width: nil, height: 5, alignment: .center)
         }
 
     }
