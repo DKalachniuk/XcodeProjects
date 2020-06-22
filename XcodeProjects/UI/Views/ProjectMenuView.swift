@@ -12,9 +12,10 @@ struct ProjectMenuView: View {
 
     @State var project: Project
     @EnvironmentObject var preferences: Preferences
+    @State private var hover = false
 
     var body: some View {
-        MenuButton(label: Text("􀍠")) {
+        MenuButton(label: ActionsMenuText()) {
             TerminalCommandButton(project: self.project, command: .openInTerminal)
             TerminalCommandButton(project: self.project, command: .finder)
             TerminalCommandButton(project: self.project, command: .sourceTree)
@@ -29,10 +30,8 @@ struct ProjectMenuView: View {
             }) {
                 Text("Remove \(self.project.name) from the list")
             }
-
         }
-        .menuButtonStyle(BorderlessButtonMenuButtonStyle())
-        .frame(width: 20, height: 30, alignment: .center)
+            .menuButtonStyle(BorderlessButtonMenuButtonStyle())
 
     }
 }
