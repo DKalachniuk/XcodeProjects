@@ -21,7 +21,7 @@
 		C8412E512412A2F00066A8A5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8412E502412A2F00066A8A5 /* MainView.swift */; };
 		C8412E822412A70F0066A8A5 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8412E812412A70F0066A8A5 /* Project.swift */; };
 		C8456CF1249A540F00BAEF17 /* AddProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8456CF0249A540F00BAEF17 /* AddProjectButton.swift */; };
-		C855572724A14300006AF499 /* HoverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855572624A14300006AF499 /* HoverModifier.swift */; };
+		C855572724A14300006AF499 /* OnHover.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855572624A14300006AF499 /* OnHover.swift */; };
 		C855572924A144F8006AF499 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855572824A144F8006AF499 /* RoundedCorners.swift */; };
 		C855572D24A14A01006AF499 /* ActionsMenuText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855572C24A14A00006AF499 /* ActionsMenuText.swift */; };
 		C855572F24A14B30006AF499 /* ProjectNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855572E24A14B30006AF499 /* ProjectNameView.swift */; };
@@ -82,7 +82,7 @@
 		C8412E502412A2F00066A8A5 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C8412E812412A70F0066A8A5 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		C8456CF0249A540F00BAEF17 /* AddProjectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectButton.swift; sourceTree = "<group>"; };
-		C855572624A14300006AF499 /* HoverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverModifier.swift; sourceTree = "<group>"; };
+		C855572624A14300006AF499 /* OnHover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnHover.swift; sourceTree = "<group>"; };
 		C855572824A144F8006AF499 /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		C855572C24A14A00006AF499 /* ActionsMenuText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsMenuText.swift; sourceTree = "<group>"; };
 		C855572E24A14B30006AF499 /* ProjectNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectNameView.swift; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 		C855572524A142F0006AF499 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				C855572624A14300006AF499 /* HoverModifier.swift */,
+				C855572624A14300006AF499 /* OnHover.swift */,
 				C855572824A144F8006AF499 /* RoundedCorners.swift */,
 			);
 			path = Modifiers;
@@ -401,7 +401,7 @@
 				C80D122A2415840300CBCB0F /* Preferences.swift in Sources */,
 				C80D1228241583E800CBCB0F /* PreferencesView.swift in Sources */,
 				C8412E512412A2F00066A8A5 /* MainView.swift in Sources */,
-				C855572724A14300006AF499 /* HoverModifier.swift in Sources */,
+				C855572724A14300006AF499 /* OnHover.swift in Sources */,
 				C8F450FC24165C29002B9D69 /* UserDefaultsConfig.swift in Sources */,
 				C8F450FA24165C21002B9D69 /* UserDefaultsWrapper.swift in Sources */,
 				C8F450F1241632D1002B9D69 /* ProjectCell.swift in Sources */,

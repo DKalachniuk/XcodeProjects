@@ -1,5 +1,5 @@
 //
-//  HoverModifier.swift
+//  OnHover.swift
 //  XcodeProjects
 //
 //  Created by Dima Kalachniuk on 22/06/2020.
@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct OnHover: ViewModifier {
-    @State private var hover = false
+    @State private var isHovered = false
 
     var tl: CGFloat = 0.0
     var tr: CGFloat = 0.0
@@ -19,10 +19,10 @@ struct OnHover: ViewModifier {
     func body(content: Content) -> some View {
         content
             .onHover(perform: { _ in
-                self.hover.toggle()
+                self.isHovered.toggle()
             })
-            .background(hover ?
-                RoundedCorners(color: Color.white.opacity(0.2), tl: self.tl, tr: self.tr, bl: self.bl, br: self.br) :
+            .background(isHovered ?
+                RoundedCorners(color: Color.primary.opacity(0.2), tl: self.tl, tr: self.tr, bl: self.bl, br: self.br) :
                 RoundedCorners(color: Color.clear))
     }
 }
