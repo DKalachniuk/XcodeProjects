@@ -18,8 +18,8 @@ struct OnHover: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .onHover(perform: { _ in
-                self.isHovered.toggle()
+            .onHover(perform: { isHovered in
+                self.isHovered = isHovered
             })
             .background(isHovered ?
                 RoundedCorners(color: Color.primary.opacity(0.2), tl: self.tl, tr: self.tr, bl: self.bl, br: self.br) :
