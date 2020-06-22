@@ -64,3 +64,6 @@ If you don't want to spend money, you can still support me if you will share thi
 Special thanks to 
 - [Solokub](https://github.com/Solokub) - for providing awesome logo. 🥳
 - [Gui Rambo](https://gumroad.com/insidegui) - for his awesome project "StatusBuddy". [Gui Rambo's github](https://github.com/insidegui)
+
+# Badges
+[![HitCount](http://hits.dwyl.com/DKalachniuk/XcodeProjects.svg)](http://hits.dwyl.com/DKalachniuk/XcodeProjects)
