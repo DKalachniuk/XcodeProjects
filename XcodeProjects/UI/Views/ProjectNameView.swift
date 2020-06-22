@@ -14,7 +14,7 @@ struct ProjectNameView: View {
     var body: some View {
         HStack {
             Text(self.project.name)
-                .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+                .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 5))
 
             Spacer()
 
@@ -29,6 +29,8 @@ struct ProjectNameView: View {
             .buttonStyle(BorderlessButtonStyle())
             .padding([.trailing], 5)
             .modifier(OnHoverText())
+
+            Spacer().frame(width: 3)
         }
         .frame(width: nil, height: 30, alignment: .center)
         .background(RoundedCorners.left)
