@@ -21,6 +21,9 @@
 		C8412E512412A2F00066A8A5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8412E502412A2F00066A8A5 /* MainView.swift */; };
 		C8412E822412A70F0066A8A5 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8412E812412A70F0066A8A5 /* Project.swift */; };
 		C8456CF1249A540F00BAEF17 /* AddProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8456CF0249A540F00BAEF17 /* AddProjectButton.swift */; };
+		C855572724A14300006AF499 /* HoverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855572624A14300006AF499 /* HoverModifier.swift */; };
+		C855572924A144F8006AF499 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855572824A144F8006AF499 /* RoundedCorners.swift */; };
+		C855572D24A14A01006AF499 /* ActionsMenuText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855572C24A14A00006AF499 /* ActionsMenuText.swift */; };
 		C8573C44249D6EA600E1F969 /* FileManger+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C43249D6EA600E1F969 /* FileManger+Content.swift */; };
 		C8573C49249E77E400E1F969 /* TerminalScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C48249E77E400E1F969 /* TerminalScript.swift */; };
 		C8AE963524997AC000E6B080 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE963424997AC000E6B080 /* String+Components.swift */; };
@@ -78,6 +81,9 @@
 		C8412E502412A2F00066A8A5 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C8412E812412A70F0066A8A5 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		C8456CF0249A540F00BAEF17 /* AddProjectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectButton.swift; sourceTree = "<group>"; };
+		C855572624A14300006AF499 /* HoverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverModifier.swift; sourceTree = "<group>"; };
+		C855572824A144F8006AF499 /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
+		C855572C24A14A00006AF499 /* ActionsMenuText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsMenuText.swift; sourceTree = "<group>"; };
 		C8573C43249D6EA600E1F969 /* FileManger+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManger+Content.swift"; sourceTree = "<group>"; };
 		C8573C48249E77E400E1F969 /* TerminalScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalScript.swift; sourceTree = "<group>"; };
 		C8AE963424997AC000E6B080 /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 		C8412E4C2412A2950066A8A5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C855572524A142F0006AF499 /* Modifiers */,
 				C8456CEF249A53F000BAEF17 /* Buttons */,
 				C8F450EF241632C3002B9D69 /* Cells */,
 				C8412E522412A2F20066A8A5 /* Views */,
@@ -202,6 +209,7 @@
 				C80D1227241583E800CBCB0F /* PreferencesView.swift */,
 				C8412E502412A2F00066A8A5 /* MainView.swift */,
 				C8F451002416950D002B9D69 /* ProjectMenuView.swift */,
+				C855572C24A14A00006AF499 /* ActionsMenuText.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,6 +250,15 @@
 				C8088D552418E5F5001239CB /* TerminalCommandButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		C855572524A142F0006AF499 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				C855572624A14300006AF499 /* HoverModifier.swift */,
+				C855572824A144F8006AF499 /* RoundedCorners.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		C8F450EF241632C3002B9D69 /* Cells */ = {
@@ -381,12 +398,15 @@
 				C80D122A2415840300CBCB0F /* Preferences.swift in Sources */,
 				C80D1228241583E800CBCB0F /* PreferencesView.swift in Sources */,
 				C8412E512412A2F00066A8A5 /* MainView.swift in Sources */,
+				C855572724A14300006AF499 /* HoverModifier.swift in Sources */,
 				C8F450FC24165C29002B9D69 /* UserDefaultsConfig.swift in Sources */,
 				C8F450FA24165C21002B9D69 /* UserDefaultsWrapper.swift in Sources */,
 				C8F450F1241632D1002B9D69 /* ProjectCell.swift in Sources */,
+				C855572D24A14A01006AF499 /* ActionsMenuText.swift in Sources */,
 				C8412E4F2412A2A00066A8A5 /* StatusViewController.swift in Sources */,
 				C8412E822412A70F0066A8A5 /* Project.swift in Sources */,
 				C8F450F6241638C2002B9D69 /* TerminalCommand.swift in Sources */,
+				C855572924A144F8006AF499 /* RoundedCorners.swift in Sources */,
 				C8AE963524997AC000E6B080 /* String+Components.swift in Sources */,
 				C80D122F2415842B00CBCB0F /* SharedFileList.m in Sources */,
 				C8088D562418E5F5001239CB /* TerminalCommandButton.swift in Sources */,
