@@ -24,6 +24,7 @@
 		C855572724A14300006AF499 /* HoverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855572624A14300006AF499 /* HoverModifier.swift */; };
 		C855572924A144F8006AF499 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855572824A144F8006AF499 /* RoundedCorners.swift */; };
 		C855572D24A14A01006AF499 /* ActionsMenuText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855572C24A14A00006AF499 /* ActionsMenuText.swift */; };
+		C855572F24A14B30006AF499 /* ProjectNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855572E24A14B30006AF499 /* ProjectNameView.swift */; };
 		C8573C44249D6EA600E1F969 /* FileManger+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C43249D6EA600E1F969 /* FileManger+Content.swift */; };
 		C8573C49249E77E400E1F969 /* TerminalScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C48249E77E400E1F969 /* TerminalScript.swift */; };
 		C8AE963524997AC000E6B080 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE963424997AC000E6B080 /* String+Components.swift */; };
@@ -84,6 +85,7 @@
 		C855572624A14300006AF499 /* HoverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverModifier.swift; sourceTree = "<group>"; };
 		C855572824A144F8006AF499 /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		C855572C24A14A00006AF499 /* ActionsMenuText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsMenuText.swift; sourceTree = "<group>"; };
+		C855572E24A14B30006AF499 /* ProjectNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectNameView.swift; sourceTree = "<group>"; };
 		C8573C43249D6EA600E1F969 /* FileManger+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManger+Content.swift"; sourceTree = "<group>"; };
 		C8573C48249E77E400E1F969 /* TerminalScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalScript.swift; sourceTree = "<group>"; };
 		C8AE963424997AC000E6B080 /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				C8412E502412A2F00066A8A5 /* MainView.swift */,
 				C8F451002416950D002B9D69 /* ProjectMenuView.swift */,
 				C855572C24A14A00006AF499 /* ActionsMenuText.swift */,
+				C855572E24A14B30006AF499 /* ProjectNameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				C8088D562418E5F5001239CB /* TerminalCommandButton.swift in Sources */,
 				C8F451012416950D002B9D69 /* ProjectMenuView.swift in Sources */,
 				C8573C44249D6EA600E1F969 /* FileManger+Content.swift in Sources */,
+				C855572F24A14B30006AF499 /* ProjectNameView.swift in Sources */,
 				C8F450FF24167592002B9D69 /* NSWorkspace+Execute.swift in Sources */,
 				C8412E4B2412A23B0066A8A5 /* EventMonitor.swift in Sources */,
 				C8456CF1249A540F00BAEF17 /* AddProjectButton.swift in Sources */,

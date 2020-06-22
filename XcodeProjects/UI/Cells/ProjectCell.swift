@@ -15,34 +15,18 @@ struct ProjectCell: View {
     var body: some View {
         VStack {
             HStack(spacing: 0) {
-                HStack {
-                    Text(self.project.name)
-                        .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+                
+                ProjectNameView(project: self.project)
 
-                    Spacer()
-
-                    Button(action: {
-                        NSWorkspace.execute(command: .openWorkspace, forProject: self.project)
-                    }) {
-                        Image("arrow")
-                            .resizable()
-                            .renderingMode(.template)
-                            .frame(width: 18, height: 15, alignment: .center)
-                    }
-                    .buttonStyle(BorderlessButtonStyle())
-                    .padding([.trailing], 5)
-                }
-                .frame(width: nil, height: 30, alignment: .center)
-                .background(RoundedCorners(color: Color.gray.opacity(0.25), tl: 5, tr: 0, bl: 5, br: 0) )
-                .modifier(OnHover(tl: 5, tr: 0, bl: 5, br: 0))
-
-                Divider().padding(0)
+                Divider()
+                    .frame(width: 1)
+                    .padding(0)
 
                 ProjectMenuView(project: self.project)
-                .environmentObject(preferences)
-                .frame(width: 30, height: 30, alignment: .center)
-                .background(RoundedCorners(color: Color.gray.opacity(0.25), tl: 0, tr: 5, bl: 0, br: 5) )
-                .modifier(OnHover(tl: 0, tr: 5, bl: 0, br: 5))
+                    .environmentObject(preferences)
+                    .frame(width: 30, height: 30, alignment: .center)
+                    .background(RoundedCorners.right )
+                    .modifier(OnHover(tl: 0, tr: 5, bl: 0, br: 5))
             }
 
         }
