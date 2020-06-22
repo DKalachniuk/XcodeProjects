@@ -27,6 +27,7 @@ struct ProjectCell: View {
                     .frame(width: 30, height: 30, alignment: .center)
                     .background(RoundedCorners.right )
                     .modifier(OnHover(tl: 0, tr: 5, bl: 0, br: 5))
+                    .modifier(OnHoverText())
             }
 
         }

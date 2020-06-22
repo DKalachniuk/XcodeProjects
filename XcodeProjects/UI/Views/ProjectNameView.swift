@@ -28,6 +28,7 @@ struct ProjectNameView: View {
             }
             .buttonStyle(BorderlessButtonStyle())
             .padding([.trailing], 5)
+            .modifier(OnHoverText())
         }
         .frame(width: nil, height: 30, alignment: .center)
         .background(RoundedCorners.left)
