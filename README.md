@@ -43,6 +43,9 @@ Also it is possible to drag projects around.
 
 ![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/blob/master/Images/example_drag_and_drop.png?raw=true)
 
+
+**Clear Xcode derived data** - removes Xcode derived data from standart location ~/Library/Developer/Xcode/DerivedData
+
 # Support
 Just simple star ⭐️ will make my life happier :) 
 
