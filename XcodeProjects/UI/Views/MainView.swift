@@ -26,7 +26,7 @@ struct MainView: View {
                 AddProjectButton(action: addProject)
                 Spacer().frame(width: 10)
                 PreferencesView()
-            }.padding(EdgeInsets(top: 11, leading: 10, bottom: 5, trailing: 10))
+            }.padding(EdgeInsets(top: 10, leading: 10, bottom: 5, trailing: 10))
 
             Divider().padding([.top], 3)
 
