@@ -45,14 +45,19 @@ struct MainView: View {
                 }
                 Spacer()
             } else {
-                List {
-                    ForEach(projects) { project in
-                        ProjectCell(project: project).environmentObject(self.preferences)
+                VStack {
+                    if self.preferences.hintDisabled == false {
+                        HintView().environmentObject(self.preferences)
                     }
-                    .onMove(perform: move)
+                    List {
+                        ForEach(projects) { project in
+                            ProjectCell(project: project).environmentObject(self.preferences)
+                        }
+                        .onMove(perform: move)
+                        .padding(.top, 5)
+                    }
+                    .padding(0)
                 }
-                .padding(0)
-
             }
         }
     }
