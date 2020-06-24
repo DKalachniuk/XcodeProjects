@@ -32,7 +32,7 @@ struct ProjectNameView: View {
 
             Spacer().frame(width: 3)
         }
-        .frame(width: nil, height: 30, alignment: .center)
+        .frame(height: 30, alignment: .center)
         .background(RoundedCorners.left)
         .modifier(OnHover(tl: 5, tr: 0, bl: 5, br: 0))
     }

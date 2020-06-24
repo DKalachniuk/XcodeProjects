@@ -210,7 +210,6 @@
 		C8412E522412A2F20066A8A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C80D1227241583E800CBCB0F /* PreferencesView.swift */,
 				C8412E502412A2F00066A8A5 /* MainView.swift */,
 				C8F451002416950D002B9D69 /* ProjectMenuView.swift */,
 				C855572C24A14A00006AF499 /* ActionsMenuText.swift */,
@@ -251,6 +250,7 @@
 		C8456CEF249A53F000BAEF17 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				C80D1227241583E800CBCB0F /* PreferencesView.swift */,
 				C8456CF0249A540F00BAEF17 /* AddProjectButton.swift */,
 				C8088D552418E5F5001239CB /* TerminalCommandButton.swift */,
 			);
