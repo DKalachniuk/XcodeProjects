@@ -22,9 +22,9 @@ struct MainView: View {
             HStack {
                 TextField("Search", text: $searchTerm)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-
+                Spacer().frame(width: 10)
                 AddProjectButton(action: addProject)
-
+                Spacer().frame(width: 10)
                 PreferencesView()
             }.padding(EdgeInsets(top: 11, leading: 10, bottom: 5, trailing: 10))
 
