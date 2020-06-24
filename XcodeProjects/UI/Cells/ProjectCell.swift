@@ -24,9 +24,9 @@ struct ProjectCell: View {
 
                 ProjectMenuView(project: self.project)
                     .environmentObject(preferences)
-                    .frame(width: 30, height: 30, alignment: .center)
+                    .frame(width: 40, height: 40, alignment: .center)
                     .background(RoundedCorners.right )
-                    .modifier(OnHover(tl: 0, tr: 5, bl: 0, br: 5))
+                    .modifier(OnHover(tl: 0, tr: 12, bl: 0, br: 12))
                     .modifier(OnHoverText())
             }
 

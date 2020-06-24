@@ -212,8 +212,8 @@
 			children = (
 				C8412E502412A2F00066A8A5 /* MainView.swift */,
 				C8F451002416950D002B9D69 /* ProjectMenuView.swift */,
-				C855572C24A14A00006AF499 /* ActionsMenuText.swift */,
 				C855572E24A14B30006AF499 /* ProjectNameView.swift */,
+				C855572C24A14A00006AF499 /* ActionsMenuText.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

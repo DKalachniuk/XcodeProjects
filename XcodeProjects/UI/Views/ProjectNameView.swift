@@ -24,7 +24,7 @@ struct ProjectNameView: View {
                 Image("arrow")
                     .resizable()
                     .renderingMode(.template)
-                    .frame(width: 18, height: 15, alignment: .center)
+                    .frame(width: 20, height: 16.5, alignment: .center)
             }
             .buttonStyle(BorderlessButtonStyle())
             .padding([.trailing], 5)
@@ -32,9 +32,9 @@ struct ProjectNameView: View {
 
             Spacer().frame(width: 3)
         }
-        .frame(height: 30, alignment: .center)
+        .frame(height: 40, alignment: .center)
         .background(RoundedCorners.left)
-        .modifier(OnHover(tl: 5, tr: 0, bl: 5, br: 0))
+        .modifier(OnHover(tl: 12, tr: 0, bl: 12, br: 0))
     }
 }
 
