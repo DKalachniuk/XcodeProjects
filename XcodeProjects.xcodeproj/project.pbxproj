@@ -11,6 +11,9 @@
 		C80D1228241583E800CBCB0F /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D1227241583E800CBCB0F /* PreferencesView.swift */; };
 		C80D122A2415840300CBCB0F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D12292415840300CBCB0F /* Preferences.swift */; };
 		C80D122F2415842B00CBCB0F /* SharedFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = C80D122E2415842B00CBCB0F /* SharedFileList.m */; };
+		C80E916624A39ADF0073CF3F /* ArrowImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80E916524A39ADF0073CF3F /* ArrowImage.swift */; };
+		C80E916824A39B570073CF3F /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80E916724A39B570073CF3F /* HintView.swift */; };
+		C80E916C24A39E2C0073CF3F /* CloseHintImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80E916B24A39E2C0073CF3F /* CloseHintImage.swift */; };
 		C8412E2A24129B4F0066A8A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8412E2924129B4F0066A8A5 /* AppDelegate.swift */; };
 		C8412E2E24129B530066A8A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8412E2D24129B530066A8A5 /* Assets.xcassets */; };
 		C8412E3124129B530066A8A5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8412E3024129B530066A8A5 /* Preview Assets.xcassets */; };
@@ -68,6 +71,9 @@
 		C80D122C2415842A00CBCB0F /* XcodeProjects-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XcodeProjects-Bridging-Header.h"; sourceTree = "<group>"; };
 		C80D122D2415842B00CBCB0F /* SharedFileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedFileList.h; sourceTree = "<group>"; };
 		C80D122E2415842B00CBCB0F /* SharedFileList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedFileList.m; sourceTree = "<group>"; };
+		C80E916524A39ADF0073CF3F /* ArrowImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowImage.swift; sourceTree = "<group>"; };
+		C80E916724A39B570073CF3F /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
+		C80E916B24A39E2C0073CF3F /* CloseHintImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseHintImage.swift; sourceTree = "<group>"; };
 		C8412E2624129B4F0066A8A5 /* XcodeProjects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcodeProjects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8412E2924129B4F0066A8A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8412E2D24129B530066A8A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +143,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C80E916424A39ACD0073CF3F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C80E916524A39ADF0073CF3F /* ArrowImage.swift */,
+				C80E916B24A39E2C0073CF3F /* CloseHintImage.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		C8412E1D24129B4F0066A8A5 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +205,7 @@
 		C8412E4C2412A2950066A8A5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C80E916424A39ACD0073CF3F /* Images */,
 				C855572524A142F0006AF499 /* Modifiers */,
 				C8456CEF249A53F000BAEF17 /* Buttons */,
 				C8F450EF241632C3002B9D69 /* Cells */,
@@ -210,11 +226,11 @@
 		C8412E522412A2F20066A8A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C80D1227241583E800CBCB0F /* PreferencesView.swift */,
 				C8412E502412A2F00066A8A5 /* MainView.swift */,
 				C8F451002416950D002B9D69 /* ProjectMenuView.swift */,
-				C855572C24A14A00006AF499 /* ActionsMenuText.swift */,
 				C855572E24A14B30006AF499 /* ProjectNameView.swift */,
+				C855572C24A14A00006AF499 /* ActionsMenuText.swift */,
+				C80E916724A39B570073CF3F /* HintView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -251,6 +267,7 @@
 		C8456CEF249A53F000BAEF17 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				C80D1227241583E800CBCB0F /* PreferencesView.swift */,
 				C8456CF0249A540F00BAEF17 /* AddProjectButton.swift */,
 				C8088D552418E5F5001239CB /* TerminalCommandButton.swift */,
 			);
@@ -400,8 +417,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8412E2A24129B4F0066A8A5 /* AppDelegate.swift in Sources */,
+				C80E916824A39B570073CF3F /* HintView.swift in Sources */,
 				C8AE96372499818200E6B080 /* CharacterSet+All.swift in Sources */,
 				C80D122A2415840300CBCB0F /* Preferences.swift in Sources */,
+				C80E916624A39ADF0073CF3F /* ArrowImage.swift in Sources */,
 				C80D1228241583E800CBCB0F /* PreferencesView.swift in Sources */,
 				C8412E512412A2F00066A8A5 /* MainView.swift in Sources */,
 				C855572724A14300006AF499 /* OnHover.swift in Sources */,
@@ -416,6 +435,7 @@
 				C855572924A144F8006AF499 /* RoundedCorners.swift in Sources */,
 				C8AE963524997AC000E6B080 /* String+Components.swift in Sources */,
 				C80D122F2415842B00CBCB0F /* SharedFileList.m in Sources */,
+				C80E916C24A39E2C0073CF3F /* CloseHintImage.swift in Sources */,
 				C8088D562418E5F5001239CB /* TerminalCommandButton.swift in Sources */,
 				C8F451012416950D002B9D69 /* ProjectMenuView.swift in Sources */,
 				C8573C44249D6EA600E1F969 /* FileManger+Content.swift in Sources */,

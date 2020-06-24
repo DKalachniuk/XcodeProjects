@@ -14,17 +14,14 @@ struct ProjectNameView: View {
     var body: some View {
         HStack {
             Text(self.project.name)
-                .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 5))
+                .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 5))
 
             Spacer()
 
             Button(action: {
                 NSWorkspace.execute(command: .openWorkspace, forProject: self.project)
             }) {
-                Image("arrow")
-                    .resizable()
-                    .renderingMode(.template)
-                    .frame(width: 18, height: 15, alignment: .center)
+                ArrowImage()
             }
             .buttonStyle(BorderlessButtonStyle())
             .padding([.trailing], 5)
@@ -32,9 +29,9 @@ struct ProjectNameView: View {
 
             Spacer().frame(width: 3)
         }
-        .frame(width: nil, height: 30, alignment: .center)
+        .frame(height: 40, alignment: .center)
         .background(RoundedCorners.left)
-        .modifier(OnHover(tl: 5, tr: 0, bl: 5, br: 0))
+        .modifier(OnHover(tl: 12, tr: 0, bl: 12, br: 0))
     }
 }
 
