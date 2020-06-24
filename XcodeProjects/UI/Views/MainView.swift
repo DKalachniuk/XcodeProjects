@@ -45,14 +45,17 @@ struct MainView: View {
                 }
                 Spacer()
             } else {
-                List {
-                    ForEach(projects) { project in
-                        ProjectCell(project: project).environmentObject(self.preferences)
-                    }
-                    .onMove(perform: move)
-                }
-                .padding(0)
+                VStack {
+                    HintView()
 
+                    List {
+                        ForEach(projects) { project in
+                            ProjectCell(project: project).environmentObject(self.preferences)
+                        }
+                        .onMove(perform: move)
+                    }
+                    .padding(0)
+                }
             }
         }
     }

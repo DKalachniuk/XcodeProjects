@@ -21,10 +21,7 @@ struct ProjectNameView: View {
             Button(action: {
                 NSWorkspace.execute(command: .openWorkspace, forProject: self.project)
             }) {
-                Image("arrow")
-                    .resizable()
-                    .renderingMode(.template)
-                    .frame(width: 20, height: 16.5, alignment: .center)
+                ArrowImage()
             }
             .buttonStyle(BorderlessButtonStyle())
             .padding([.trailing], 5)
