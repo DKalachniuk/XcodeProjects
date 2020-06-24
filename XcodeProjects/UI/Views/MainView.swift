@@ -46,8 +46,9 @@ struct MainView: View {
                 Spacer()
             } else {
                 VStack {
-                    HintView()
-
+                    if self.preferences.hintDisabled == false {
+                        HintView().environmentObject(self.preferences)
+                    }
                     List {
                         ForEach(projects) { project in
                             ProjectCell(project: project).environmentObject(self.preferences)

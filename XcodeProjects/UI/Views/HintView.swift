@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct HintView: View {
-
+    @EnvironmentObject var preferences: Preferences
     @State var showCloseButton = false
 
     var body: some View {
@@ -25,7 +25,7 @@ struct HintView: View {
                 if showCloseButton {
                     HStack {
                         Button(action: {
-
+                            self.preferences.hideHint()
                         }, label: {
                             CloseHintImage()
                         })
