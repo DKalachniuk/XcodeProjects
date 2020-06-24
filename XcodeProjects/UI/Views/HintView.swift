@@ -36,12 +36,12 @@ struct HintView: View {
                     }
                 }
             }
-                .padding(.leading, 10)
-                .onHover { result in
-                    self.showCloseButton = result
-                }
         }
-        .opacity(0.8)
+            .padding(.leading, 10)
+            .onHover { result in
+                self.showCloseButton = result
+            }
+            .opacity(0.8)
     }
 }
 
