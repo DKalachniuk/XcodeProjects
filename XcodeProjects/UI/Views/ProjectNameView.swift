@@ -14,7 +14,7 @@ struct ProjectNameView: View {
     var body: some View {
         HStack {
             Text(self.project.name)
-                .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 5))
+                .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 5))
 
             Spacer()
 
