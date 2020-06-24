@@ -54,6 +54,7 @@ struct MainView: View {
                             ProjectCell(project: project).environmentObject(self.preferences)
                         }
                         .onMove(perform: move)
+                        .padding(.top, 5)
                     }
                     .padding(0)
                 }
