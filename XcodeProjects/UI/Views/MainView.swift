@@ -46,9 +46,8 @@ struct MainView: View {
                 Spacer()
             } else {
                 List {
-                    ForEach(0..<projects.count) { index in
-                        ProjectCell(project: self.projects[index]).environmentObject(self.preferences)
-                            .padding(.top, index == 0 ? 4 : 0)
+                    ForEach(projects) { project in
+                        ProjectCell(project: project).environmentObject(self.preferences)
                     }
                     .onMove(perform: move)
                 }
