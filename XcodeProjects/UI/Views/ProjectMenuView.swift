@@ -18,12 +18,17 @@ struct ProjectMenuView: View {
         MenuButton(label: ActionsMenuText()) {
             TerminalCommandButton(project: self.project, command: .openInTerminal)
             TerminalCommandButton(project: self.project, command: .finder)
-            TerminalCommandButton(project: self.project, command: .sourceTree)
+
+            if NSWorkspace.shared.sourceTreeAppInstalled {
+                TerminalCommandButton(project: self.project, command: .sourceTree)
+            }
 
             VStack { Divider() }
-            TerminalCommandButton(project: self.project, command: .podInstall)
-            TerminalCommandButton(project: self.project, command: .podUpdate)
-            VStack { Divider() }
+            if project.hasCocoapods {
+                TerminalCommandButton(project: self.project, command: .podInstall)
+                TerminalCommandButton(project: self.project, command: .podUpdate)
+                VStack { Divider() }
+            }
 
             Button(action: {
                 self.preferences.removeProject(self.project)
