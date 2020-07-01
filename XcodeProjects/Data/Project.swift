@@ -48,5 +48,12 @@ extension Project {
 }
 
 extension Project {
+
+    var hasCocoapods: Bool {
+        FileManager.default.getPodfile(project: self) != nil
+    }
+}
+
+extension Project {
     static let dummy = Project(name: "DummyProject", path: "/AnyPath")
 }

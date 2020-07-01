@@ -34,6 +34,7 @@
 		C8AE963524997AC000E6B080 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE963424997AC000E6B080 /* String+Components.swift */; };
 		C8AE96372499818200E6B080 /* CharacterSet+All.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE96362499818200E6B080 /* CharacterSet+All.swift */; };
 		C8D9623824AD31F100B70B23 /* ArrowImageWithHoverPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9623724AD31F000B70B23 /* ArrowImageWithHoverPopover.swift */; };
+		C8D9623A24AD348600B70B23 /* NSWorkspace+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9623924AD348600B70B23 /* NSWorkspace+App.swift */; };
 		C8F450F1241632D1002B9D69 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F0241632D1002B9D69 /* ProjectCell.swift */; };
 		C8F450F6241638C2002B9D69 /* TerminalCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F5241638C2002B9D69 /* TerminalCommand.swift */; };
 		C8F450FA24165C21002B9D69 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F924165C21002B9D69 /* UserDefaultsWrapper.swift */; };
@@ -100,6 +101,7 @@
 		C8AE963424997AC000E6B080 /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
 		C8AE96362499818200E6B080 /* CharacterSet+All.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+All.swift"; sourceTree = "<group>"; };
 		C8D9623724AD31F000B70B23 /* ArrowImageWithHoverPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowImageWithHoverPopover.swift; sourceTree = "<group>"; };
+		C8D9623924AD348600B70B23 /* NSWorkspace+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWorkspace+App.swift"; sourceTree = "<group>"; };
 		C8F450F0241632D1002B9D69 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		C8F450F5241638C2002B9D69 /* TerminalCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalCommand.swift; sourceTree = "<group>"; };
 		C8F450F924165C21002B9D69 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				C8F450FE24167592002B9D69 /* NSWorkspace+Execute.swift */,
+				C8D9623924AD348600B70B23 /* NSWorkspace+App.swift */,
 				C8AE963424997AC000E6B080 /* String+Components.swift */,
 				C8AE96362499818200E6B080 /* CharacterSet+All.swift */,
 				C8573C43249D6EA600E1F969 /* FileManger+Content.swift */,
@@ -441,6 +444,7 @@
 				C80D122F2415842B00CBCB0F /* SharedFileList.m in Sources */,
 				C80E916C24A39E2C0073CF3F /* CloseHintImage.swift in Sources */,
 				C8088D562418E5F5001239CB /* TerminalCommandButton.swift in Sources */,
+				C8D9623A24AD348600B70B23 /* NSWorkspace+App.swift in Sources */,
 				C8F451012416950D002B9D69 /* ProjectMenuView.swift in Sources */,
 				C8573C44249D6EA600E1F969 /* FileManger+Content.swift in Sources */,
 				C855572F24A14B30006AF499 /* ProjectNameView.swift in Sources */,
