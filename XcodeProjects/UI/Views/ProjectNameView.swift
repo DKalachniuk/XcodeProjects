@@ -17,11 +17,10 @@ struct ProjectNameView: View {
                 .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 5))
 
             Spacer()
-
             Button(action: {
                 NSWorkspace.execute(command: .openWorkspace, forProject: self.project)
             }) {
-                ArrowImage()
+                ArrowImageWithHoverPopover(project: self.project)
             }
             .buttonStyle(BorderlessButtonStyle())
             .padding([.trailing], 5)
