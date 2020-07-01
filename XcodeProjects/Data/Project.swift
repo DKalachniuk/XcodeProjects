@@ -41,6 +41,10 @@ extension Project {
     var projectURL: URL? {
         FileManager.default.getXcodeProjFrom(project: self)
     }
+
+    var hasXcodeProject: Bool {
+        (workspaceURL ?? projectURL) != nil
+    }
 }
 
 extension Project {
