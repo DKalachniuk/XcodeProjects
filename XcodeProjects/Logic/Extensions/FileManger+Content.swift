@@ -17,6 +17,10 @@ extension FileManager {
     func getXcodeProjFrom(project: Project) -> URL? {
         filter(urls: contentsOf(project: project), by: "xcodeproj")?.first
     }
+
+    func getPodfile(project: Project) -> URL? {
+        filter(urls: contentsOf(project: project), byName: "Podfile")?.first
+    }
 }
 
 private extension FileManager {
@@ -34,6 +38,10 @@ private extension FileManager {
     }
 
     func filter(urls: [URL]?, by pathExtension: String) -> [URL]? {
-        urls?.filter({ $0.pathExtension == pathExtension})
+        urls?.filter({ $0.pathExtension == pathExtension })
+    }
+
+    func filter(urls: [URL]?, byName name: String) -> [URL]? {
+        urls?.filter({ $0.lastPathComponent == name })
     }
 }

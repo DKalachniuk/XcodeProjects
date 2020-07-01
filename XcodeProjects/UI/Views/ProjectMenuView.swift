@@ -21,9 +21,11 @@ struct ProjectMenuView: View {
             TerminalCommandButton(project: self.project, command: .sourceTree)
 
             VStack { Divider() }
-            TerminalCommandButton(project: self.project, command: .podInstall)
-            TerminalCommandButton(project: self.project, command: .podUpdate)
-            VStack { Divider() }
+            if project.hasCocoapods {
+                TerminalCommandButton(project: self.project, command: .podInstall)
+                TerminalCommandButton(project: self.project, command: .podUpdate)
+                VStack { Divider() }
+            }
 
             Button(action: {
                 self.preferences.removeProject(self.project)
