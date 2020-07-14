@@ -2,15 +2,16 @@
 Switch between projects in 2 clicks. Don't write "pod install", "pod update" and "cd <your project>" anymore
   
 # When do you need this tool
+- when you want to open quickly specific xcode project
 - when you need to change directory of your project in the terminal 
-- when you type <pod install> and <pod update> in the terminal
+- when you type "pod install" and "pod update" in the terminal
 - when you want quickly open your project in "SourceTree"
 - when you have a lot of projects or modules/frameworks and you need to switch between them quickly
   
-# How to install this
+# How to install
 Go to release section in this repo and download the binary. Drag & drop XcodeProjects.app to your Application folder. Enjoy
 
-# How to use it
+# How to use 
 After first run of the app 
 
 ![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/blob/master/Images/example_empty_list.png?raw=true)
