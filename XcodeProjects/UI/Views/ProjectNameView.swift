@@ -13,8 +13,11 @@ struct ProjectNameView: View {
 
     var body: some View {
         HStack {
+            Spacer()
+                .frame(width: 8)
+            ProjectIcon(project: project)
             Text(self.project.name)
-                .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 5))
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
 
             Spacer()
             Button(action: {
