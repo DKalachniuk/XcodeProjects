@@ -12,15 +12,18 @@ struct ProjectIcon: View {
     @State var project: Project
 
     var body: some View {
-        Text(String(self.project.name.first ?? "-").capitalized)
-            .font(.system(size: 14, weight: Font.Weight.semibold))
-            .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))
-            .foregroundColor(Color.white)
+        HStack {
+            Spacer()
+            Text(String(self.project.name.first ?? "-").capitalized)
+                .font(.system(size: 14, weight: Font.Weight.semibold))
+                .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+                .foregroundColor(Color.white)
+            Spacer()
+        }
             .background(Color(self.project.color.color))
             .frame(width: 24, height: 24)
             .cornerRadius(8)
     }
-    
 }
 
 struct ProjectIcon_Previews: PreviewProvider {
