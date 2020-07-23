@@ -62,6 +62,7 @@ If you don't want to spend money, you can still support me if you will share thi
 # TODO
 - ~~update commands logic so some commands like: open workspace, open in finder will not use terminal to open the files~~
 - ~~put action "open in Xcode" in the main view~~
+- ability to rename project name
 - add Sparkle framework to check for updates automatically
 
 # Special Thanks
