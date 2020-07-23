@@ -3,7 +3,7 @@
 //  XcodeProjects
 //
 //  Created by Dima Kalachniuk on 20/06/2020.
-//  Copyright © 2020 com.klm.mac.myProjects. All rights reserved.
+//  Copyright © 2020 com.dkcompany.xcodeprojects. All rights reserved.
 //
 
 import Foundation
@@ -16,6 +16,10 @@ extension FileManager {
 
     func getXcodeProjFrom(project: Project) -> URL? {
         filter(urls: contentsOf(project: project), by: "xcodeproj")?.first
+    }
+
+    func getPodfile(project: Project) -> URL? {
+        filter(urls: contentsOf(project: project), byName: "Podfile")?.first
     }
 }
 
@@ -34,6 +38,10 @@ private extension FileManager {
     }
 
     func filter(urls: [URL]?, by pathExtension: String) -> [URL]? {
-        urls?.filter({ $0.pathExtension == pathExtension})
+        urls?.filter({ $0.pathExtension == pathExtension })
+    }
+
+    func filter(urls: [URL]?, byName name: String) -> [URL]? {
+        urls?.filter({ $0.lastPathComponent == name })
     }
 }

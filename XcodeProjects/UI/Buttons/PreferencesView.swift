@@ -13,6 +13,16 @@ struct PreferencesView: View {
 
     var body: some View {
         MenuButton(label: Image("gear").resizable().frame(width: 16, height: 16)) {
+
+            Button(action: openGithub, label: { Text("Open in GitHub") })
+
+            if !self.preferences.projects.isEmpty {
+                Button(action: removeProjects, label: { Text("Remove All Projects") })
+            }
+
+            Button(action: clearDerivedData, label: { Text("Clear Xcode derived data") })
+            VStack { Divider() }
+
             Button(action: toggleLaunchAtLogin, label: {
                 HStack(spacing: 4) {
                     Image("checkmark")
@@ -22,21 +32,8 @@ struct PreferencesView: View {
                     Text("Launch at Login")
                 }.offset(x: -14, y: 0)
             })
-
             VStack { Divider() }
 
-            Button(action: openGithub, label: { Text("GitHub") })
-
-            VStack { Divider() }
-
-            if !self.preferences.projects.isEmpty {
-                Button(action: removeProjects, label: { Text("Remove All Projects") })
-                VStack { Divider() }
-            }
-
-            Button(action: clearDerivedData, label: { Text("Clear Xcode derived data") })
-            VStack { Divider() }
-            
             Button(action: quit, label: { Text("Quit") })
         }
         .menuButtonStyle(BorderlessButtonMenuButtonStyle())
