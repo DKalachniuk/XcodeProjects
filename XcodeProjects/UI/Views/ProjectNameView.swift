@@ -10,13 +10,18 @@ import SwiftUI
 
 struct ProjectNameView: View {
     @State var project: Project
+    @EnvironmentObject var preferences: Preferences
 
     var body: some View {
         HStack {
 
             Spacer()
                 .frame(width: 8)
-            ProjectIcon(project: project)
+
+            if self.preferences.showProjectIcon {
+                ProjectIcon(project: project)
+            }
+
             Text(self.project.name)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
 
