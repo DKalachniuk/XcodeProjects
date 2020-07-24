@@ -9,6 +9,8 @@
 import Foundation
 import AppKit
 
+//let colors = [NSColor()]
+
 struct Project: Identifiable, Codable {
 
     let id: UUID = UUID()

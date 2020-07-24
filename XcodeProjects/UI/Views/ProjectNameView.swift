@@ -13,6 +13,7 @@ struct ProjectNameView: View {
 
     var body: some View {
         HStack {
+
             Spacer()
                 .frame(width: 8)
             ProjectIcon(project: project)
@@ -31,7 +32,7 @@ struct ProjectNameView: View {
 
             Spacer().frame(width: 3)
         }
-        .frame(height: 40, alignment: .center)
+        .frame(height: 40)
         .background(RoundedCorners.left)
         .modifier(OnHover(tl: 12, tr: 0, bl: 12, br: 0))
     }

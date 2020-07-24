@@ -12,17 +12,20 @@ struct ProjectIcon: View {
     @State var project: Project
 
     var body: some View {
-        HStack {
-            Spacer()
-            Text(String(self.project.name.first ?? "-").capitalized)
-                .font(.system(size: 14, weight: Font.Weight.semibold))
-                .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
-                .foregroundColor(Color.white)
-            Spacer()
-        }
-            .background(Color(self.project.color.color))
+            ZStack {
+                Rectangle()
+                    .foregroundColor(Color.clear)
+                    .background(Color(self.project.color.color))
+                    .cornerRadius(8)
+
+                Text(String(self.project.name.first ?? "-").capitalized)
+                    .font(.system(size: 14, weight: Font.Weight.semibold))
+                    .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+                    .foregroundColor(Color.white)
+
+            }
             .frame(width: 24, height: 24)
-            .cornerRadius(8)
+
     }
 }
 
