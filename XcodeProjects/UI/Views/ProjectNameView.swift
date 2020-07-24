@@ -18,7 +18,7 @@ struct ProjectNameView: View {
                 .frame(width: 8)
             ProjectIcon(project: project)
             Text(self.project.name)
-                .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 5))
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
 
             Spacer()
             Button(action: {
