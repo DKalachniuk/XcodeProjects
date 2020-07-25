@@ -115,4 +115,12 @@ extension Preferences {
     func removeAllProjects() {
         projects.removeAll()
     }
+
+    func changeProjectsColor(_ project: Project, newColor: CodableColor) {
+        project.color = newColor
+        guard let index = projects.firstIndex(where: { $0.id == project.id }) else {
+            return
+        }
+        projects[index] = project
+    }
 }

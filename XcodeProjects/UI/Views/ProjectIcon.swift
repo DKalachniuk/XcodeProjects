@@ -9,23 +9,26 @@
 import SwiftUI
 
 struct ProjectIcon: View {
-    @State var project: Project
+    let project: Project
+    @EnvironmentObject var preferences: Preferences
 
     var body: some View {
-            ZStack {
-                Rectangle()
-                    .foregroundColor(Color.clear)
-                    .background(Color(self.project.color.color))
-                    .cornerRadius(8)
+        ZStack {
+            Rectangle()
+                .foregroundColor(Color.clear)
+                .background(Color(self.project.color.color))
+                .cornerRadius(8)
 
-                Text(String(self.project.name.first ?? "-").capitalized)
-                    .font(.system(size: 14, weight: Font.Weight.semibold))
-                    .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
-                    .foregroundColor(Color.white)
-
-            }
-            .frame(width: 24, height: 24)
-
+            Text(String(self.project.name.first ?? "-").capitalized)
+                .font(.system(size: 14, weight: Font.Weight.semibold))
+                .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+                .foregroundColor(Color.white)
+        }
+        .frame(width: 24, height: 24)
+        .onTapGesture {
+            let newColor = CodableColorPicker.shared.pickRandomColor()
+            self.preferences.changeProjectsColor(self.project, newColor: newColor)
+        }
     }
 }
 

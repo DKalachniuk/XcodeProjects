@@ -39,7 +39,7 @@ struct PreferencesView: View {
                         .resizable()
                         .frame(width: 10, height: 10)
                         .opacity(self.preferences.showProjectIcon ? 1 : 0)
-                    Text("Show project icon")
+                    Text("Show project's icon")
                 }.offset(x: -14, y: 0)
             })
 

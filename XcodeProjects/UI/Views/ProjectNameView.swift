@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ProjectNameView: View {
-    @State var project: Project
+    let project: Project
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
@@ -19,7 +19,7 @@ struct ProjectNameView: View {
                 .frame(width: 8)
 
             if self.preferences.showProjectIcon {
-                ProjectIcon(project: project)
+                ProjectIcon(project: project).environmentObject(preferences)
             }
 
             Text(self.project.name)

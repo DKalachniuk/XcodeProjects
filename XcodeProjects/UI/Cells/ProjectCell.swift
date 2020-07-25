@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ProjectCell: View {
-    @State var project: Project
+    let project: Project
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {

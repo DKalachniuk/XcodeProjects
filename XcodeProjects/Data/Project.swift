@@ -9,12 +9,12 @@
 import Foundation
 import AppKit
 
-struct Project: Identifiable, Codable {
+class Project: Identifiable, Codable {
 
     let id: UUID = UUID()
     let name: String
     let path: String
-    let color: CodableColor
+    var color: CodableColor
 
     init(name: String, path: String) {
         self.name = name
@@ -22,7 +22,7 @@ struct Project: Identifiable, Codable {
         self.color = CodableColorPicker.shared.pickRandomColor()
     }
 
-    init?(url: URL) {
+    convenience init?(url: URL) {
         guard let name = url.path.lastComponent else {
             return nil
         }

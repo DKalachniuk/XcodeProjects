@@ -11,7 +11,7 @@ Switch between projects in 2 clicks. Don't write "pod install", "pod update" and
 # How to install
 Go to release section in this repo and download the binary. Drag & drop XcodeProjects.app to your Application folder. Enjoy! 
 
-# Design 
+# How to use 
 When you open the app for the first time you would see empty screen
 
 ![alt text](Images/example_empty_list.png?raw=true)
@@ -27,8 +27,6 @@ click "+" button to add folder of you project within system dialog (Hint: choose
 **Click "..." button to see the options** 
 
 ![alt text](Images/example_context_menu_dark.png?raw=true)
-
-![alt text](Images/example_context_menu_light.png?raw=true)
 
 **Open in Terminal** - opens the path to the project in terminal. Handy to quickly switch to the folder of the project
 
@@ -46,7 +44,17 @@ Also it is possible to drag projects around.
 
 ![alt text](Images/example_drag_and_drop_dark.png?raw=true)
 
+# Preferences
+
+![alt text](Images/preferences_dark.png?raw=true)
+
+**Remove all projects** - removes all projects from XcodeProjects app
+
+**Show project's icon** - show/hide project's icon next to the project's name
+
 **Clear Xcode derived data** - removes Xcode derived data from default location ~/Library/Developer/Xcode/DerivedData
+
+> Hint: Click on project icon to change its color
 
 # Support
 Just simple star ⭐️ will make my life happier :) 
