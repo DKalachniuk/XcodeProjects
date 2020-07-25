@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ProjectMenuView: View {
 
-    @State var project: Project
+    let project: Project
     @EnvironmentObject var preferences: Preferences
     @State private var hover = false
 

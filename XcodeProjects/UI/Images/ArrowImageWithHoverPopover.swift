@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ArrowImageWithHoverPopover: View {
-    @State var project: Project
+    let project: Project
     @State private var noXcodeProjectHover: Bool = false
 
     var body: some View {

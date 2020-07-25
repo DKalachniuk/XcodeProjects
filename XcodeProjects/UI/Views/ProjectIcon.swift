@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ProjectIcon: View {
-    @State var project: Project
+    let project: Project
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
@@ -23,7 +23,6 @@ struct ProjectIcon: View {
                 .font(.system(size: 14, weight: Font.Weight.semibold))
                 .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
                 .foregroundColor(Color.white)
-
         }
         .frame(width: 24, height: 24)
         .onTapGesture {
