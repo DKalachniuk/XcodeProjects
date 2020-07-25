@@ -14,7 +14,7 @@ Go to release section in this repo and download the binary. Drag & drop XcodePro
 # Design 
 When you open the app for the first time you would see empty screen
 
-![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/Images/example_empty_list.png?raw=true)
+![alt text](Images/example_empty_list.png?raw=true)
 
 click "+" button to add folder of you project within system dialog (Hint: choose multiple projects)
 
