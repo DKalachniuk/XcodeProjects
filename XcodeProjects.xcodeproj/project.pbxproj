@@ -33,6 +33,9 @@
 		C8573C49249E77E400E1F969 /* TerminalScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C48249E77E400E1F969 /* TerminalScript.swift */; };
 		C8AE963524997AC000E6B080 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE963424997AC000E6B080 /* String+Components.swift */; };
 		C8AE96372499818200E6B080 /* CharacterSet+All.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE96362499818200E6B080 /* CharacterSet+All.swift */; };
+		C8BE992324CA1635000D4E5E /* ProjectIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BE992224CA1635000D4E5E /* ProjectIcon.swift */; };
+		C8BE992424CA1732000D4E5E /* NSColor+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C4E24A0045200E1F969 /* NSColor+Codable.swift */; };
+		C8D35B3624CC2CB00075308D /* CodableColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D35B3524CC2CB00075308D /* CodableColorPicker.swift */; };
 		C8D9623824AD31F100B70B23 /* ArrowImageWithHoverPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9623724AD31F000B70B23 /* ArrowImageWithHoverPopover.swift */; };
 		C8D9623A24AD348600B70B23 /* NSWorkspace+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9623924AD348600B70B23 /* NSWorkspace+App.swift */; };
 		C8F450F1241632D1002B9D69 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F0241632D1002B9D69 /* ProjectCell.swift */; };
@@ -98,8 +101,12 @@
 		C855573024A15104006AF499 /* OnHoverText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnHoverText.swift; sourceTree = "<group>"; };
 		C8573C43249D6EA600E1F969 /* FileManger+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManger+Content.swift"; sourceTree = "<group>"; };
 		C8573C48249E77E400E1F969 /* TerminalScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalScript.swift; sourceTree = "<group>"; };
+		C8573C4C24A0003200E1F969 /* ProjectIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectIcon.swift; sourceTree = "<group>"; };
+		C8573C4E24A0045200E1F969 /* NSColor+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Codable.swift"; sourceTree = "<group>"; };
 		C8AE963424997AC000E6B080 /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
 		C8AE96362499818200E6B080 /* CharacterSet+All.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+All.swift"; sourceTree = "<group>"; };
+		C8BE992224CA1635000D4E5E /* ProjectIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectIcon.swift; sourceTree = "<group>"; };
+		C8D35B3524CC2CB00075308D /* CodableColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColorPicker.swift; sourceTree = "<group>"; };
 		C8D9623724AD31F000B70B23 /* ArrowImageWithHoverPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowImageWithHoverPopover.swift; sourceTree = "<group>"; };
 		C8D9623924AD348600B70B23 /* NSWorkspace+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWorkspace+App.swift"; sourceTree = "<group>"; };
 		C8F450F0241632D1002B9D69 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
@@ -164,6 +171,7 @@
 				C8412E3E24129B530066A8A5 /* XcodeProjectsTests */,
 				C8412E2724129B4F0066A8A5 /* Products */,
 				C80D12352415868600CBCB0F /* Frameworks */,
+				C8BE992124CA161A000D4E5E /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -231,6 +239,7 @@
 		C8412E522412A2F20066A8A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C8BE992224CA1635000D4E5E /* ProjectIcon.swift */,
 				C8412E502412A2F00066A8A5 /* MainView.swift */,
 				C8F451002416950D002B9D69 /* ProjectMenuView.swift */,
 				C855572E24A14B30006AF499 /* ProjectNameView.swift */,
@@ -289,6 +298,14 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
+		C8BE992124CA161A000D4E5E /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				C8573C4C24A0003200E1F969 /* ProjectIcon.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		C8F450EF241632C3002B9D69 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +320,7 @@
 				C8456CE9249A1D6700BAEF17 /* PropertyWrappers */,
 				C8F450FD24167576002B9D69 /* Extensions */,
 				C8F450FB24165C29002B9D69 /* UserDefaultsConfig.swift */,
+				C8D35B3524CC2CB00075308D /* CodableColorPicker.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -315,6 +333,7 @@
 				C8AE963424997AC000E6B080 /* String+Components.swift */,
 				C8AE96362499818200E6B080 /* CharacterSet+All.swift */,
 				C8573C43249D6EA600E1F969 /* FileManger+Content.swift */,
+				C8573C4E24A0045200E1F969 /* NSColor+Codable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -422,10 +441,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8BE992424CA1732000D4E5E /* NSColor+Codable.swift in Sources */,
 				C8412E2A24129B4F0066A8A5 /* AppDelegate.swift in Sources */,
 				C8D9623824AD31F100B70B23 /* ArrowImageWithHoverPopover.swift in Sources */,
 				C80E916824A39B570073CF3F /* HintView.swift in Sources */,
 				C8AE96372499818200E6B080 /* CharacterSet+All.swift in Sources */,
+				C8D35B3624CC2CB00075308D /* CodableColorPicker.swift in Sources */,
 				C80D122A2415840300CBCB0F /* Preferences.swift in Sources */,
 				C80E916624A39ADF0073CF3F /* ArrowImage.swift in Sources */,
 				C80D1228241583E800CBCB0F /* PreferencesView.swift in Sources */,
@@ -433,6 +454,7 @@
 				C855572724A14300006AF499 /* OnHover.swift in Sources */,
 				C8F450FC24165C29002B9D69 /* UserDefaultsConfig.swift in Sources */,
 				C8F450FA24165C21002B9D69 /* UserDefaultsWrapper.swift in Sources */,
+				C8BE992324CA1635000D4E5E /* ProjectIcon.swift in Sources */,
 				C8F450F1241632D1002B9D69 /* ProjectCell.swift in Sources */,
 				C855572D24A14A01006AF499 /* ActionsMenuText.swift in Sources */,
 				C855573124A15104006AF499 /* OnHoverText.swift in Sources */,
@@ -618,6 +640,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dkcompany.xcodeprojects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -647,6 +670,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dkcompany.xcodeprojects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
