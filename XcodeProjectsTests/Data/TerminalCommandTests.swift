@@ -12,8 +12,15 @@ import XCTest
 class TerminalScriptTests: XCTestCase {
 
     func testTerminalCommand_Script_ReturnsCorrectScriptValue() {
+        let podInstallScript = """
+        tell application "Terminal"
+        if not (exists window 1) then reopen
+        activate
+        pod install
+        end tell
+        """
         let terminalCommand = TerminalScript(command: "pod install")
-
+        XCTAssertEqual(podInstallScript, terminalCommand.script)
     }
 
 }
