@@ -20,6 +20,8 @@ class CodableColorPicker {
                                     NSColor.systemPurple]
     private var usedColors = CodableColorPicker.allColors
 
+    private init() {}
+    
     func pickRandomColor() -> CodableColor {
         guard let randomColor = usedColors.randomElement(),
             let randomIndex = usedColors.firstIndex(of: randomColor) else {

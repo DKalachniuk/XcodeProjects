@@ -19,7 +19,7 @@ struct ProjectNameView: View {
                 .frame(width: 8)
 
             if self.preferences.showProjectIcon {
-                ProjectIcon(project: project)
+                ProjectIcon(project: project).environmentObject(preferences)
             }
 
             Text(self.project.name)
