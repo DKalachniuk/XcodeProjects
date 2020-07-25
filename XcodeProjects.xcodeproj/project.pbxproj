@@ -35,6 +35,7 @@
 		C8AE96372499818200E6B080 /* CharacterSet+All.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE96362499818200E6B080 /* CharacterSet+All.swift */; };
 		C8BE992324CA1635000D4E5E /* ProjectIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BE992224CA1635000D4E5E /* ProjectIcon.swift */; };
 		C8BE992424CA1732000D4E5E /* NSColor+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C4E24A0045200E1F969 /* NSColor+Codable.swift */; };
+		C8D35B3624CC2CB00075308D /* CodableColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D35B3524CC2CB00075308D /* CodableColorPicker.swift */; };
 		C8D9623824AD31F100B70B23 /* ArrowImageWithHoverPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9623724AD31F000B70B23 /* ArrowImageWithHoverPopover.swift */; };
 		C8D9623A24AD348600B70B23 /* NSWorkspace+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9623924AD348600B70B23 /* NSWorkspace+App.swift */; };
 		C8F450F1241632D1002B9D69 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F0241632D1002B9D69 /* ProjectCell.swift */; };
@@ -105,6 +106,7 @@
 		C8AE963424997AC000E6B080 /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
 		C8AE96362499818200E6B080 /* CharacterSet+All.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+All.swift"; sourceTree = "<group>"; };
 		C8BE992224CA1635000D4E5E /* ProjectIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectIcon.swift; sourceTree = "<group>"; };
+		C8D35B3524CC2CB00075308D /* CodableColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColorPicker.swift; sourceTree = "<group>"; };
 		C8D9623724AD31F000B70B23 /* ArrowImageWithHoverPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowImageWithHoverPopover.swift; sourceTree = "<group>"; };
 		C8D9623924AD348600B70B23 /* NSWorkspace+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWorkspace+App.swift"; sourceTree = "<group>"; };
 		C8F450F0241632D1002B9D69 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				C8456CE9249A1D6700BAEF17 /* PropertyWrappers */,
 				C8F450FD24167576002B9D69 /* Extensions */,
 				C8F450FB24165C29002B9D69 /* UserDefaultsConfig.swift */,
+				C8D35B3524CC2CB00075308D /* CodableColorPicker.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				C8D9623824AD31F100B70B23 /* ArrowImageWithHoverPopover.swift in Sources */,
 				C80E916824A39B570073CF3F /* HintView.swift in Sources */,
 				C8AE96372499818200E6B080 /* CharacterSet+All.swift in Sources */,
+				C8D35B3624CC2CB00075308D /* CodableColorPicker.swift in Sources */,
 				C80D122A2415840300CBCB0F /* Preferences.swift in Sources */,
 				C80E916624A39ADF0073CF3F /* ArrowImage.swift in Sources */,
 				C80D1228241583E800CBCB0F /* PreferencesView.swift in Sources */,

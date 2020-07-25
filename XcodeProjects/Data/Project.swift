@@ -9,8 +9,6 @@
 import Foundation
 import AppKit
 
-let colors = [NSColor.systemRed, NSColor.systemGreen, NSColor.systemBlue, NSColor.systemIndigo, NSColor.systemOrange, NSColor.systemPurple]
-
 struct Project: Identifiable, Codable {
 
     let id: UUID = UUID()
@@ -21,7 +19,7 @@ struct Project: Identifiable, Codable {
     init(name: String, path: String) {
         self.name = name
         self.path = path
-        self.color = CodableColor(color: colors.randomElement()!)
+        self.color = CodableColorPicker.shared.pickRandomColor()
     }
 
     init?(url: URL) {

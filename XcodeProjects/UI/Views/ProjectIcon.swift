@@ -3,7 +3,7 @@
 //  XcodeProjects
 //
 //  Created by Dima Kalachniuk on 21/06/2020.
-//  Copyright © 2020 com.klm.mac.myProjects. All rights reserved.
+//  Copyright © 2020 com.dkcompany.xcodeprojects. All rights reserved.
 //
 
 import SwiftUI
