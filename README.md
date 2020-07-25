@@ -42,7 +42,7 @@ click "+" button to add folder of you project within system dialog (Hint: choose
 
 Also it is possible to drag projects around.
 
-![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/Images/example_drag_and_drop_dark.png?raw=true)
+![alt text](https://github.com/DKalachniuk/XcodeProjects/Images/example_drag_and_drop_dark.png?raw=true)
 
 
 **Clear Xcode derived data** - removes Xcode derived data from default location ~/Library/Developer/Xcode/DerivedData
