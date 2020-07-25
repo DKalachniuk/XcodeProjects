@@ -10,11 +10,20 @@ import SwiftUI
 
 struct ProjectNameView: View {
     @State var project: Project
+    @EnvironmentObject var preferences: Preferences
 
     var body: some View {
         HStack {
+
+            Spacer()
+                .frame(width: 8)
+
+            if self.preferences.showProjectIcon {
+                ProjectIcon(project: project)
+            }
+
             Text(self.project.name)
-                .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 5))
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
 
             Spacer()
             Button(action: {
@@ -28,7 +37,7 @@ struct ProjectNameView: View {
 
             Spacer().frame(width: 3)
         }
-        .frame(height: 40, alignment: .center)
+        .frame(height: 40)
         .background(RoundedCorners.left)
         .modifier(OnHover(tl: 12, tr: 0, bl: 12, br: 0))
     }

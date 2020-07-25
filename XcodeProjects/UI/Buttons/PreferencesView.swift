@@ -32,6 +32,17 @@ struct PreferencesView: View {
                     Text("Launch at Login")
                 }.offset(x: -14, y: 0)
             })
+
+            Button(action: toggleShowProjectIcon, label: {
+                HStack(spacing: 4) {
+                    Image("checkmark")
+                        .resizable()
+                        .frame(width: 10, height: 10)
+                        .opacity(self.preferences.showProjectIcon ? 1 : 0)
+                    Text("Show project icon")
+                }.offset(x: -14, y: 0)
+            })
+
             VStack { Divider() }
 
             Button(action: quit, label: { Text("Quit") })
@@ -43,7 +54,11 @@ struct PreferencesView: View {
 
 private extension PreferencesView {
     func toggleLaunchAtLogin() {
-        preferences.launchAtLoginEnabled.toggle()
+        preferences.toggleLaunchAtLogin()
+    }
+
+    func toggleShowProjectIcon() {
+        preferences.toggleShowProjectIcon()
     }
 
     func openGithub() {

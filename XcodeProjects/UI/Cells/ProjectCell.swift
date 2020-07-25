@@ -17,6 +17,7 @@ struct ProjectCell: View {
             HStack(spacing: 0) {
                 
                 ProjectNameView(project: self.project)
+                    .environmentObject(preferences)
 
                 Divider()
                     .frame(width: 1)

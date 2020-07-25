@@ -1,57 +1,58 @@
 # XcodeProjects
-Switch between projects in 2 clicks. Don't write "pod install", "pod update" and "cd <your project>" anymore
+Switch between projects in 2 clicks. Don't write "pod install", "pod update" and "cd <your project>" in the terminal anymore!
   
 # When do you need this tool
-- when you want to open quickly specific xcode project
-- when you need to change directory of your project in the terminal 
-- when you type "pod install" and "pod update" in the terminal
-- when you want quickly open your project in "SourceTree"
-- when you have a lot of projects or modules/frameworks and you need to switch between them quickly
+- you want to open quickly specific Xcode project
+- you need to change directory to point to your project in the terminal 
+- you type "pod install" and "pod update" in the terminal too often. Do it in 2 clicks
+- you want quickly open your project in SourceTree
+- you have a lot of projects or modules/frameworks and you need to switch between them quickly
   
 # How to install
-Go to release section in this repo and download the binary. Drag & drop XcodeProjects.app to your Application folder. Enjoy
+Go to release section in this repo and download the binary. Drag & drop XcodeProjects.app to your Application folder. Enjoy! 
 
-# How to use 
-After first run of the app 
+# Design 
+When you open the app for the first time you would see empty screen
 
-![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/blob/master/Images/example_empty_list.png?raw=true)
+![alt text](Images/example_empty_list.png?raw=true)
 
-click "+" button and add folder(s) of you project(s) within dialog.
+click "+" button to add folder of you project within system dialog (Hint: choose multiple projects)
 
-![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/blob/master/Images/example_list_of_projects.png?raw=true)
+![alt text](Images/example_list_of_projects_dark.png?raw=true)
 
-**Click "arrows" button to open your xcode workspace/project**
+![alt text](Images/example_list_of_projects_light.png?raw=true)
+
+**Click "arrows" button to open your Xcode workspace/project**
 
 **Click "..." button to see the options** 
 
-![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/blob/master/Images/example_context_menu.png?raw=true)
+![alt text](Images/example_context_menu_dark.png?raw=true)
 
-**Open in Terminal** - opens the path of the project in terminal. Handy to quicly switch to the folder of the project
+![alt text](Images/example_context_menu_light.png?raw=true)
+
+**Open in Terminal** - opens the path to the project in terminal. Handy to quickly switch to the folder of the project
 
 **Show in Finder** - opens the folder of the project in Finder
 
-**Open in Sourcetree** - opens the folder of the project in Sourcetree(if you have Sourcetree)
-
+**Open in Sourcetree** - opens the folder of the project in Sourcetree (if you have Sourcetree)
 
 **Pod install** - runs "pod install" command in terminal for the project
 
 **Pod update** - runs "pod update" command in terminal for the project
 
-
 **Remove from the list** - removes project from the list
 
 Also it is possible to drag projects around.
 
-![alt text](https://github.com/DKalachniuk/XcodeProjects/blob/master/blob/master/Images/example_drag_and_drop.png?raw=true)
+![alt text](Images/example_drag_and_drop_dark.png?raw=true)
 
-
-**Clear Xcode derived data** - removes Xcode derived data from standart location ~/Library/Developer/Xcode/DerivedData
+**Clear Xcode derived data** - removes Xcode derived data from default location ~/Library/Developer/Xcode/DerivedData
 
 # Support
 Just simple star ⭐️ will make my life happier :) 
 
 If you want to support this project, feel free to send some coffee money to this [link](paypal.me/dkalachniuk)
-If you don't want to spend money, you can still support me if you will share this tool with your colleagues and tell them how nice it is and how it improved your workflow.
+If you don't want to spend money, you can still support me if you will share this tool with your colleagues.
 
 # Ideas
 - add command to support carthage update
@@ -67,7 +68,7 @@ If you don't want to spend money, you can still support me if you will share thi
 
 # Special Thanks
 Special thanks to 
-- [Solokub](https://github.com/Solokub) - for providing awesome logo. 🥳
+- [Solokub](https://github.com/Solokub) - for providing awesome design for the app. 🥳
 - [Gui Rambo](https://gumroad.com/insidegui) - for his awesome project "StatusBuddy". [Gui Rambo's github](https://github.com/insidegui)
 
 # Badges

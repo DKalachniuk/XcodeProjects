@@ -14,4 +14,7 @@ struct UserDefaultsConfig {
 
     @UserDefault("hintDisabled", defaultValue: false)
     static var hintDisabled: Bool
+
+    @UserDefault("showProjectIcon", defaultValue: true)
+    static var showProjectIcon: Bool
 }
