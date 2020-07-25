@@ -14,28 +14,23 @@ struct ProjectCell: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Text(self.project.name)
-                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+            HStack(spacing: 0) {
+                
+                ProjectNameView(project: self.project)
+                    .environmentObject(preferences)
 
-                Spacer()
+                Divider()
+                    .frame(width: 1)
+                    .padding(0)
 
-                Button(action: {
-                    NSWorkspace.execute(command: .openWorkspace, forProject: self.project)
-                }) {
-                    Image("arrow")
-                        .resizable()
-                        .renderingMode(.template)
-                        .frame(width: 18, height: 15, alignment: .center)
-                }
-                .buttonStyle(BorderlessButtonStyle())
-                .padding([.trailing], 5)
-
-                ProjectMenuView(project: self.project).environmentObject(preferences)
+                ProjectMenuView(project: self.project)
+                    .environmentObject(preferences)
+                    .frame(width: 40, height: 40, alignment: .center)
+                    .background(RoundedCorners.right )
+                    .modifier(OnHover(tl: 0, tr: 12, bl: 0, br: 12))
+                    .modifier(OnHoverText())
             }
-            .frame(width: nil, height: 30, alignment: .center)
-            .background(Color.gray.opacity(0.25))
-            .cornerRadius(5)
+
         }
 
     }

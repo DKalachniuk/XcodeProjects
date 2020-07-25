@@ -22,11 +22,11 @@ struct MainView: View {
             HStack {
                 TextField("Search", text: $searchTerm)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-
+                Spacer().frame(width: 10)
                 AddProjectButton(action: addProject)
-
+                Spacer().frame(width: 10)
                 PreferencesView()
-            }.padding(EdgeInsets(top: 11, leading: 10, bottom: 5, trailing: 10))
+            }.padding(EdgeInsets(top: 10, leading: 10, bottom: 5, trailing: 10))
 
             Divider().padding([.top], 3)
 
@@ -45,14 +45,19 @@ struct MainView: View {
                 }
                 Spacer()
             } else {
-                List {
-                    ForEach(projects) { project in
-                        ProjectCell(project: project).environmentObject(self.preferences)
+                VStack {
+                    if self.preferences.hintDisabled == false {
+                        HintView().environmentObject(self.preferences)
                     }
-                    .onMove(perform: move)
+                    List {
+                        ForEach(projects) { project in
+                            ProjectCell(project: project).environmentObject(self.preferences)
+                        }
+                        .onMove(perform: move)
+                        .padding(.top, 5)
+                    }
+                    .padding(0)
                 }
-                .padding(0)
-
             }
         }
     }

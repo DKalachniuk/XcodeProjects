@@ -7,16 +7,19 @@
 //
 
 import Foundation
+import AppKit
 
 struct Project: Identifiable, Codable {
 
     let id: UUID = UUID()
     let name: String
     let path: String
+    let color: CodableColor
 
     init(name: String, path: String) {
         self.name = name
         self.path = path
+        self.color = CodableColorPicker.shared.pickRandomColor()
     }
 
     init?(url: URL) {
@@ -40,6 +43,17 @@ extension Project {
 
     var projectURL: URL? {
         FileManager.default.getXcodeProjFrom(project: self)
+    }
+
+    var hasXcodeProject: Bool {
+        (workspaceURL ?? projectURL) != nil
+    }
+}
+
+extension Project {
+
+    var hasCocoapods: Bool {
+        FileManager.default.getPodfile(project: self) != nil
     }
 }
 

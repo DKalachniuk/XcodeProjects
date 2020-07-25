@@ -10,5 +10,11 @@ import Foundation
 
 struct UserDefaultsConfig {
     @UserDefault("projects", defaultValue: nil)
-    static var projects: Data? 
+    static var projects: Data?
+
+    @UserDefault("hintDisabled", defaultValue: false)
+    static var hintDisabled: Bool
+
+    @UserDefault("showProjectIcon", defaultValue: true)
+    static var showProjectIcon: Bool
 }

@@ -16,6 +16,8 @@ final class Preferences: ObservableObject {
     private var appURL: URL { Bundle.main.bundleURL }
 
     @Published private var _launchAtLoginEnabled: Bool = false
+    @Published private var _hintDisabled: Bool = UserDefaultsConfig.hintDisabled
+    @Published private var _showProjectIcon: Bool = UserDefaultsConfig.showProjectIcon
     @Published private var _projects: [Project] = []
 
     init() {
@@ -41,7 +43,27 @@ final class Preferences: ObservableObject {
         }
     }
 
-    var launchAtLoginEnabled: Bool {
+    private (set) var hintDisabled: Bool {
+        get {
+            _hintDisabled
+        }
+        set (newHintDisabled) {
+            _hintDisabled = newHintDisabled
+            UserDefaultsConfig.hintDisabled = _hintDisabled
+        }
+    }
+
+    private (set) var showProjectIcon: Bool {
+        get {
+            _showProjectIcon
+        }
+        set (newShowProjectIcon) {
+            _showProjectIcon = newShowProjectIcon
+            UserDefaultsConfig.showProjectIcon = _showProjectIcon
+        }
+    }
+
+    private (set) var launchAtLoginEnabled: Bool {
         get {
             _launchAtLoginEnabled || SharedFileList.sessionLoginItems().containsItem(appURL)
         }
@@ -60,6 +82,20 @@ final class Preferences: ObservableObject {
 
     private func didChange() {
         NotificationCenter.default.post(name: Self.didChangeNotification, object: self)
+    }
+}
+
+extension Preferences {
+    func hideHint() {
+        hintDisabled = true
+    }
+
+    func toggleShowProjectIcon() {
+        showProjectIcon.toggle()
+    }
+
+    func toggleLaunchAtLogin() {
+        launchAtLoginEnabled.toggle()
     }
 }
 
