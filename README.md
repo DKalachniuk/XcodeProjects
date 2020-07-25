@@ -19,6 +19,7 @@ When you open the app for the first time you would see empty screen
 click "+" button to add folder of you project within system dialog (Hint: choose multiple projects)
 
 ![alt text](Images/example_list_of_projects_dark.png?raw=true)
+
 ![alt text](Images/example_list_of_projects_light.png?raw=true)
 
 **Click "arrows" button to open your Xcode workspace/project**
@@ -26,6 +27,7 @@ click "+" button to add folder of you project within system dialog (Hint: choose
 **Click "..." button to see the options** 
 
 ![alt text](Images/example_context_menu_dark.png?raw=true)
+
 ![alt text](Images/example_context_menu_light.png?raw=true)
 
 **Open in Terminal** - opens the path to the project in terminal. Handy to quickly switch to the folder of the project
@@ -43,7 +45,6 @@ click "+" button to add folder of you project within system dialog (Hint: choose
 Also it is possible to drag projects around.
 
 ![alt text](Images/example_drag_and_drop_dark.png?raw=true)
-
 
 **Clear Xcode derived data** - removes Xcode derived data from default location ~/Library/Developer/Xcode/DerivedData
 
