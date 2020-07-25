@@ -54,6 +54,8 @@ Also it is possible to drag projects around.
 
 **Clear Xcode derived data** - removes Xcode derived data from default location ~/Library/Developer/Xcode/DerivedData
 
+> Hint: Click on project icon to change its color
+
 # Support
 Just simple star ⭐️ will make my life happier :) 
 
