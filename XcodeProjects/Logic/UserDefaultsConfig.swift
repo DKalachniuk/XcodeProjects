@@ -18,3 +18,16 @@ struct UserDefaultsConfig {
     @UserDefault("showProjectIcon", defaultValue: true)
     static var showProjectIcon: Bool
 }
+
+extension UserDefaultsConfig {
+    static var projectObjects: [Project] {
+        if let projectsData = UserDefaultsConfig.projects {
+            do {
+                return try JSONDecoder().decode([Project].self, from: projectsData)
+            } catch {
+                return []
+            }
+        }
+        return []
+    }
+}

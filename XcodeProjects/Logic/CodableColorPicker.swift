@@ -18,19 +18,33 @@ class CodableColorPicker {
                                     NSColor.systemIndigo,
                                     NSColor.systemOrange,
                                     NSColor.systemPurple]
-    private var usedColors = CodableColorPicker.allColors
 
-    private init() {}
-    
+    private var usedColors: [NSColor] = []
+
+    private init() {
+        setupUsedColors()
+    }
+
+    private func checkIfUsedColorsEmpty() {
+        if usedColors.isEmpty {
+            usedColors = CodableColorPicker.allColors
+        }
+    }
+}
+
+extension CodableColorPicker {
+    func setupUsedColors() {
+        usedColors = CodableColorPicker.allColors.filter({ !UserDefaultsConfig.projectObjects.map({$0.color.color}).contains($0) })
+        checkIfUsedColorsEmpty()
+    }
+
     func pickRandomColor() -> CodableColor {
         guard let randomColor = usedColors.randomElement(),
             let randomIndex = usedColors.firstIndex(of: randomColor) else {
                 fatalError("couldn't get random color from the array")
         }
         usedColors.remove(at: randomIndex)
-        if usedColors.isEmpty {
-            usedColors = CodableColorPicker.allColors
-        }
+        checkIfUsedColorsEmpty()
         return CodableColor(color: randomColor)
     }
 }
