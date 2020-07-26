@@ -22,13 +22,7 @@ final class Preferences: ObservableObject {
 
     init() {
         _launchAtLoginEnabled = launchAtLoginEnabled
-
-        if let projectsData = UserDefaultsConfig.projects {
-            let projects = try? JSONDecoder().decode([Project].self, from: projectsData)
-            _projects = projects ?? []
-        } else {
-            _projects = []
-        }
+        _projects = UserDefaultsConfig.projectObjects
     }
 
     private (set) var projects: [Project] {
@@ -122,5 +116,7 @@ extension Preferences {
             return
         }
         projects[index] = project
+
+        CodableColorPicker.shared.setupUsedColors()
     }
 }
