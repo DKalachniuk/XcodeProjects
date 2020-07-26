@@ -41,7 +41,8 @@ extension CodableColorPicker {
     func pickRandomColor() -> CodableColor {
         guard let randomColor = usedColors.randomElement(),
             let randomIndex = usedColors.firstIndex(of: randomColor) else {
-                fatalError("couldn't get random color from the array")
+                print("couldn't get random color from the array")
+                return CodableColor(color: NSColor.systemIndigo)
         }
         usedColors.remove(at: randomIndex)
         checkIfUsedColorsEmpty()
