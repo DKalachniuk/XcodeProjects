@@ -52,11 +52,11 @@ struct MainView: View {
                     List {
                         ForEach(projects) { project in
                             ProjectCell(project: project).environmentObject(self.preferences)
+                                .listRowInsets(EdgeInsets())
                         }
                         .onMove(perform: move)
-                        .padding(.top, 5)
+//                        .padding(.top, 5)
                     }
-                    .padding(0)
                 }
             }
         }

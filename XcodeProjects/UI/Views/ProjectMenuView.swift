@@ -31,6 +31,14 @@ struct ProjectMenuView: View {
             }
 
             Button(action: {
+                let controller = ProjectPreferencesViewController(rootView: ProjectPreferencesView())
+                controller.showWindow(nil)
+            }) {
+                Text("Preferences")
+            }
+
+            VStack { Divider() }
+            Button(action: {
                 self.preferences.removeProject(self.project)
             }) {
                 Text("Remove \(self.project.name) from the list")
