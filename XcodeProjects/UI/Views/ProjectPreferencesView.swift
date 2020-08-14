@@ -9,15 +9,27 @@
 import SwiftUI
 
 struct ProjectPreferencesView: View {
+    let project: Project
+    @State var newProjectName: String = ""
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            TextField(project.name, text: $newProjectName)
+
+            Button(action: {
+                self.preferences.changeProjectsName(self.project, newName: self.newProjectName)
+            }, label: { Text("Save") })
+        }
+        .onAppear {
+            self.newProjectName = self.project.name
+        }
+
     }
 }
 
 struct ProjectPreferencesView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectPreferencesView()
+        ProjectPreferencesView(project: Project.dummy, newProjectName: "something")
     }
 }

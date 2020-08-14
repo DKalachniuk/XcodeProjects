@@ -31,7 +31,9 @@ struct ProjectMenuView: View {
             }
 
             Button(action: {
-                let controller = ProjectPreferencesViewController(rootView: ProjectPreferencesView())
+                let contentView = ProjectPreferencesView(project: self.project).environmentObject(self.preferences)
+                let controller = ProjectPreferencesViewController(rootView: contentView)
+                controller.window?.title = "\(self.project.name)'s preferences"
                 controller.showWindow(nil)
             }) {
                 Text("Preferences")

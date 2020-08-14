@@ -111,12 +111,20 @@ extension Preferences {
     }
 
     func changeProjectsColor(_ project: Project, newColor: CodableColor) {
-        project.color = newColor
         guard let index = projects.firstIndex(where: { $0.id == project.id }) else {
             return
         }
+        project.color = newColor
         projects[index] = project
 
         CodableColorPicker.shared.setupUsedColors()
+    }
+
+    func changeProjectsName(_ project: Project, newName: String) {
+        guard let index = projects.firstIndex(where: { $0.id == project.id }) else {
+            return
+        }
+        project.name = newName
+        projects[index] = project
     }
 }
