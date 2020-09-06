@@ -54,6 +54,12 @@ private extension AppDelegate {
 // MARK: - Actions
 extension AppDelegate {
 
+    static func closePopover() {
+        if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
+            appDelegate.closePopover(sender: nil)
+        }
+    }
+
     @objc
     func togglePopover(_ sender: Any?) {
         if popover.isShown {

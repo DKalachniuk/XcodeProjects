@@ -14,6 +14,7 @@ struct TerminalCommandButton: View {
     
     var body: some View {
         Button(action: {
+            AppDelegate.closePopover()
             NSWorkspace.execute(command: self.command, forProject: self.project)
         }) {
             Text(command.rawValue)

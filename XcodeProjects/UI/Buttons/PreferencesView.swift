@@ -63,6 +63,7 @@ private extension PreferencesView {
 
     func openGithub() {
         if let githubURL = URL(string: "https://github.com/DKalachniuk/XcodeProjects") {
+            AppDelegate.closePopover()
              _ = NSWorkspace.shared.open(githubURL)
         }
     }
