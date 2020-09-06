@@ -27,6 +27,7 @@ struct ProjectNameView: View {
 
             Spacer()
             Button(action: {
+                AppDelegate.closePopover()
                 NSWorkspace.execute(command: .openWorkspace, forProject: self.project)
             }) {
                 ArrowImageWithHoverPopover(project: self.project)
