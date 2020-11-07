@@ -14,7 +14,13 @@ struct MainView: View {
     @EnvironmentObject var preferences: Preferences
 
     private var projects: [Project] {
-        preferences.projects.filter({ searchTerm.isEmpty ? true : $0.name.lowercased().contains(searchTerm.lowercased()) })
+        // check if characters appear in project name regardless of order
+        let searchText = searchTerm.lowercased()
+        return preferences.projects.filter({ project in
+            let name = project.name.lowercased()
+            let occurrences = Array(searchText).reduce(0, { name.contains($1) ? $0 + 1 : $0 })
+            return occurrences == searchText.count
+        })
     }
 
     var body: some View {
