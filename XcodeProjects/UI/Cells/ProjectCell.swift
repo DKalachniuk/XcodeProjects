@@ -10,13 +10,14 @@ import SwiftUI
 
 struct ProjectCell: View {
     let project: Project
+    let searchText: String?
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
         VStack {
             HStack(spacing: 0) {
                 
-                ProjectNameView(project: self.project)
+                ProjectNameView(project: self.project, searchText: searchText)
                     .environmentObject(preferences)
 
                 Divider()
@@ -38,6 +39,6 @@ struct ProjectCell: View {
 
 struct ProjectCell_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectCell(project: Project.dummy)
+        ProjectCell(project: Project.dummy, searchText: "lu")
     }
 }

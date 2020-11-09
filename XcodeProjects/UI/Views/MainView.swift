@@ -57,7 +57,7 @@ struct MainView: View {
                     }
                     List {
                         ForEach(projects) { project in
-                            ProjectCell(project: project).environmentObject(self.preferences)
+                            ProjectCell(project: project, searchText: self.searchTerm).environmentObject(self.preferences)
                         }
                         .onMove(perform: move)
                         .padding(.top, 5)

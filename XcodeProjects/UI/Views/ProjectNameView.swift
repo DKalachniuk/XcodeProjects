@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ProjectNameView: View {
     let project: Project
+    let searchText: String?
+
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
@@ -22,8 +24,9 @@ struct ProjectNameView: View {
                 ProjectIcon(project: project).environmentObject(preferences)
             }
 
-            Text(self.project.name)
+            UIKLabel(attributedText: project.attributedName(for: searchText))
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
+
 
             Spacer()
             Button(action: {
@@ -44,8 +47,23 @@ struct ProjectNameView: View {
     }
 }
 
+private extension Project {
+    func attributedName(for searchText: String?) -> NSAttributedString {
+        guard let searchText = searchText else {
+            return NSAttributedString(string: name)
+        }
+
+        let mutableAttributedString = NSMutableAttributedString(string: name)
+        for letter in searchText {
+            let range = (name as NSString).range(of: String(letter))
+            mutableAttributedString.addAttribute(NSAttributedString.Key.font, value: NSFont.boldSystemFont(ofSize: 14), range: range)
+        }
+        return mutableAttributedString
+    }
+}
+
 struct ProjectNameView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectNameView(project: Project.dummy)
+        ProjectNameView(project: Project.dummy, searchText: "lu")
     }
 }
