@@ -10,22 +10,31 @@ import Foundation
 
 extension FileManager {
 
-    func getWorkspaceFrom(project: Project) -> URL? {
+    func getWorkspaceFrom(for project: Project) -> URL? {
         filter(urls: contentsOf(project: project), by: "xcworkspace")?.first
     }
 
-    func getXcodeProjFrom(project: Project) -> URL? {
+    func getXcodeProjFrom(for project: Project) -> URL? {
         filter(urls: contentsOf(project: project), by: "xcodeproj")?.first
     }
 
-    func getPodfile(project: Project) -> URL? {
+    func getPodfile(for project: Project) -> URL? {
         filter(urls: contentsOf(project: project), byName: "Podfile")?.first
+    }
+
+    func getXcodeDerivedData(for project: Project) -> URL? {
+        let folder = "\(FileManager.default.homeDirectoryForCurrentUser)\(derivedDataFolderPath)"
+        guard let urls = contentsOf(url: URL(string: folder)) else {
+            return nil
+        }
+        return urls.first(where: { $0.absoluteString.lowercased().contains(project.name.lowercased()) })
     }
 }
 
 private extension FileManager {
-    func contentsOf(project: Project) -> [URL]? {
-        guard let urlPath = project.urlPath else {
+
+    func contentsOf(url: URL?) -> [URL]? {
+        guard let urlPath = url else {
             return nil
         }
         do {
@@ -35,6 +44,10 @@ private extension FileManager {
             print("Error while enumerating files \(urlPath): \(error.localizedDescription)")
             return nil
         }
+    }
+
+    func contentsOf(project: Project) -> [URL]? {
+        contentsOf(url: project.urlPath)
     }
 
     func filter(urls: [URL]?, by pathExtension: String) -> [URL]? {

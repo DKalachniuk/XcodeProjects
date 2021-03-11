@@ -13,6 +13,8 @@ enum ExecutionMethod {
     case justOpen
 }
 
+let derivedDataFolderPath = "Library/Developer/Xcode/DerivedData"
+
 enum TerminalCommand: String {
     case podInstall = "Pod install"
     case podUpdate = "Pod update"
@@ -21,10 +23,11 @@ enum TerminalCommand: String {
     case sourceTree = "Open in Sourcetree"
     case openWorkspace = "Open Workspace"
     case clearXcodeDerivedData = "Clear Xcode derived data"
+    case clearProjectDerivedData = "Clear derived data"
 
     var executionMethod: ExecutionMethod {
         switch self {
-            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData:
+            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData:
                 return .inTerminal
             case .finder, .openWorkspace:
                 return .justOpen
@@ -42,7 +45,7 @@ enum TerminalCommand: String {
             case .sourceTree:
                 return "open -a SourceTree"
             case .clearXcodeDerivedData:
-                return "rm -rf ~/Library/Developer/Xcode/DerivedData"
+                return "rm -rf ~/\(derivedDataFolderPath)"
             default:
                 return nil
         }
@@ -55,6 +58,13 @@ enum TerminalCommand: String {
             let terminalScript = TerminalScript(command: command?.wrapedInScript ?? "")
             return terminalScript.script
         }
+        // script for clearProjectDerivedData command
+        guard self != .clearProjectDerivedData else {
+            let command = "rm -rf \(project?.derivedDataPath ?? "")"
+            let terminalScript = TerminalScript(command: command.wrapedInScript)
+            return terminalScript.script
+        }
+
         // script for other in terminal commands
         guard let openInTerminalCommand = TerminalCommand.openInTerminal.command,
             var commandValue = command, let project = project else {
