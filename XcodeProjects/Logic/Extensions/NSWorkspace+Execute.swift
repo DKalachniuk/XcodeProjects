@@ -38,6 +38,9 @@ private extension NSWorkspace {
             case .finder:
                 guard let url = project?.urlPath else { return }
                 NSWorkspace.shared.activateFileViewerSelecting([url])
+            case .openXcodeDerivedData:
+                guard let url = URL(string: directDerivedDataFolderPath) else { return }
+                NSWorkspace.shared.activateFileViewerSelecting([url])
             default:
                 break
         }

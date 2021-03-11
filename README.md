@@ -1,5 +1,6 @@
 # XcodeProjects
-Switch between projects in 2 clicks. Don't write "pod install", "pod update" and "cd <your project>" in the terminal anymore!
+Switch between projects in 2 clicks. Don't write "pod install", "pod update" and "cd <your project>" in the terminal anymore!<br />
+**NEW**: Remove derived data of particular project!
   
 # When do you need this tool
 - you want to open quickly specific Xcode project
@@ -38,6 +39,8 @@ click "+" button to add folder of you project within system dialog (Hint: choose
 
 **Pod update** - runs "pod update" command in terminal for the project
 
+**Clear derived data** - removes project's derived data folder
+
 **Remove from the list** - removes project from the list
 
 Also it is possible to drag projects around.
@@ -52,6 +55,8 @@ Also it is possible to drag projects around.
 
 **Show project's icon** - show/hide project's icon next to the project's name
 
+**Open derived data in Finder** - opens Xcode derived data folder in Finder
+
 **Clear Xcode derived data** - removes Xcode derived data from default location ~/Library/Developer/Xcode/DerivedData
 
 > Hint: Click on project icon to change its color
@@ -65,12 +70,13 @@ If you don't want to spend money, you can still support me if you will share thi
 # Ideas
 - add command to support carthage update
 - add sorting to the list of projects
-- add favorites projects
+- add favourites projects
 - configure the actions when you press on the project. so you will be able to see only those that you need
 
 # TODO
 - ~~update commands logic so some commands like: open workspace, open in finder will not use terminal to open the files~~
 - ~~put action "open in Xcode" in the main view~~
+- ~~remove project's derived data folder~~
 - ability to rename project name
 - add Sparkle framework to check for updates automatically
 

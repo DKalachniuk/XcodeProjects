@@ -11,10 +11,6 @@ import SwiftUI
 struct ActionsMenuText: View {
 
     var body: some View {
-        HStack {
-            Spacer()
-            Text("􀍠")
-            Spacer()
-        }
+        Text("  􀍠")
     }
 }

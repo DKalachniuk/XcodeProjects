@@ -30,6 +30,11 @@ struct ProjectMenuView: View {
                 VStack { Divider() }
             }
 
+            if project.hasDerivedData {
+                TerminalCommandButton(project: self.project, command: .clearProjectDerivedData)
+                VStack { Divider() }
+            }
+
             Button(action: {
                 self.preferences.removeProject(self.project)
             }) {
