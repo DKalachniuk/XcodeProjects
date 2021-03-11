@@ -12,7 +12,7 @@ struct PreferencesView: View {
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
-        MenuButton(label: Image("gear").resizable().frame(width: 16, height: 16)) {
+        MenuButton(label: Image("gear")) {
 
             Button(action: openGithub, label: { Text("Open in GitHub") })
 
@@ -25,20 +25,24 @@ struct PreferencesView: View {
 
             Button(action: toggleLaunchAtLogin, label: {
                 HStack(spacing: 4) {
-                    Image("checkmark")
-                        .resizable()
+                    Image(systemName: "checkmark")
                         .frame(width: 10, height: 10)
-                        .opacity(self.preferences.launchAtLoginEnabled ? 1 : 0)
+                        //.opacity(self.preferences.launchAtLoginEnabled ? 1 : 0)
+                        .if(self.preferences.launchAtLoginEnabled == false) {
+                            $0.hidden()
+                        }
                     Text("Launch at Login")
                 }.offset(x: -14, y: 0)
             })
 
             Button(action: toggleShowProjectIcon, label: {
                 HStack(spacing: 4) {
-                    Image("checkmark")
-                        .resizable()
+                    Image(systemName: "checkmark")
                         .frame(width: 10, height: 10)
-                        .opacity(self.preferences.showProjectIcon ? 1 : 0)
+//                        .opacity(self.preferences.showProjectIcon ? 1 : 0)
+                        .if(self.preferences.showProjectIcon == false) {
+                            $0.hidden()
+                        }
                     Text("Show project's icon")
                 }.offset(x: -14, y: 0)
             })
@@ -48,7 +52,6 @@ struct PreferencesView: View {
             Button(action: quit, label: { Text("Quit") })
         }
         .menuButtonStyle(BorderlessButtonMenuButtonStyle())
-        .frame(width: 16, height: 16)
     }
 }
 
