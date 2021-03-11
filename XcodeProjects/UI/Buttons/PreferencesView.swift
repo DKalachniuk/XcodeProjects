@@ -20,6 +20,8 @@ struct PreferencesView: View {
                 Button(action: removeProjects, label: { Text("Remove All Projects") })
             }
 
+            VStack { Divider() }
+            Button(action: openDerivedData, label: { Text(TerminalCommand.openXcodeDerivedData.rawValue) })
             Button(action: clearDerivedData, label: { Text("Clear Xcode derived data") })
             VStack { Divider() }
 
@@ -81,6 +83,10 @@ private extension PreferencesView {
 
     func clearDerivedData() {
         NSWorkspace.execute(command: .clearXcodeDerivedData)
+    }
+
+    func openDerivedData() {
+        NSWorkspace.execute(command: .openXcodeDerivedData)
     }
 }
 

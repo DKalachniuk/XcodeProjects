@@ -14,22 +14,25 @@ enum ExecutionMethod {
 }
 
 let derivedDataFolderPath = "Library/Developer/Xcode/DerivedData"
+let relativeDerivedDataFolderPath = "~/\(derivedDataFolderPath)"
+let directDerivedDataFolderPath = "\(FileManager.default.homeDirectoryForCurrentUser)\(derivedDataFolderPath)"
 
 enum TerminalCommand: String {
     case podInstall = "Pod install"
     case podUpdate = "Pod update"
-    case finder = "Show in Finder"
+    case finder = "Open in Finder"
     case openInTerminal = "Open in Terminal"
     case sourceTree = "Open in Sourcetree"
     case openWorkspace = "Open Workspace"
     case clearXcodeDerivedData = "Clear Xcode derived data"
+    case openXcodeDerivedData = "Open derived data in Finder "
     case clearProjectDerivedData = "Clear derived data"
 
     var executionMethod: ExecutionMethod {
         switch self {
             case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData:
                 return .inTerminal
-            case .finder, .openWorkspace:
+            case .finder, .openWorkspace, .openXcodeDerivedData:
                 return .justOpen
         }
     }
@@ -45,7 +48,7 @@ enum TerminalCommand: String {
             case .sourceTree:
                 return "open -a SourceTree"
             case .clearXcodeDerivedData:
-                return "rm -rf ~/\(derivedDataFolderPath)"
+                return "rm -rf \(relativeDerivedDataFolderPath)"
             default:
                 return nil
         }
@@ -58,6 +61,7 @@ enum TerminalCommand: String {
             let terminalScript = TerminalScript(command: command?.wrapedInScript ?? "")
             return terminalScript.script
         }
+
         // script for clearProjectDerivedData command
         guard self != .clearProjectDerivedData else {
             let command = "rm -rf \(project?.derivedDataPath ?? "")"

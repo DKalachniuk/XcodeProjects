@@ -23,8 +23,7 @@ extension FileManager {
     }
 
     func getXcodeDerivedData(for project: Project) -> URL? {
-        let folder = "\(FileManager.default.homeDirectoryForCurrentUser)\(derivedDataFolderPath)"
-        guard let urls = contentsOf(url: URL(string: folder)) else {
+        guard let urls = contentsOf(url: URL(string: directDerivedDataFolderPath)) else {
             return nil
         }
         return urls.first(where: { $0.absoluteString.lowercased().contains(project.name.lowercased()) })
