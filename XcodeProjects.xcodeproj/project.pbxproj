@@ -32,6 +32,7 @@
 		C8573C44249D6EA600E1F969 /* FileManger+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C43249D6EA600E1F969 /* FileManger+Content.swift */; };
 		C8573C49249E77E400E1F969 /* TerminalScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C48249E77E400E1F969 /* TerminalScript.swift */; };
 		C8A4C09B25FACA280008054A /* View+If.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A4C09A25FACA280008054A /* View+If.swift */; };
+		C8A4C09F25FADFBA0008054A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C8A4C09E25FADFB90008054A /* README.md */; };
 		C8AE963524997AC000E6B080 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE963424997AC000E6B080 /* String+Components.swift */; };
 		C8AE96372499818200E6B080 /* CharacterSet+All.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE96362499818200E6B080 /* CharacterSet+All.swift */; };
 		C8BE992324CA1635000D4E5E /* ProjectIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BE992224CA1635000D4E5E /* ProjectIcon.swift */; };
@@ -105,6 +106,7 @@
 		C8573C4C24A0003200E1F969 /* ProjectIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectIcon.swift; sourceTree = "<group>"; };
 		C8573C4E24A0045200E1F969 /* NSColor+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Codable.swift"; sourceTree = "<group>"; };
 		C8A4C09A25FACA280008054A /* View+If.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+If.swift"; sourceTree = "<group>"; };
+		C8A4C09E25FADFB90008054A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		C8AE963424997AC000E6B080 /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
 		C8AE96362499818200E6B080 /* CharacterSet+All.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+All.swift"; sourceTree = "<group>"; };
 		C8BE992224CA1635000D4E5E /* ProjectIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectIcon.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		C8412E2824129B4F0066A8A5 /* XcodeProjects */ = {
 			isa = PBXGroup;
 			children = (
+				C8A4C09E25FADFB90008054A /* README.md */,
 				C8456CE8249A1C0400BAEF17 /* Resourses */,
 				C80D122B2415841F00CBCB0F /* Support */,
 				C8F450F4241638B9002B9D69 /* Logic */,
@@ -426,6 +429,7 @@
 			files = (
 				C8412E3424129B530066A8A5 /* Main.storyboard in Resources */,
 				C8412E3124129B530066A8A5 /* Preview Assets.xcassets in Resources */,
+				C8A4C09F25FADFBA0008054A /* README.md in Resources */,
 				C8412E2E24129B530066A8A5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
