@@ -1,5 +1,5 @@
 # XcodeProjects
-Switch between projects in 2 clicks. Don't write "pod install", "pod update" and "cd <your project>" in the terminal anymore!\n
+Switch between projects in 2 clicks. Don't write "pod install", "pod update" and "cd <your project>" in the terminal anymore!<br />
 **NEW**: Remove derived data of particular project!
   
 # When do you need this tool
