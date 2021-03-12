@@ -64,7 +64,7 @@ Also it is possible to drag projects around.
 # Support
 Just simple star ⭐️ will make my life happier :) 
 
-If you want to support this project, feel free to send some coffee money to this [link](paypal.me/dkalachniuk)
+If you want to support this project, feel free to send some coffee money to this [link](https://paypal.me/dkalachniuk)
 If you don't want to spend money, you can still support me if you will share this tool with your colleagues.
 
 # Ideas
