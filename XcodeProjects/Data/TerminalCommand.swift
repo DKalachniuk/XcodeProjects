@@ -60,14 +60,14 @@ enum TerminalCommand: String {
 
     func script(for project: Project?) -> String? {
         // script for clearXcodeDerivedData command
-        guard self != .clearXcodeDerivedData else {
+        if self == .clearXcodeDerivedData {
             let command = TerminalCommand.clearXcodeDerivedData.command
             let terminalScript = TerminalScript(command: command?.wrapedInScript ?? "")
             return terminalScript.script
         }
 
         // script for clearProjectDerivedData command
-        guard self != .clearProjectDerivedData else {
+        if self == .clearProjectDerivedData {
             let command = "rm -rf \(project?.derivedDataPath ?? "")"
             let terminalScript = TerminalScript(command: command.wrapedInScript)
             return terminalScript.script
