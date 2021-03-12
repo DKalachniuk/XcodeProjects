@@ -21,6 +21,7 @@ enum TerminalCommand: String {
     case podInstall = "Pod install"
     case podUpdate = "Pod update"
     case podDeintegrate = "Pod deintegrate"
+    case removePodfileLock = "Remove Podfile.lock"
     case finder = "Open in Finder"
     case openInTerminal = "Open in Terminal"
     case sourceTree = "Open in Sourcetree"
@@ -31,7 +32,7 @@ enum TerminalCommand: String {
 
     var executionMethod: ExecutionMethod {
         switch self {
-            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData, .podDeintegrate:
+            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData, .podDeintegrate, .removePodfileLock:
                 return .inTerminal
             case .finder, .openWorkspace, .openXcodeDerivedData:
                 return .justOpen
@@ -70,6 +71,16 @@ enum TerminalCommand: String {
             let command = "rm -rf \(project?.derivedDataPath ?? "")"
             let terminalScript = TerminalScript(command: command.wrapedInScript)
             return terminalScript.script
+        }
+
+        // script for removePodfileLock command
+        if self == .removePodfileLock {
+            if let podfileLock = project?.podfileLockPath {
+                let command = "rm -rf \(podfileLock)"
+                let terminalScript = TerminalScript(command: command.wrapedInScript)
+                return terminalScript.script
+            }
+            return nil
         }
 
         // script for other in terminal commands
