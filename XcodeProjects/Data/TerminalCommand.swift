@@ -20,6 +20,7 @@ let directDerivedDataFolderPath = "\(FileManager.default.homeDirectoryForCurrent
 enum TerminalCommand: String {
     case podInstall = "Pod install"
     case podUpdate = "Pod update"
+    case podDeintegrate = "Pod deintegrate"
     case finder = "Open in Finder"
     case openInTerminal = "Open in Terminal"
     case sourceTree = "Open in Sourcetree"
@@ -30,7 +31,7 @@ enum TerminalCommand: String {
 
     var executionMethod: ExecutionMethod {
         switch self {
-            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData:
+            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData, .podDeintegrate:
                 return .inTerminal
             case .finder, .openWorkspace, .openXcodeDerivedData:
                 return .justOpen
@@ -43,6 +44,8 @@ enum TerminalCommand: String {
                 return "pod install"
             case .podUpdate:
                 return "pod update"
+            case .podDeintegrate:
+                return "pod deintegrate"
             case .openInTerminal:
                 return "cd "
             case .sourceTree:
