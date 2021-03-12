@@ -16,29 +16,30 @@ struct ProjectMenuView: View {
 
     var body: some View {
         MenuButton(label: ActionsMenuText()) {
-            TerminalCommandButton(project: self.project, command: .openInTerminal)
-            TerminalCommandButton(project: self.project, command: .finder)
+            TerminalCommandButton(project: project, command: .openInTerminal)
+            TerminalCommandButton(project: project, command: .finder)
 
             if NSWorkspace.shared.sourceTreeAppInstalled {
-                TerminalCommandButton(project: self.project, command: .sourceTree)
+                TerminalCommandButton(project: project, command: .sourceTree)
             }
 
             VStack { Divider() }
             if project.hasCocoapods {
-                TerminalCommandButton(project: self.project, command: .podInstall)
-                TerminalCommandButton(project: self.project, command: .podUpdate)
+                TerminalCommandButton(project: project, command: .podInstall)
+                TerminalCommandButton(project: project, command: .podUpdate)
+                TerminalCommandButton(project: project, command: .podDeintegrate)
                 VStack { Divider() }
             }
 
             if project.hasDerivedData {
-                TerminalCommandButton(project: self.project, command: .clearProjectDerivedData)
+                TerminalCommandButton(project: project, command: .clearProjectDerivedData)
                 VStack { Divider() }
             }
 
             Button(action: {
-                self.preferences.removeProject(self.project)
+                preferences.removeProject(project)
             }) {
-                Text("Remove \(self.project.name) from the list")
+                Text("Remove \(project.name) from the list")
             }
         }
             .menuButtonStyle(BorderlessButtonMenuButtonStyle())
