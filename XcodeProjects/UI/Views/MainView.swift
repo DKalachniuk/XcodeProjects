@@ -21,11 +21,13 @@ struct MainView: View {
         VStack(spacing: 0) {
             HStack {
                 TextField("Search", text: $searchTerm)
+                    .frame(width: 215)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                Spacer().frame(width: 10)
+                Spacer()
                 AddProjectButton(action: addProject)
                 Spacer().frame(width: 10)
                 PreferencesView()
+                Spacer().frame(width: 10)
             }.padding(EdgeInsets(top: 10, leading: 10, bottom: 5, trailing: 10))
 
             Divider().padding([.top], 3)
@@ -52,11 +54,10 @@ struct MainView: View {
                     List {
                         ForEach(projects) { project in
                             ProjectCell(project: project).environmentObject(self.preferences)
-                                .listRowInsets(EdgeInsets())
                         }
                         .onMove(perform: move)
-//                        .padding(.top, 5)
                     }
+                    .padding(0)
                 }
             }
         }

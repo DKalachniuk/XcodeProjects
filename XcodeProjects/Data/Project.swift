@@ -11,7 +11,7 @@ import AppKit
 
 class Project: Identifiable, Codable {
 
-    let id: UUID = UUID()
+    var id: UUID = UUID()
     var name: String
     let path: String
     var color: CodableColor
@@ -38,11 +38,27 @@ extension Project {
     }
 
     var workspaceURL: URL? {
-        FileManager.default.getWorkspaceFrom(project: self)
+        FileManager.default.getWorkspaceFrom(for: self)
     }
 
     var projectURL: URL? {
-        FileManager.default.getXcodeProjFrom(project: self)
+        FileManager.default.getXcodeProjFrom(for: self)
+    }
+
+    var podfileLockPath: String? {
+        FileManager.default.getPodfileLockFrom(for: self)?.absoluteString.removeFilePath
+    }
+
+    var hasPodfileLock: Bool {
+        podfileLockPath != nil
+    }
+
+    var derivedDataPath: String? {
+        FileManager.default.getXcodeDerivedData(for: self)?.absoluteString.removeFilePath
+    }
+
+    var hasDerivedData: Bool {
+        derivedDataPath != nil
     }
 
     var hasXcodeProject: Bool {
@@ -53,7 +69,7 @@ extension Project {
 extension Project {
 
     var hasCocoapods: Bool {
-        FileManager.default.getPodfile(project: self) != nil
+        FileManager.default.getPodfile(for: self) != nil
     }
 }
 

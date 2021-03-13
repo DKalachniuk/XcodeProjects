@@ -11,11 +11,13 @@ import SwiftUI
 struct TerminalCommandButton: View {
     let project: Project
     let command: TerminalCommand
-    
+    var completion: (() -> Void)?
+
     var body: some View {
         Button(action: {
             AppDelegate.closePopover()
             NSWorkspace.execute(command: self.command, forProject: self.project)
+            completion?()
         }) {
             Text(command.rawValue)
         }
