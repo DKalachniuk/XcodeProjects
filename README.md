@@ -45,6 +45,8 @@ click "+" button to add folder of you project within system dialog (Hint: choose
 
 **Clear derived data** - removes project's derived data folder
 
+**Preferences** - opens new window to rename the project. Note: renames in the Xcode Projects app only - not physical folder/project etc.
+
 **Remove from the list** - removes project from the list
 
 Also it is possible to drag projects around.
@@ -81,7 +83,7 @@ If you don't want to spend money, you can still support me if you will share thi
 - ~~update commands logic so some commands like: open workspace, open in finder will not use terminal to open the files~~
 - ~~put action "open in Xcode" in the main view~~
 - ~~remove project's derived data folder~~
-- ability to rename project name
+- ~~ability to rename project name~~
 - add Sparkle framework to check for updates automatically
 
 # Special Thanks

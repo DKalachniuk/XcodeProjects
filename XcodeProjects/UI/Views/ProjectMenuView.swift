@@ -44,6 +44,15 @@ struct ProjectMenuView: View {
             }
 
             Button(action: {
+                let controller = ProjectPreferencesViewController<ProjectPreferencesView>(project: project, preferences: preferences)
+                controller.window?.title = "\(self.project.name)'s preferences"
+                controller.showWindow(nil)
+                AppDelegate.closePopover()
+            }) {
+                Text("Preferences")
+            }
+
+            Button(action: {
                 preferences.removeProject(project)
             }) {
                 Text("Remove \(project.name) from the list")
