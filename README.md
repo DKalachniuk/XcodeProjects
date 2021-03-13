@@ -31,13 +31,17 @@ click "+" button to add folder of you project within system dialog (Hint: choose
 
 **Open in Terminal** - opens the path to the project in terminal. Handy to quickly switch to the folder of the project
 
-**Show in Finder** - opens the folder of the project in Finder
+**Open in Finder** - opens the folder of the project in Finder
 
 **Open in Sourcetree** - opens the folder of the project in Sourcetree (if you have Sourcetree)
 
 **Pod install** - runs "pod install" command in terminal for the project
 
 **Pod update** - runs "pod update" command in terminal for the project
+
+**Pod deintegrate** - runs "pod deintegrate" command in terminal for the project
+
+**Remove Podfile.lock** - removes file Podfile.lock from the project
 
 **Clear derived data** - removes project's derived data folder
 

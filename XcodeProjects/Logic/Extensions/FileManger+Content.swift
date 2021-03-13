@@ -18,6 +18,10 @@ extension FileManager {
         filter(urls: contentsOf(project: project), by: "xcodeproj")?.first
     }
 
+    func getPodfileLockFrom(for project: Project) -> URL? {
+        filter(urls: contentsOf(project: project), byName: "Podfile.lock")?.first
+    }
+
     func getPodfile(for project: Project) -> URL? {
         filter(urls: contentsOf(project: project), byName: "Podfile")?.first
     }
