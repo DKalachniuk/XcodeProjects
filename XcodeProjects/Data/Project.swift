@@ -12,7 +12,7 @@ import AppKit
 class Project: Identifiable, Codable {
 
     var id: UUID = UUID()
-    let name: String
+    var name: String
     let path: String
     var color: CodableColor
 

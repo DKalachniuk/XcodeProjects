@@ -40,6 +40,9 @@
 		C8D35B3624CC2CB00075308D /* CodableColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D35B3524CC2CB00075308D /* CodableColorPicker.swift */; };
 		C8D9623824AD31F100B70B23 /* ArrowImageWithHoverPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9623724AD31F000B70B23 /* ArrowImageWithHoverPopover.swift */; };
 		C8D9623A24AD348600B70B23 /* NSWorkspace+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9623924AD348600B70B23 /* NSWorkspace+App.swift */; };
+		C8D9F49425FCCE61004C952C /* ProjectPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9F49325FCCE61004C952C /* ProjectPreferencesView.swift */; };
+		C8D9F49725FCCE80004C952C /* ProjectPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9F49625FCCE80004C952C /* ProjectPreferencesViewController.swift */; };
+		C8D9F49A25FCD5F6004C952C /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9F49925FCD5F6004C952C /* NotificationNames.swift */; };
 		C8F450F1241632D1002B9D69 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F0241632D1002B9D69 /* ProjectCell.swift */; };
 		C8F450F6241638C2002B9D69 /* TerminalCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F5241638C2002B9D69 /* TerminalCommand.swift */; };
 		C8F450FA24165C21002B9D69 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F924165C21002B9D69 /* UserDefaultsWrapper.swift */; };
@@ -112,6 +115,9 @@
 		C8D35B3524CC2CB00075308D /* CodableColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColorPicker.swift; sourceTree = "<group>"; };
 		C8D9623724AD31F000B70B23 /* ArrowImageWithHoverPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowImageWithHoverPopover.swift; sourceTree = "<group>"; };
 		C8D9623924AD348600B70B23 /* NSWorkspace+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWorkspace+App.swift"; sourceTree = "<group>"; };
+		C8D9F49325FCCE61004C952C /* ProjectPreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectPreferencesView.swift; sourceTree = "<group>"; };
+		C8D9F49625FCCE80004C952C /* ProjectPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectPreferencesViewController.swift; sourceTree = "<group>"; };
+		C8D9F49925FCD5F6004C952C /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		C8F450F0241632D1002B9D69 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		C8F450F5241638C2002B9D69 /* TerminalCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalCommand.swift; sourceTree = "<group>"; };
 		C8F450F924165C21002B9D69 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
@@ -235,6 +241,7 @@
 		C8412E4D2412A29A0066A8A5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C8D9F49625FCCE80004C952C /* ProjectPreferencesViewController.swift */,
 				C8412E4E2412A2A00066A8A5 /* StatusViewController.swift */,
 			);
 			path = Controllers;
@@ -243,6 +250,7 @@
 		C8412E522412A2F20066A8A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C8D9F49325FCCE61004C952C /* ProjectPreferencesView.swift */,
 				C8BE992224CA1635000D4E5E /* ProjectIcon.swift */,
 				C8412E502412A2F00066A8A5 /* MainView.swift */,
 				C8F451002416950D002B9D69 /* ProjectMenuView.swift */,
@@ -338,6 +346,7 @@
 				C8573C43249D6EA600E1F969 /* FileManger+Content.swift */,
 				C8573C4E24A0045200E1F969 /* NSColor+Codable.swift */,
 				C8A4C09A25FACA280008054A /* View+If.swift */,
+				C8D9F49925FCD5F6004C952C /* NotificationNames.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -446,6 +455,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8D9F49425FCCE61004C952C /* ProjectPreferencesView.swift in Sources */,
+				C8D9F49725FCCE80004C952C /* ProjectPreferencesViewController.swift in Sources */,
 				C8BE992424CA1732000D4E5E /* NSColor+Codable.swift in Sources */,
 				C8412E2A24129B4F0066A8A5 /* AppDelegate.swift in Sources */,
 				C8D9623824AD31F100B70B23 /* ArrowImageWithHoverPopover.swift in Sources */,
@@ -477,6 +488,7 @@
 				C855572F24A14B30006AF499 /* ProjectNameView.swift in Sources */,
 				C8F450FF24167592002B9D69 /* NSWorkspace+Execute.swift in Sources */,
 				C8412E4B2412A23B0066A8A5 /* EventMonitor.swift in Sources */,
+				C8D9F49A25FCD5F6004C952C /* NotificationNames.swift in Sources */,
 				C8A4C09B25FACA280008054A /* View+If.swift in Sources */,
 				C8456CF1249A540F00BAEF17 /* AddProjectButton.swift in Sources */,
 				C8573C49249E77E400E1F969 /* TerminalScript.swift in Sources */,
@@ -648,7 +660,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.4.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dkcompany.xcodeprojects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -678,7 +690,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.4.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dkcompany.xcodeprojects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
