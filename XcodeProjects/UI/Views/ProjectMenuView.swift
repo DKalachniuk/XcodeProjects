@@ -44,10 +44,10 @@ struct ProjectMenuView: View {
             }
 
             Button(action: {
-                let contentView = ProjectPreferencesView(project: self.project).environmentObject(self.preferences)
-                let controller = ProjectPreferencesViewController(rootView: contentView)
+                let controller = ProjectPreferencesViewController<ProjectPreferencesView>(project: project, preferences: preferences)
                 controller.window?.title = "\(self.project.name)'s preferences"
                 controller.showWindow(nil)
+                AppDelegate.closePopover()
             }) {
                 Text("Preferences")
             }

@@ -15,10 +15,16 @@ struct ProjectPreferencesView: View {
 
     var body: some View {
         VStack {
-            TextField(project.name, text: $newProjectName)
+            VStack(alignment: .leading, spacing: 5) {
+                Text("New name")
+                TextField(project.name, text: $newProjectName)
+            }.padding()
 
             Button(action: {
-                self.preferences.changeProjectsName(self.project, newName: self.newProjectName)
+                if project.name != newProjectName {
+                    preferences.changeProjectsName(project, newName: newProjectName)
+                }
+                NotificationCenter.default.post(name: .closePreferencesController, object: nil)
             }, label: { Text("Save") })
         }
         .onAppear {
