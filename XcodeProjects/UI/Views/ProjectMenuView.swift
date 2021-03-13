@@ -29,13 +29,17 @@ struct ProjectMenuView: View {
                 TerminalCommandButton(project: project, command: .podUpdate)
                 TerminalCommandButton(project: project, command: .podDeintegrate)
                 if project.hasPodfileLock {
-                    TerminalCommandButton(project: project, command: .removePodfileLock)
+                    TerminalCommandButton(project: project, command: .removePodfileLock) {
+                        preferences.updateProjectMenu = true
+                    }
                 }
                 VStack { Divider() }
             }
 
             if project.hasDerivedData {
-                TerminalCommandButton(project: project, command: .clearProjectDerivedData)
+                TerminalCommandButton(project: project, command: .clearProjectDerivedData) {
+                    preferences.updateProjectMenu = true
+                }
                 VStack { Divider() }
             }
 
