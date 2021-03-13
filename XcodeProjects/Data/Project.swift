@@ -45,8 +45,16 @@ extension Project {
         FileManager.default.getXcodeProjFrom(for: self)
     }
 
+    var podfileLockPath: String? {
+        FileManager.default.getPodfileLockFrom(for: self)?.absoluteString.removeFilePath
+    }
+
+    var hasPodfileLock: Bool {
+        podfileLockPath != nil
+    }
+
     var derivedDataPath: String? {
-        FileManager.default.getXcodeDerivedData(for: self)?.absoluteString.replacingOccurrences(of: "file://", with: "")
+        FileManager.default.getXcodeDerivedData(for: self)?.absoluteString.removeFilePath
     }
 
     var hasDerivedData: Bool {

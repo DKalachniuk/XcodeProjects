@@ -21,6 +21,7 @@ enum TerminalCommand: String {
     case podInstall = "Pod install"
     case podUpdate = "Pod update"
     case podDeintegrate = "Pod deintegrate"
+    case removePodfileLock = "Remove Podfile.lock"
     case finder = "Open in Finder"
     case openInTerminal = "Open in Terminal"
     case sourceTree = "Open in Sourcetree"
@@ -31,7 +32,7 @@ enum TerminalCommand: String {
 
     var executionMethod: ExecutionMethod {
         switch self {
-            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData, .podDeintegrate:
+            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData, .podDeintegrate, .removePodfileLock:
                 return .inTerminal
             case .finder, .openWorkspace, .openXcodeDerivedData:
                 return .justOpen
@@ -50,8 +51,6 @@ enum TerminalCommand: String {
                 return "cd "
             case .sourceTree:
                 return "open -a SourceTree"
-            case .clearXcodeDerivedData:
-                return "rm -rf \(relativeDerivedDataFolderPath)"
             default:
                 return nil
         }
@@ -59,17 +58,18 @@ enum TerminalCommand: String {
 
     func script(for project: Project?) -> String? {
         // script for clearXcodeDerivedData command
-        guard self != .clearXcodeDerivedData else {
-            let command = TerminalCommand.clearXcodeDerivedData.command
-            let terminalScript = TerminalScript(command: command?.wrapedInScript ?? "")
-            return terminalScript.script
+        if self == .clearXcodeDerivedData {
+            return getScriptToRemove(file: relativeDerivedDataFolderPath)
         }
 
         // script for clearProjectDerivedData command
-        guard self != .clearProjectDerivedData else {
-            let command = "rm -rf \(project?.derivedDataPath ?? "")"
-            let terminalScript = TerminalScript(command: command.wrapedInScript)
-            return terminalScript.script
+        if self == .clearProjectDerivedData {
+            return getScriptToRemove(file: project?.derivedDataPath)
+        }
+
+        // script for removePodfileLock command
+        if self == .removePodfileLock {
+            return getScriptToRemove(file: project?.podfileLockPath)
         }
 
         // script for other in terminal commands
@@ -78,21 +78,24 @@ enum TerminalCommand: String {
                 return nil
         }
         let commandString = "\(openInTerminalCommand) \(project.path)"
-        var twoLinesScript = commandString.wrapedInScript
+        var twoLinesScript = commandString.wrappedInScript
         if self != .openInTerminal {
             twoLinesScript.append("\n")
             if self == .sourceTree {
                 commandValue += " \(project.path)"
             } 
-            twoLinesScript.append(commandValue.wrapedInScript)
+            twoLinesScript.append(commandValue.wrappedInScript)
         }
-        let terminalScript = TerminalScript(command: twoLinesScript)
-        return terminalScript.script
+        return TerminalScript(command: twoLinesScript).script
+    }
+
+    private func getScriptToRemove(file path: String?) -> String? {
+        path.map({ TerminalScript(toRemovePath: $0).script })
     }
 }
 
-private extension String {
-    var wrapedInScript: String {
+extension String {
+    var wrappedInScript: String {
         "do script \"\(self)\" in front window"
     }
 }
