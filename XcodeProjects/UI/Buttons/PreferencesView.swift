@@ -17,7 +17,7 @@ struct PreferencesView: View {
             Button(action: openGithub, label: { Text("Open in GitHub") })
 
             if !self.preferences.projects.isEmpty {
-                Button(action: removeProjects, label: { Text("Remove All Projects") })
+                Button(action: removeProjects, label: { Text("Remove All projects") })
             }
 
             VStack { Divider() }
