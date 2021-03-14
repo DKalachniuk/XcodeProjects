@@ -19,7 +19,7 @@ final class Preferences: ObservableObject {
     @Published private var _hintDisabled: Bool = UserDefaultsConfig.hintDisabled
     @Published private var _showProjectIcon: Bool = UserDefaultsConfig.showProjectIcon
     @Published private var _projects: [Project] = []
-    @Published private var _customTerminalCommands: [String] = []
+    @Published private var _customTerminalCommands: [String] = UserDefaultsConfig.customTerminalCommands
 
     // is used after podfile.lock file or project's derived data was called
     // in order not to show that menu for the project again
@@ -150,6 +150,10 @@ extension Preferences {
         } else {
             return .failure(.terminalCommandAlreadyExists)
         }
+    }
+
+    func removeCustomTerminalCommand(_ command: String){
+        customTerminalCommands.removeAll(where: { $0 == command })
     }
 }
 

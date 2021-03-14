@@ -17,7 +17,7 @@ enum ProjectPreferencesType {
 
 class ProjectPreferencesViewController: NSWindowController {
 
-    convenience init(project: Project, preferences: Preferences, type: ProjectPreferencesType) {
+    convenience init(project: Project? = nil, preferences: Preferences, type: ProjectPreferencesType) {
         let contentView = ProjectPreferencesView(type: type, project: project).environmentObject(preferences)
         let hostingController = NSHostingController(rootView: contentView.frame(width: 300, height: 140))
         let window = NSWindow(contentViewController: hostingController)

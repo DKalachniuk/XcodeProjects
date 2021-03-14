@@ -52,8 +52,7 @@ struct PreferencesView: View {
             Group {
                 VStack { Divider() }
                 Button(action: {
-                    let controller = ProjectPreferencesViewController(project: Project.dummy,
-                                                                      preferences: preferences,
+                    let controller = ProjectPreferencesViewController(preferences: preferences,
                                                                       type: .addTerminalCommand)
                     controller.window?.title = "Add custom command"
                     controller.showWindow(nil)

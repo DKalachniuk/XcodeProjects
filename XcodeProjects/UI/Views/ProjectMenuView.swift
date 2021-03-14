@@ -70,9 +70,21 @@ struct ProjectMenuView: View {
 extension ProjectMenuView {
 
     func customCommandButtons() -> some View {
-        ForEach(preferences.customTerminalCommands, id: \.self) { customCommand in
-            TerminalCommandButton(project: project,
-                                  command: .custom(command: customCommand))
+        VStack {
+            ForEach(preferences.customTerminalCommands, id: \.self) { customCommand in
+                HStack {
+                    TerminalCommandButton(project: project,
+                                          command: .custom(command: customCommand))
+                    Button(action: {
+                        preferences.removeCustomTerminalCommand(customCommand)
+                    }) {
+                        Image(systemName: "minus.circle.fill")
+                    }
+                }
+            }
+            if !preferences.customTerminalCommands.isEmpty {
+                VStack { Divider() }
+            }
         }
     }
 }

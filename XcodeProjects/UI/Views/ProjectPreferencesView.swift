@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ProjectPreferencesView: View {
     let type: ProjectPreferencesType
-    let project: Project
+    let project: Project?
     @State var newValue: String = ""
     @EnvironmentObject var preferences: Preferences
 
@@ -25,7 +25,9 @@ struct ProjectPreferencesView: View {
                 if value != newValue {
                     switch type {
                         case .project:
-                            preferences.changeProjectsName(project, newName: newValue)
+                            if let project = project {
+                                preferences.changeProjectsName(project, newName: newValue)
+                            }
                         case .addTerminalCommand:
                             let result = preferences.addNewTerminalCommand(newValue)
                             switch result {
@@ -40,10 +42,6 @@ struct ProjectPreferencesView: View {
                 NotificationCenter.default.post(name: .closePreferencesController, object: nil)
             }, label: { Text(saveButton) })
         }
-        .onAppear {
-            self.newValue = self.project.name
-        }
-
     }
 }
 
@@ -56,7 +54,7 @@ private extension ProjectPreferencesView {
     }
     var value: String {
         switch type {
-            case .project: return project.name
+            case .project: return project?.name ?? ""
             case .addTerminalCommand: return "Add new command"
         }
     }
