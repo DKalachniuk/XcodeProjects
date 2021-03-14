@@ -43,8 +43,12 @@ struct ProjectMenuView: View {
                 VStack { Divider() }
             }
 
+            customCommandButtons()
+
             Button(action: {
-                let controller = ProjectPreferencesViewController<ProjectPreferencesView>(project: project, preferences: preferences)
+                let controller = ProjectPreferencesViewController(project: project,
+                                                                  preferences: preferences,
+                                                                  type: .project)
                 controller.window?.title = "\(self.project.name)'s preferences"
                 controller.showWindow(nil)
                 AppDelegate.closePopover()
@@ -60,6 +64,16 @@ struct ProjectMenuView: View {
         }
             .menuButtonStyle(BorderlessButtonMenuButtonStyle())
 
+    }
+}
+
+extension ProjectMenuView {
+
+    func customCommandButtons() -> some View {
+        ForEach(preferences.customTerminalCommands, id: \.self) { customCommand in
+            TerminalCommandButton(project: project,
+                                  command: .custom(command: customCommand))
+        }
     }
 }
 

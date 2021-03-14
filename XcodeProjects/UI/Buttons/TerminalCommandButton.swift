@@ -19,7 +19,7 @@ struct TerminalCommandButton: View {
             NSWorkspace.execute(command: self.command, forProject: self.project)
             completion?()
         }) {
-            Text(command.rawValue)
+            Text(command.title)
         }
     }
 }

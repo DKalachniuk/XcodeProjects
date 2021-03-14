@@ -17,22 +17,40 @@ let derivedDataFolderPath = "Library/Developer/Xcode/DerivedData"
 let relativeDerivedDataFolderPath = "~/\(derivedDataFolderPath)"
 let directDerivedDataFolderPath = "\(FileManager.default.homeDirectoryForCurrentUser)\(derivedDataFolderPath)"
 
-enum TerminalCommand: String {
-    case podInstall = "Pod install"
-    case podUpdate = "Pod update"
-    case podDeintegrate = "Pod deintegrate"
-    case removePodfileLock = "Remove Podfile.lock"
-    case finder = "Open in Finder"
-    case openInTerminal = "Open in Terminal"
-    case sourceTree = "Open in Sourcetree"
-    case openWorkspace = "Open Workspace"
-    case clearXcodeDerivedData = "Clear Xcode derived data"
-    case openXcodeDerivedData = "Open derived data in Finder "
-    case clearProjectDerivedData = "Clear derived data"
+enum TerminalCommand {
+    case podInstall
+    case podUpdate
+    case podDeintegrate
+    case removePodfileLock
+    case finder
+    case openInTerminal
+    case sourceTree
+    case openWorkspace
+    case clearXcodeDerivedData
+    case openXcodeDerivedData
+    case clearProjectDerivedData
+    case custom(command: String)
+
+    var title: String {
+        switch self {
+            case .podInstall: return "Pod install"
+            case .podUpdate: return "Pod update"
+            case .podDeintegrate: return "Pod deintegrate"
+            case .removePodfileLock: return "Remove Podfile.lock"
+            case .finder: return "Open in Finder"
+            case .openInTerminal: return "Open in Terminal"
+            case .sourceTree: return "Open in Sourcetree"
+            case .openWorkspace: return "Open Workspace"
+            case .clearXcodeDerivedData: return "Clear Xcode derived data"
+            case .openXcodeDerivedData: return "Open derived data in Finder "
+            case .clearProjectDerivedData: return "Clear derived data"
+            case .custom(let command): return command
+        }
+    }
 
     var executionMethod: ExecutionMethod {
         switch self {
-            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData, .podDeintegrate, .removePodfileLock:
+            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData, .podDeintegrate, .removePodfileLock, .custom:
                 return .inTerminal
             case .finder, .openWorkspace, .openXcodeDerivedData:
                 return .justOpen
@@ -51,6 +69,8 @@ enum TerminalCommand: String {
                 return "cd "
             case .sourceTree:
                 return "open -a SourceTree"
+            case .custom(let command):
+                return command
             default:
                 return nil
         }
@@ -94,9 +114,21 @@ enum TerminalCommand: String {
     }
 }
 
+extension TerminalCommand: Equatable {
+    static func ==(lhs: TerminalCommand, rhs: TerminalCommand) -> Bool {
+        switch (lhs, rhs) {
+            case (.podInstall, .podInstall), (.podUpdate, .podUpdate), (.podDeintegrate, .podDeintegrate), (.removePodfileLock, .removePodfileLock), (.finder, .finder), (.openInTerminal, .openInTerminal), (.sourceTree, .sourceTree), (.openWorkspace, .openWorkspace), (.clearXcodeDerivedData, .clearXcodeDerivedData), (.openXcodeDerivedData, .openXcodeDerivedData), (.clearProjectDerivedData, .clearProjectDerivedData):
+                return true
+            case (.custom(let lhsCommand), .custom(let rhsCommand)):
+                return lhsCommand == rhsCommand
+            default:
+                return false
+        }
+    }
+}
+
 extension String {
     var wrappedInScript: String {
         "do script \"\(self)\" in front window"
     }
 }
-

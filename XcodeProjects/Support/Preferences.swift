@@ -19,6 +19,7 @@ final class Preferences: ObservableObject {
     @Published private var _hintDisabled: Bool = UserDefaultsConfig.hintDisabled
     @Published private var _showProjectIcon: Bool = UserDefaultsConfig.showProjectIcon
     @Published private var _projects: [Project] = []
+    @Published private var _customTerminalCommands: [String] = []
 
     // is used after podfile.lock file or project's derived data was called
     // in order not to show that menu for the project again
@@ -27,6 +28,16 @@ final class Preferences: ObservableObject {
     init() {
         _launchAtLoginEnabled = launchAtLoginEnabled
         _projects = UserDefaultsConfig.projectObjects
+    }
+
+    private (set) var customTerminalCommands: [String] {
+        get {
+            _customTerminalCommands
+        }
+        set (newValue) {
+            _customTerminalCommands = newValue
+            UserDefaultsConfig.customTerminalCommands = _customTerminalCommands
+        }
     }
 
     private (set) var projects: [Project] {
@@ -131,4 +142,17 @@ extension Preferences {
         project.name = newName
         projects[index] = project
     }
+
+    func addNewTerminalCommand(_ command: String) -> Result<Bool, PreferencesError> {
+        if !customTerminalCommands.contains(command) {
+            customTerminalCommands.append(command)
+            return .success(true)
+        } else {
+            return .failure(.terminalCommandAlreadyExists)
+        }
+    }
+}
+
+enum PreferencesError: Error {
+    case terminalCommandAlreadyExists
 }

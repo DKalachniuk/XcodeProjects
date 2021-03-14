@@ -10,10 +10,15 @@ import Cocoa
 import Combine
 import SwiftUI
 
-class ProjectPreferencesViewController<RootView : View>: NSWindowController {
+enum ProjectPreferencesType {
+    case project
+    case addTerminalCommand
+}
 
-    convenience init(project: Project, preferences: Preferences) {
-        let contentView = ProjectPreferencesView(project: project).environmentObject(preferences)
+class ProjectPreferencesViewController: NSWindowController {
+
+    convenience init(project: Project, preferences: Preferences, type: ProjectPreferencesType) {
+        let contentView = ProjectPreferencesView(type: type, project: project).environmentObject(preferences)
         let hostingController = NSHostingController(rootView: contentView.frame(width: 300, height: 140))
         let window = NSWindow(contentViewController: hostingController)
         window.setContentSize(NSSize(width: 300, height: 140))

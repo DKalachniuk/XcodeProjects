@@ -9,33 +9,68 @@
 import SwiftUI
 
 struct ProjectPreferencesView: View {
+    let type: ProjectPreferencesType
     let project: Project
-    @State var newProjectName: String = ""
+    @State var newValue: String = ""
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 5) {
-                Text("New name")
-                TextField(project.name, text: $newProjectName)
+                Text(title)
+                TextField(value, text: $newValue)
             }.padding()
 
             Button(action: {
-                if project.name != newProjectName {
-                    preferences.changeProjectsName(project, newName: newProjectName)
+                if value != newValue {
+                    switch type {
+                        case .project:
+                            preferences.changeProjectsName(project, newName: newValue)
+                        case .addTerminalCommand:
+                            let result = preferences.addNewTerminalCommand(newValue)
+                            switch result {
+                                case .failure(let error):
+                                    NSWorkspace.showErrorAlert(withMessage: error.localizedDescription)
+                                    break
+                                case .success:
+                                    break
+                            }
+                    }
                 }
                 NotificationCenter.default.post(name: .closePreferencesController, object: nil)
-            }, label: { Text("Save") })
+            }, label: { Text(saveButton) })
         }
         .onAppear {
-            self.newProjectName = self.project.name
+            self.newValue = self.project.name
         }
 
     }
 }
 
+private extension ProjectPreferencesView {
+    var title: String {
+        switch type {
+            case .project: return "New name"
+            case .addTerminalCommand: return "Add new command"
+        }
+    }
+    var value: String {
+        switch type {
+            case .project: return project.name
+            case .addTerminalCommand: return "Add new command"
+        }
+    }
+
+    var saveButton: String {
+        switch type {
+            case .project: return "Rename"
+            case .addTerminalCommand: return "Save and add new command"
+        }
+    }
+}
+
 struct ProjectPreferencesView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectPreferencesView(project: Project.dummy, newProjectName: "something")
+        ProjectPreferencesView(type: .project, project: Project.dummy, newValue: "something")
     }
 }

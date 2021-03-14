@@ -21,7 +21,7 @@ struct PreferencesView: View {
             }
 
             VStack { Divider() }
-            Button(action: openDerivedData, label: { Text(TerminalCommand.openXcodeDerivedData.rawValue) })
+            Button(action: openDerivedData, label: { Text(TerminalCommand.openXcodeDerivedData.title) })
             Button(action: clearDerivedData, label: { Text("Clear Xcode derived data") })
             VStack { Divider() }
 
@@ -41,7 +41,7 @@ struct PreferencesView: View {
                 HStack(spacing: 4) {
                     Image(systemName: "checkmark")
                         .frame(width: 10, height: 10)
-//                        .opacity(self.preferences.showProjectIcon ? 1 : 0)
+                        //                        .opacity(self.preferences.showProjectIcon ? 1 : 0)
                         .if(self.preferences.showProjectIcon == false) {
                             $0.hidden()
                         }
@@ -49,10 +49,22 @@ struct PreferencesView: View {
                 }.offset(x: -14, y: 0)
             })
 
-            VStack { Divider() }
+            Group {
+                VStack { Divider() }
+                Button(action: {
+                    let controller = ProjectPreferencesViewController(project: Project.dummy,
+                                                                      preferences: preferences,
+                                                                      type: .addTerminalCommand)
+                    controller.window?.title = "Add custom command"
+                    controller.showWindow(nil)
+                    AppDelegate.closePopover()
+                }, label: { Text("Add custom command") })
 
-            Button(action: quit, label: { Text("Quit") })
+                VStack { Divider() }
+                Button(action: quit, label: { Text("Quit") })
+            }
         }
+
         .menuButtonStyle(BorderlessButtonMenuButtonStyle())
     }
 }
@@ -69,7 +81,7 @@ private extension PreferencesView {
     func openGithub() {
         if let githubURL = URL(string: "https://github.com/DKalachniuk/XcodeProjects") {
             AppDelegate.closePopover()
-             _ = NSWorkspace.shared.open(githubURL)
+            _ = NSWorkspace.shared.open(githubURL)
         }
     }
 
