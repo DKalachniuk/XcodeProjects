@@ -49,20 +49,20 @@ private extension ProjectPreferencesView {
     var title: String {
         switch type {
             case .project: return "New name"
-            case .addTerminalCommand: return "Add new command"
+            case .addTerminalCommand: return "Terminal command"
         }
     }
     var value: String {
         switch type {
             case .project: return project?.name ?? ""
-            case .addTerminalCommand: return "Add new command"
+            case .addTerminalCommand: return "New command"
         }
     }
 
     var saveButton: String {
         switch type {
             case .project: return "Rename"
-            case .addTerminalCommand: return "Save and add new command"
+            case .addTerminalCommand: return "Add new command"
         }
     }
 }

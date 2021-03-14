@@ -73,11 +73,11 @@ extension ProjectMenuView {
         VStack {
             if !preferences.customTerminalCommands.isEmpty {
                 VStack { Divider() }
-            }
-            Text("Custom commands")
-            ForEach(preferences.customTerminalCommands, id: \.self) { customCommand in
-                CustomTerminalCommandButton(command: customCommand,
-                                            project: project).environmentObject(preferences)
+                Text("Custom commands")
+                ForEach(preferences.customTerminalCommands, id: \.self) { customCommand in
+                    CustomTerminalCommandButton(command: customCommand,
+                                                project: project).environmentObject(preferences)
+                }
             }
         }
     }
@@ -89,14 +89,17 @@ struct CustomTerminalCommandButton: View {
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
-        HStack {
+        MenuButton(label: Text(command)) {
             TerminalCommandButton(project: project,
                                   command: .custom(command: command))
-            Spacer()
             Button(action: {
                 preferences.removeCustomTerminalCommand(command)
             }) {
-                Image(systemName: "minus.circle.fill")
+                HStack(spacing: 4) {
+                    Text("Remove command")
+                    Image(systemName: "minus.circle.fill")
+                        .frame(width: 10, height: 10)
+                }
             }
         }
     }
