@@ -44,7 +44,9 @@ struct ProjectMenuView: View {
             }
 
             Button(action: {
-                let controller = ProjectPreferencesViewController<ProjectPreferencesView>(project: project, preferences: preferences)
+                let controller = ProjectPreferencesViewController(project: project,
+                                                                  preferences: preferences,
+                                                                  type: .project)
                 controller.window?.title = "\(self.project.name)'s preferences"
                 controller.showWindow(nil)
                 AppDelegate.closePopover()
@@ -57,9 +59,49 @@ struct ProjectMenuView: View {
             }) {
                 Text("Remove \(project.name) from the list")
             }
+
+            customCommandButtons()
         }
             .menuButtonStyle(BorderlessButtonMenuButtonStyle())
 
+    }
+}
+
+extension ProjectMenuView {
+
+    func customCommandButtons() -> some View {
+        VStack {
+            if !preferences.customTerminalCommands.isEmpty {
+                VStack { Divider() }
+                Text("Custom commands")
+                ForEach(preferences.customTerminalCommands, id: \.self) { customCommand in
+                    CustomTerminalCommandButton(command: customCommand,
+                                                project: project).environmentObject(preferences)
+                }
+            }
+        }
+    }
+}
+
+struct CustomTerminalCommandButton: View {
+    let command: String
+    let project: Project
+    @EnvironmentObject var preferences: Preferences
+
+    var body: some View {
+        MenuButton(label: Text(command)) {
+            TerminalCommandButton(project: project,
+                                  command: .custom(command: command))
+            Button(action: {
+                preferences.removeCustomTerminalCommand(command)
+            }) {
+                HStack(spacing: 4) {
+                    Text("Remove command")
+                    Image(systemName: "minus.circle.fill")
+                        .frame(width: 10, height: 10)
+                }
+            }
+        }
     }
 }
 

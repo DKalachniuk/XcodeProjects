@@ -17,6 +17,9 @@ struct UserDefaultsConfig {
 
     @UserDefault("showProjectIcon", defaultValue: true)
     static var showProjectIcon: Bool
+
+    @UserDefault("customTerminalCommands", defaultValue: [String]())
+    static var customTerminalCommands: [String]
 }
 
 extension UserDefaultsConfig {

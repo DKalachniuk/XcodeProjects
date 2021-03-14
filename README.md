@@ -1,12 +1,16 @@
 # XcodeProjects
 Switch between projects in 2 clicks. Don't write "pod install", "pod update" and "cd <your project>" in the terminal anymore!<br />
 **NEW**: Remove derived data of particular project!
+**NEW**: Add your custom commands for a project! 
   
 # When do you need this tool
-- you want to open quickly specific Xcode project
+- you want to **open** quickly specific **Xcode project**
+- you want to **clear derived data for a specific project only**
+- you type "pod install", "pod update" and "pod deintegrate" in the terminal too often. Do it in 2 clicks
+- you need to **remove Podfile.lock file** quickly
 - you need to change directory to point to your project in the terminal 
-- you type "pod install" and "pod update" in the terminal too often. Do it in 2 clicks
-- you want quickly open your project in SourceTree
+- you want quickly **open your project in SourceTree**
+- you want to **execute custom command for a project**
 - you have a lot of projects or modules/frameworks and you need to switch between them quickly
   
 # How to install
@@ -25,7 +29,7 @@ click "+" button to add folder of you project within system dialog (Hint: choose
 
 **Click "arrows" button to open your Xcode workspace/project**
 
-**Click "..." button to see the options** 
+**Click "..." button to see the menu options** 
 
 ![alt text](Images/example_context_menu_dark.png?raw=true)
 
@@ -49,6 +53,10 @@ click "+" button to add folder of you project within system dialog (Hint: choose
 
 **Remove from the list** - removes project from the list
 
+If you have added custom commands then they would appear at the bottom of the list with option to remove the command
+
+![alt text](Images/custom_command.png?raw=true)
+
 Also it is possible to drag projects around.
 
 ![alt text](Images/example_drag_and_drop_dark.png?raw=true)
@@ -57,13 +65,19 @@ Also it is possible to drag projects around.
 
 ![alt text](Images/preferences_dark.png?raw=true)
 
-**Remove all projects** - removes all projects from XcodeProjects app
+**Open in GitHub** - opens the github webpage of  XcodeProjects
 
-**Show project's icon** - show/hide project's icon next to the project's name
+**Remove all projects** - removes all projects from XcodeProjects app
 
 **Open derived data in Finder** - opens Xcode derived data folder in Finder
 
 **Clear Xcode derived data** - removes Xcode derived data from default location ~/Library/Developer/Xcode/DerivedData
+
+**Launch at Login** - XcodeProjects app will be launched when MacOS was restarted/started
+
+**Show project's icon** - show/hide project's icon next to the project's name
+
+**Add custom command** - add custom command for all projects
 
 > Hint: Click on project icon to change its color
 
@@ -71,7 +85,7 @@ Also it is possible to drag projects around.
 Just simple star ⭐️ will make my life happier :) 
 
 If you want to support this project, feel free to send some coffee money to this [link](https://paypal.me/dkalachniuk)
-If you don't want to spend money, you can still support me if you will share this tool with your colleagues.
+If you don't want to spend money, you can still support me if you will share this tool with your colleagues and/or give me a star.
 
 # Ideas
 - add command to support carthage update
@@ -84,6 +98,7 @@ If you don't want to spend money, you can still support me if you will share thi
 - ~~put action "open in Xcode" in the main view~~
 - ~~remove project's derived data folder~~
 - ~~ability to rename project name~~
+- ~~add ability to add custom command~~
 - add Sparkle framework to check for updates automatically
 
 # Special Thanks
