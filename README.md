@@ -4,13 +4,13 @@ Switch between projects in 2 clicks. Don't write "pod install", "pod update" and
 **NEW**: Add your custom commands for a project! 
   
 # When do you need this tool
-- you want to open quickly specific Xcode project
-- you want to clear derived data for a specific project only
+- you want to **open** quickly specific **Xcode project**
+- you want to **clear derived data for a specific project only**
 - you type "pod install", "pod update" and "pod deintegrate" in the terminal too often. Do it in 2 clicks
-- you need to remove Podfile.lock file quickly
+- you need to **remove Podfile.lock file** quickly
 - you need to change directory to point to your project in the terminal 
-- you want quickly open your project in SourceTree
-- you want to execute custom command for a project
+- you want quickly **open your project in SourceTree**
+- you want to **execute custom command for a project**
 - you have a lot of projects or modules/frameworks and you need to switch between them quickly
   
 # How to install
