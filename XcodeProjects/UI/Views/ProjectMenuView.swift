@@ -43,8 +43,6 @@ struct ProjectMenuView: View {
                 VStack { Divider() }
             }
 
-            customCommandButtons()
-
             Button(action: {
                 let controller = ProjectPreferencesViewController(project: project,
                                                                   preferences: preferences,
@@ -61,6 +59,8 @@ struct ProjectMenuView: View {
             }) {
                 Text("Remove \(project.name) from the list")
             }
+
+            customCommandButtons()
         }
             .menuButtonStyle(BorderlessButtonMenuButtonStyle())
 
@@ -71,19 +71,32 @@ extension ProjectMenuView {
 
     func customCommandButtons() -> some View {
         VStack {
-            ForEach(preferences.customTerminalCommands, id: \.self) { customCommand in
-                HStack {
-                    TerminalCommandButton(project: project,
-                                          command: .custom(command: customCommand))
-                    Button(action: {
-                        preferences.removeCustomTerminalCommand(customCommand)
-                    }) {
-                        Image(systemName: "minus.circle.fill")
-                    }
-                }
-            }
             if !preferences.customTerminalCommands.isEmpty {
                 VStack { Divider() }
+            }
+            Text("Custom commands")
+            ForEach(preferences.customTerminalCommands, id: \.self) { customCommand in
+                CustomTerminalCommandButton(command: customCommand,
+                                            project: project).environmentObject(preferences)
+            }
+        }
+    }
+}
+
+struct CustomTerminalCommandButton: View {
+    let command: String
+    let project: Project
+    @EnvironmentObject var preferences: Preferences
+
+    var body: some View {
+        HStack {
+            TerminalCommandButton(project: project,
+                                  command: .custom(command: command))
+            Spacer()
+            Button(action: {
+                preferences.removeCustomTerminalCommand(command)
+            }) {
+                Image(systemName: "minus.circle.fill")
             }
         }
     }
