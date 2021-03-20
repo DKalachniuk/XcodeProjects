@@ -23,8 +23,8 @@ struct ProjectMenuView: View {
                 TerminalCommandButton(project: project, command: .sourceTree)
             }
 
-            VStack { Divider() }
             if project.hasCocoapods {
+                DividerSection(title: "Cocoapods")
                 TerminalCommandButton(project: project, command: .podInstall)
                 TerminalCommandButton(project: project, command: .podUpdate)
                 TerminalCommandButton(project: project, command: .podDeintegrate)
@@ -33,14 +33,18 @@ struct ProjectMenuView: View {
                         preferences.updateProjectMenu = true
                     }
                 }
-                VStack { Divider() }
+
             }
 
+            customCommandButtons()
+
+            DividerSection(title: "Preferences")
             if project.hasDerivedData {
-                TerminalCommandButton(project: project, command: .clearProjectDerivedData) {
+                TerminalCommandButton(project: project,
+                                      command: .clearProjectDerivedData,
+                                      customName: "Clear \(project.name) derived data folder") {
                     preferences.updateProjectMenu = true
                 }
-                VStack { Divider() }
             }
 
             Button(action: {
@@ -51,7 +55,7 @@ struct ProjectMenuView: View {
                 controller.showWindow(nil)
                 AppDelegate.closePopover()
             }) {
-                Text("Preferences")
+                Text("Change name")
             }
 
             Button(action: {
@@ -59,8 +63,6 @@ struct ProjectMenuView: View {
             }) {
                 Text("Remove \(project.name) from the list")
             }
-
-            customCommandButtons()
         }
             .menuButtonStyle(BorderlessButtonMenuButtonStyle())
 
@@ -72,8 +74,7 @@ extension ProjectMenuView {
     func customCommandButtons() -> some View {
         VStack {
             if !preferences.customTerminalCommands.isEmpty {
-                VStack { Divider() }
-                Text("Custom commands")
+                DividerSection(title: "Custom commands")
                 ForEach(preferences.customTerminalCommands, id: \.self) { customCommand in
                     CustomTerminalCommandButton(command: customCommand,
                                                 project: project).environmentObject(preferences)

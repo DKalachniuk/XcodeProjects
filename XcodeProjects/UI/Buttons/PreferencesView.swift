@@ -14,43 +14,42 @@ struct PreferencesView: View {
     var body: some View {
         MenuButton(label: Image("gear")) {
 
+            DividerSection(title: "About")
             Button(action: openGithub, label: { Text("Open in GitHub") })
 
-            if !self.preferences.projects.isEmpty {
-                Button(action: removeProjects, label: { Text("Remove All projects") })
-            }
-
-            VStack { Divider() }
+            DividerSection(title: "Derived Data")
             Button(action: openDerivedData, label: { Text(TerminalCommand.openXcodeDerivedData.title) })
-            Button(action: clearDerivedData, label: { Text("Clear Xcode derived data") })
-            VStack { Divider() }
-
-            Button(action: toggleLaunchAtLogin, label: {
-                HStack(spacing: 4) {
-                    Image(systemName: "checkmark")
-                        .frame(width: 10, height: 10)
-                        //.opacity(self.preferences.launchAtLoginEnabled ? 1 : 0)
-                        .if(self.preferences.launchAtLoginEnabled == false) {
-                            $0.hidden()
-                        }
-                    Text("Launch at Login")
-                }.offset(x: -14, y: 0)
-            })
-
-            Button(action: toggleShowProjectIcon, label: {
-                HStack(spacing: 4) {
-                    Image(systemName: "checkmark")
-                        .frame(width: 10, height: 10)
-                        //                        .opacity(self.preferences.showProjectIcon ? 1 : 0)
-                        .if(self.preferences.showProjectIcon == false) {
-                            $0.hidden()
-                        }
-                    Text("Show project's icon")
-                }.offset(x: -14, y: 0)
-            })
+            Button(action: clearDerivedData, label: { Text("Clear derived data") })
 
             Group {
-                VStack { Divider() }
+                DividerSection(title:"Preferences")
+                Button(action: toggleLaunchAtLogin, label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "checkmark")
+                            .frame(width: 10, height: 10)
+                            //.opacity(self.preferences.launchAtLoginEnabled ? 1 : 0)
+                            .if(self.preferences.launchAtLoginEnabled == false) {
+                                $0.hidden()
+                            }
+                        Text("Launch at Login")
+                    }.offset(x: -14, y: 0)
+                })
+                Button(action: toggleShowProjectIcon, label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "checkmark")
+                            .frame(width: 10, height: 10)
+                            //                        .opacity(self.preferences.showProjectIcon ? 1 : 0)
+                            .if(self.preferences.showProjectIcon == false) {
+                                $0.hidden()
+                            }
+                        Text("Show project's icon")
+                    }.offset(x: -14, y: 0)
+                })
+
+                if !self.preferences.projects.isEmpty {
+                    Button(action: removeProjects, label: { Text("Remove All projects") })
+                }
+
                 Button(action: {
                     let controller = ProjectPreferencesViewController(preferences: preferences,
                                                                       type: .addTerminalCommand)
@@ -58,10 +57,10 @@ struct PreferencesView: View {
                     controller.showWindow(nil)
                     AppDelegate.closePopover()
                 }, label: { Text("Add custom command") })
-
-                VStack { Divider() }
-                Button(action: quit, label: { Text("Quit") })
             }
+
+            DividerSection(title: nil)
+            Button(action: quit, label: { Text("Quit") })
         }
 
         .menuButtonStyle(BorderlessButtonMenuButtonStyle())
