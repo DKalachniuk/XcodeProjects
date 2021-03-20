@@ -49,7 +49,7 @@ click "+" button to add folder of you project within system dialog (Hint: choose
 
 **Clear derived data** - removes project's derived data folder
 
-**Preferences** - opens new window to rename the project. Note: renames in the Xcode Projects app only - not physical folder/project etc.
+**Change name** - opens new window to rename the project. Note: renames in the Xcode Projects app only - not physical folder/project etc.
 
 **Remove from the list** - removes project from the list
 
