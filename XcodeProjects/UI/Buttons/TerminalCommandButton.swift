@@ -11,6 +11,7 @@ import SwiftUI
 struct TerminalCommandButton: View {
     let project: Project
     let command: TerminalCommand
+    var customName: String?
     var completion: (() -> Void)?
 
     var body: some View {
@@ -19,7 +20,7 @@ struct TerminalCommandButton: View {
             NSWorkspace.execute(command: self.command, forProject: self.project)
             completion?()
         }) {
-            Text(command.title)
+            Text(customName ?? command.title)
         }
     }
 }
