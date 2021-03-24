@@ -10,6 +10,7 @@ import SwiftUI
 
 struct PreferencesView: View {
     @EnvironmentObject var preferences: Preferences
+    @State private var showingRemoveAllProjectsAlert = false
 
     var body: some View {
         MenuButton(label: Image("gear")) {
@@ -46,10 +47,6 @@ struct PreferencesView: View {
                     }.offset(x: -14, y: 0)
                 })
 
-                if !self.preferences.projects.isEmpty {
-                    Button(action: removeProjects, label: { Text("Remove All projects") })
-                }
-
                 Button(action: {
                     let controller = ProjectPreferencesViewController(preferences: preferences,
                                                                       type: .addTerminalCommand)
@@ -59,11 +56,25 @@ struct PreferencesView: View {
                 }, label: { Text("Add custom command") })
             }
 
+            if !self.preferences.projects.isEmpty {
+                DividerSection(title: nil)
+                Button("Remove All projects") {
+                    showingRemoveAllProjectsAlert = true
+                }
+            }
+
             DividerSection(title: nil)
             Button(action: quit, label: { Text("Quit") })
         }
-
         .menuButtonStyle(BorderlessButtonMenuButtonStyle())
+        .alert(isPresented: $showingRemoveAllProjectsAlert, content: {
+            Alert(title: Text("Remove all projects"),
+                  message: Text("You can't undo it later"),
+                  primaryButton: .default(Text("Remove"), action: {
+                    removeProjects()
+                  }),
+                  secondaryButton: .cancel(Text("No")))
+        })
     }
 }
 
