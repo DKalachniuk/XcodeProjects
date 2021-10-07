@@ -38,9 +38,10 @@ struct ProjectPreferencesView: View {
                                     break
                             }
                     }
+                    NotificationCenter.default.post(name: .closePreferencesController, object: nil)
                 }
-                NotificationCenter.default.post(name: .closePreferencesController, object: nil)
             }, label: { Text(saveButton) })
+            .disabled(newValue.isEmpty)
         }
     }
 }
