@@ -55,7 +55,7 @@ struct ProjectMenuView: View {
                 controller.showWindow(nil)
                 AppDelegate.closePopover()
             }) {
-                Text("Change name")
+                Text("Rename project")
             }
 
             Button(action: {
