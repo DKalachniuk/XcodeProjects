@@ -62,7 +62,7 @@ struct ProjectMenuView: View {
                 Button(action: {
                     self.preferences.changeProjectsIcon(self.project, iconPath: nil)
                 }) {
-                    Text("Remove image icon")
+                    Text("Remove project's icon")
                 }
             }
 
