@@ -19,7 +19,7 @@ final class Preferences: ObservableObject {
     @Published private var _hintDisabled: Bool = UserDefaultsConfig.hintDisabled
     @Published private var _showProjectIcon: Bool = UserDefaultsConfig.showProjectIcon
     @Published private var _projects: [Project] = []
-    @Published private var _customTerminalCommands: [String] = UserDefaultsConfig.customTerminalCommands
+    @Published private var _customTerminalCommands: [CustomCommand] = []
 
     // is used after podfile.lock file or project's derived data was called
     // in order not to show that menu for the project again
@@ -28,15 +28,18 @@ final class Preferences: ObservableObject {
     init() {
         _launchAtLoginEnabled = launchAtLoginEnabled
         _projects = UserDefaultsConfig.projectObjects
+        _customTerminalCommands = UserDefaultsConfig.customTerminalCommandObjects
     }
 
-    private (set) var customTerminalCommands: [String] {
+    private (set) var customTerminalCommands: [CustomCommand] {
         get {
             _customTerminalCommands
         }
-        set (newValue) {
-            _customTerminalCommands = newValue
-            UserDefaultsConfig.customTerminalCommands = _customTerminalCommands
+        set (newCommands) {
+            _customTerminalCommands = newCommands
+            if let encodedCommands = try? JSONEncoder().encode(newCommands) {
+                UserDefaultsConfig.customTerminalCommands = encodedCommands
+            }
         }
     }
 
@@ -143,8 +146,8 @@ extension Preferences {
         projects[index] = project
     }
 
-    func addNewTerminalCommand(_ command: String) -> Result<Bool, PreferencesError> {
-        if !customTerminalCommands.contains(command) {
+    func addNewTerminalCommand(_ command: CustomCommand) -> Result<Bool, PreferencesError> {
+        if !customTerminalCommands.contains(where: { $0.command == command.command }) {
             customTerminalCommands.append(command)
             return .success(true)
         } else {
@@ -152,8 +155,8 @@ extension Preferences {
         }
     }
 
-    func removeCustomTerminalCommand(_ command: String){
-        customTerminalCommands.removeAll(where: { $0 == command })
+    func removeCustomTerminalCommand(_ command: CustomCommand){
+        customTerminalCommands.removeAll(where: { $0.command == command.command })
     }
 }
 

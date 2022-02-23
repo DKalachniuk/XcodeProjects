@@ -11,12 +11,17 @@ import SwiftUI
 struct ProjectPreferencesView: View {
     let type: ProjectPreferencesType
     let project: Project?
+    @State var newCommandTitle: String = ""
     @State var newValue: String = ""
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 5) {
+                if type == .addTerminalCommand {
+                    Text(titleAddTheCommand)
+                    TextField(titleAddTheCommand, text: $newCommandTitle)
+                }
                 Text(title)
                 TextField(value, text: $newValue)
             }.padding()
@@ -29,7 +34,7 @@ struct ProjectPreferencesView: View {
                                 preferences.changeProjectsName(project, newName: newValue)
                             }
                         case .addTerminalCommand:
-                            let result = preferences.addNewTerminalCommand(newValue)
+                            let result = preferences.addNewTerminalCommand(CustomCommand(name: newCommandTitle, command: newValue))
                             switch result {
                                 case .failure(let error):
                                     NSWorkspace.showErrorAlert(withMessage: error.localizedDescription)
@@ -47,16 +52,21 @@ struct ProjectPreferencesView: View {
 }
 
 private extension ProjectPreferencesView {
+    
+    var titleAddTheCommand: String {
+        "Name of the command"
+    }
+    
     var title: String {
         switch type {
             case .project: return "New name"
-            case .addTerminalCommand: return "Terminal command"
+        case .addTerminalCommand: return "Terminal command"
         }
     }
     var value: String {
         switch type {
             case .project: return project?.name ?? ""
-            case .addTerminalCommand: return "New command"
+            case .addTerminalCommand: return "cd <path to your project> will be added automatically"
         }
     }
 

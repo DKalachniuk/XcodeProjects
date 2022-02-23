@@ -44,6 +44,7 @@
 		C8D9F49425FCCE61004C952C /* ProjectPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9F49325FCCE61004C952C /* ProjectPreferencesView.swift */; };
 		C8D9F49725FCCE80004C952C /* ProjectPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9F49625FCCE80004C952C /* ProjectPreferencesViewController.swift */; };
 		C8D9F49A25FCD5F6004C952C /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9F49925FCD5F6004C952C /* NotificationNames.swift */; };
+		C8DB027227C6DD860048157A /* CustomCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DB027127C6DD860048157A /* CustomCommand.swift */; };
 		C8F450F1241632D1002B9D69 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F0241632D1002B9D69 /* ProjectCell.swift */; };
 		C8F450F6241638C2002B9D69 /* TerminalCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F5241638C2002B9D69 /* TerminalCommand.swift */; };
 		C8F450FA24165C21002B9D69 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F924165C21002B9D69 /* UserDefaultsWrapper.swift */; };
@@ -120,6 +121,7 @@
 		C8D9F49325FCCE61004C952C /* ProjectPreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectPreferencesView.swift; sourceTree = "<group>"; };
 		C8D9F49625FCCE80004C952C /* ProjectPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectPreferencesViewController.swift; sourceTree = "<group>"; };
 		C8D9F49925FCD5F6004C952C /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
+		C8DB027127C6DD860048157A /* CustomCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCommand.swift; sourceTree = "<group>"; };
 		C8F450F0241632D1002B9D69 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		C8F450F5241638C2002B9D69 /* TerminalCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalCommand.swift; sourceTree = "<group>"; };
 		C8F450F924165C21002B9D69 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			children = (
 				C8F450F5241638C2002B9D69 /* TerminalCommand.swift */,
 				C8412E812412A70F0066A8A5 /* Project.swift */,
+				C8DB027127C6DD860048157A /* CustomCommand.swift */,
 				C8573C48249E77E400E1F969 /* TerminalScript.swift */,
 			);
 			path = Data;
@@ -485,6 +488,7 @@
 				C80D122F2415842B00CBCB0F /* SharedFileList.m in Sources */,
 				C80E916C24A39E2C0073CF3F /* CloseHintImage.swift in Sources */,
 				C8088D562418E5F5001239CB /* TerminalCommandButton.swift in Sources */,
+				C8DB027227C6DD860048157A /* CustomCommand.swift in Sources */,
 				C8D9623A24AD348600B70B23 /* NSWorkspace+App.swift in Sources */,
 				C8F451012416950D002B9D69 /* ProjectMenuView.swift in Sources */,
 				C874747226069D600091E791 /* DividerSection.swift in Sources */,
