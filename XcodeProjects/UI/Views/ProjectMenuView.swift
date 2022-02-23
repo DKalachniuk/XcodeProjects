@@ -57,6 +57,14 @@ struct ProjectMenuView: View {
             }) {
                 Text("Rename project")
             }
+            
+            if project.iconPath != nil {
+                Button(action: {
+                    self.preferences.changeProjectsIcon(self.project, iconPath: nil)
+                }) {
+                    Text("Remove image icon")
+                }
+            }
 
             Button(action: {
                 preferences.removeProject(project)

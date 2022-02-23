@@ -137,6 +137,14 @@ extension Preferences {
 
         CodableColorPicker.shared.setupUsedColors()
     }
+    
+    func changeProjectsIcon(_ project: Project, iconPath: String?) {
+        guard let index = projects.firstIndex(where: { $0.id == project.id }) else {
+            return
+        }
+        project.iconPath = iconPath
+        projects[index] = project
+    }
 
     func changeProjectsName(_ project: Project, newName: String) {
         guard let index = projects.firstIndex(where: { $0.id == project.id }) else {
