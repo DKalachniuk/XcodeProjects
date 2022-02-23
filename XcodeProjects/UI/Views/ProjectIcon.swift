@@ -60,6 +60,9 @@ private extension ProjectIcon {
                 self.preferences.changeProjectsIcon(self.project, iconPath: selectedPath)
             }
         }
+        
+        let appDelegate: AppDelegate? = NSApplication.shared.delegate as? AppDelegate
+        appDelegate?.closePopover(sender: nil)
     }
 }
 
