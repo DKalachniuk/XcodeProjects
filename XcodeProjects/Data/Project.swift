@@ -15,6 +15,7 @@ class Project: Identifiable, Codable {
     var name: String
     let path: String
     var color: CodableColor
+    var iconPath: String?
 
     init(name: String, path: String) {
         self.name = name

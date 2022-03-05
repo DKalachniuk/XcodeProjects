@@ -57,6 +57,14 @@ struct ProjectMenuView: View {
             }) {
                 Text("Rename project")
             }
+            
+            if project.iconPath != nil {
+                Button(action: {
+                    self.preferences.changeProjectsIcon(self.project, iconPath: nil)
+                }) {
+                    Text("Remove project's icon")
+                }
+            }
 
             Button(action: {
                 preferences.removeProject(project)
@@ -85,19 +93,19 @@ extension ProjectMenuView {
 }
 
 struct CustomTerminalCommandButton: View {
-    let command: String
+    let command: CustomCommand
     let project: Project
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
-        MenuButton(label: Text(command)) {
+        MenuButton(label: Text(command.name)) {
             TerminalCommandButton(project: project,
-                                  command: .custom(command: command))
+                                  command: .custom(command: command.fullCommand(for: project)))
             Button(action: {
                 preferences.removeCustomTerminalCommand(command)
             }) {
                 HStack(spacing: 4) {
-                    Text("Remove command")
+                    Text("Remove \(command.name)")
                     Image(systemName: "minus.circle.fill")
                         .frame(width: 10, height: 10)
                 }

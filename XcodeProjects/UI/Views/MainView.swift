@@ -19,15 +19,14 @@ struct MainView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            HStack {
+            HStack(spacing: 15) {
+                Spacer().frame(width: 0)
                 TextField("Search", text: $searchTerm)
                     .frame(width: 215)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                Spacer()
                 AddProjectButton(action: addProject)
-                Spacer().frame(width: 10)
+                AddCustomCommandButton(action: addCustomCommand)
                 PreferencesView()
-                Spacer().frame(width: 10)
             }.padding(EdgeInsets(top: 10, leading: 10, bottom: 5, trailing: 10))
 
             Divider().padding([.top], 3)
@@ -94,5 +93,13 @@ extension MainView {
             print("something went wrong")
             appDelegate?.showPopover(sender: nil)
         }
+    }
+    
+    private func addCustomCommand() {
+        let controller = ProjectPreferencesViewController(preferences: preferences,
+                                                          type: .addTerminalCommand)
+        controller.window?.title = "Add custom command"
+        controller.showWindow(nil)
+        AppDelegate.closePopover()
     }
 }

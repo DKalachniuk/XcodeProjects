@@ -13,9 +13,10 @@ struct HintView: View {
     @State var showCloseButton = false
 
     var body: some View {
-        VStack {
-            Spacer().frame(height: 8)
+        VStack(spacing: 8) {
+            Spacer().frame(height: 1)
             HStack {
+                Spacer().frame(width: 8)
                 ArrowImage(size: .small)
                     .foregroundColor(Color.secondary)
                 Text("- open with Xcode. Click 􀍠 for more options")
@@ -35,6 +36,13 @@ struct HintView: View {
                         Spacer().frame(width: 15)
                     }
                 }
+            }
+            HStack {
+                Spacer().frame(width: 8)
+                Text("long tap on project's icon to set custom image icon")
+                    .font(Font.system(size: 10))
+                    .foregroundColor(Color.secondary)
+                Spacer()
             }
         }
             .padding(.leading, 10)
