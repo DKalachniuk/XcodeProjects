@@ -11,6 +11,6 @@ import SwiftUI
 struct ActionsMenuText: View {
 
     var body: some View {
-        Text("  􀍠")
+        Text("   ...")
     }
 }
