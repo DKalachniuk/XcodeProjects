@@ -11,14 +11,22 @@ import SwiftUI
 struct MainView: View {
 
     @State private var searchTerm = ""
+    //@State private var listToShow: ListToDisplay = .projects
+    @State private var listToShow: Int = 0
     @EnvironmentObject var preferences: Preferences
 
+//    enum ListToDisplay: Int {
+//        case projects = 0
+//        case aliases
+//    }
+    
     private var projects: [Project] {
         preferences.projects.filter({ searchTerm.isEmpty ? true : $0.name.lowercased().contains(searchTerm.lowercased()) })
     }
 
     var body: some View {
         VStack(spacing: 0) {
+            
             HStack(spacing: 15) {
                 Spacer().frame(width: 0)
                 TextField("Search", text: $searchTerm)
@@ -31,34 +39,50 @@ struct MainView: View {
 
             Divider().padding([.top], 3)
 
-            if projects.isEmpty {
-                Spacer()
-                if searchTerm.isEmpty {
-                    VStack {
-                        HStack {
-                            Text("Please add a project")
-                            AddProjectButton(action: addProject)
+            if listToShow == 0  {
+                if projects.isEmpty {
+                    Spacer()
+                    if searchTerm.isEmpty {
+                        VStack {
+                            HStack {
+                                Text("Please add a project")
+                                AddProjectButton(action: addProject)
+                            }
                         }
-                    }
 
+                    } else {
+                        Text("No projects")
+                    }
+                    Spacer()
                 } else {
-                    Text("No projects")
-                }
-                Spacer()
-            } else {
-                VStack {
-                    if self.preferences.hintDisabled == false {
-                        HintView().environmentObject(self.preferences)
-                    }
-                    List {
-                        ForEach(projects) { project in
-                            ProjectCell(project: project).environmentObject(self.preferences)
+                    VStack {
+                        if self.preferences.hintDisabled == false {
+                            HintView().environmentObject(self.preferences)
                         }
-                        .onMove(perform: move)
+                        List {
+                            ForEach(projects) { project in
+                                ProjectCell(project: project).environmentObject(self.preferences)
+                            }
+                            .onMove(perform: move)
+                        }
+                        .padding(0)
                     }
-                    .padding(0)
+                }
+            } else {
+                List {
+                    ForEach(Alias.example) { alias in
+                        AliasdButton(alias: alias, completion: nil)
+                    }
                 }
             }
+            
+            
+            Divider().padding([.top], 3)
+            Picker("", selection: $listToShow) {
+                            Text("Projects").tag(0)
+                            Text("Aliases").tag(1)
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
         }
     }
 

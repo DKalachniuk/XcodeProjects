@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6EC78A69286C7167007F453C /* Alias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC78A68286C7167007F453C /* Alias.swift */; };
+		6EC78A6B286C7808007F453C /* AliasButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC78A6A286C7808007F453C /* AliasButton.swift */; };
 		C8088D562418E5F5001239CB /* TerminalCommandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8088D552418E5F5001239CB /* TerminalCommandButton.swift */; };
 		C80D1228241583E800CBCB0F /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D1227241583E800CBCB0F /* PreferencesView.swift */; };
 		C80D122A2415840300CBCB0F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D12292415840300CBCB0F /* Preferences.swift */; };
@@ -78,6 +80,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6EC78A68286C7167007F453C /* Alias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alias.swift; sourceTree = "<group>"; };
+		6EC78A6A286C7808007F453C /* AliasButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasButton.swift; sourceTree = "<group>"; };
 		C8088D552418E5F5001239CB /* TerminalCommandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalCommandButton.swift; sourceTree = "<group>"; };
 		C80D1227241583E800CBCB0F /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		C80D12292415840300CBCB0F /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -275,6 +279,7 @@
 				C8412E812412A70F0066A8A5 /* Project.swift */,
 				C8DB027127C6DD860048157A /* CustomCommand.swift */,
 				C8573C48249E77E400E1F969 /* TerminalScript.swift */,
+				6EC78A68286C7167007F453C /* Alias.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 				C8456CF0249A540F00BAEF17 /* AddProjectButton.swift */,
 				C8088D552418E5F5001239CB /* TerminalCommandButton.swift */,
 				C8DB027327C6E4410048157A /* AddCustomCommandButton.swift */,
+				6EC78A6A286C7808007F453C /* AliasButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -479,6 +485,8 @@
 				C8DB027427C6E4410048157A /* AddCustomCommandButton.swift in Sources */,
 				C855572724A14300006AF499 /* OnHover.swift in Sources */,
 				C8F450FC24165C29002B9D69 /* UserDefaultsConfig.swift in Sources */,
+				6EC78A69286C7167007F453C /* Alias.swift in Sources */,
+				6EC78A6B286C7808007F453C /* AliasButton.swift in Sources */,
 				C8F450FA24165C21002B9D69 /* UserDefaultsWrapper.swift in Sources */,
 				C8BE992324CA1635000D4E5E /* ProjectIcon.swift in Sources */,
 				C8F450F1241632D1002B9D69 /* ProjectCell.swift in Sources */,

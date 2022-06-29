@@ -30,6 +30,7 @@ enum TerminalCommand {
     case openXcodeDerivedData
     case clearProjectDerivedData
     case custom(command: String)
+    case alias(command: String)
 
     var title: String {
         switch self {
@@ -45,12 +46,13 @@ enum TerminalCommand {
             case .openXcodeDerivedData: return "Open derived data in Finder "
             case .clearProjectDerivedData: return "Clear derived data"
             case .custom(let command): return command
+            case .alias(let command): return command
         }
     }
 
     var executionMethod: ExecutionMethod {
         switch self {
-            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData, .podDeintegrate, .removePodfileLock, .custom:
+            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData, .podDeintegrate, .removePodfileLock, .custom, .alias:
                 return .inTerminal
             case .finder, .openWorkspace, .openXcodeDerivedData:
                 return .justOpen
@@ -71,6 +73,8 @@ enum TerminalCommand {
                 return "open -a SourceTree"
             case .custom(let command):
                 return command
+            case .alias(let command):
+                return command
             default:
                 return nil
         }
@@ -90,6 +94,11 @@ enum TerminalCommand {
         // script for removePodfileLock command
         if self == .removePodfileLock {
             return getScriptToRemove(file: project?.podfileLockPath)
+        }
+        
+        // script for aliases
+        if let command = command, self == .alias(command: command) {
+            return TerminalScript(command: (command.wrappedInScript)).script
         }
 
         // script for other in terminal commands
@@ -120,6 +129,8 @@ extension TerminalCommand: Equatable {
             case (.podInstall, .podInstall), (.podUpdate, .podUpdate), (.podDeintegrate, .podDeintegrate), (.removePodfileLock, .removePodfileLock), (.finder, .finder), (.openInTerminal, .openInTerminal), (.sourceTree, .sourceTree), (.openWorkspace, .openWorkspace), (.clearXcodeDerivedData, .clearXcodeDerivedData), (.openXcodeDerivedData, .openXcodeDerivedData), (.clearProjectDerivedData, .clearProjectDerivedData):
                 return true
             case (.custom(let lhsCommand), .custom(let rhsCommand)):
+                return lhsCommand == rhsCommand
+            case (.alias(let lhsCommand), .alias(let rhsCommand)):
                 return lhsCommand == rhsCommand
             default:
                 return false
