@@ -18,4 +18,21 @@ class Alias: Identifiable, Codable {
     }
     
     static let example = [Alias(name: "la"), Alias(name: "pi")]
+    
+    static func test() {
+        
+        let path = FileManager.default.homeDirectoryForCurrentUser
+        let file = ".zprofile"
+        let fileURL = path.appendingPathComponent(file)
+        
+        //reading
+        do {
+            let text = try String(contentsOf: fileURL, encoding: .utf8)
+            print(text)
+        }
+        catch {/* error handling here */}
+        
+    }
 }
+
+
