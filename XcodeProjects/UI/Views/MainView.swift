@@ -69,11 +69,19 @@ struct MainView: View {
                     }
                 }
             } else {
-                List {
-                    ForEach(Aliases.all) { alias in
-                        AliasdButton(alias: alias, completion: nil)
+                VStack {
+                    Spacer().frame(height: 10)
+                    HStack(spacing: 10) {
+                        Text("Parse aliases from custom script file")
+                        AddProjectButton(action: parseCustomScriptFile)
+                    }
+                    List {
+                        ForEach(Aliases.all) { alias in
+                            AliasdButton(alias: alias, completion: nil)
+                        }
                     }
                 }
+                
             }
             
             Picker("", selection: $listToShow) {
@@ -93,6 +101,31 @@ struct MainView: View {
 }
 
 extension MainView {
+    
+    private func parseCustomScriptFile() {
+        let appDelegate: AppDelegate? = NSApplication.shared.delegate as? AppDelegate
+        let dialog = NSOpenPanel()
+        dialog.title = "Choose script file to parse"
+        dialog.showsResizeIndicator = true
+        dialog.showsHiddenFiles = true
+        dialog.canChooseDirectories = false
+        dialog.canCreateDirectories = false
+        dialog.allowsMultipleSelection = true
+        dialog.canChooseFiles = true
+        dialog.becomesKeyOnlyIfNeeded = true
+
+        appDelegate?.closePopover(sender: nil)
+
+        if dialog.runModal() == NSApplication.ModalResponse.OK {
+            let aliasesUrls = dialog.urls
+            UserDefaultsConfig.aliasesURLs = aliasesUrls
+            appDelegate?.showPopover(sender: nil)
+        } else {
+            print("something went wrong")
+            appDelegate?.showPopover(sender: nil)
+        }
+    }
+    
     private func addProject() {
         let appDelegate: AppDelegate? = NSApplication.shared.delegate as? AppDelegate
         let dialog = NSOpenPanel()
