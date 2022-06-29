@@ -18,7 +18,10 @@ struct AliasdButton: View {
             NSWorkspace.execute(command: .alias(command: alias.name))
             completion?()
         }) {
-            Text(alias.name)
+            HStack {
+                Text(alias.name)
+                Spacer()
+            }
         }
     }
 }

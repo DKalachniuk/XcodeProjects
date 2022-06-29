@@ -70,19 +70,18 @@ struct MainView: View {
                 }
             } else {
                 List {
-                    ForEach(Alias.example) { alias in
+                    ForEach(Aliases.all) { alias in
                         AliasdButton(alias: alias, completion: nil)
                     }
                 }
             }
             
-            
-            Divider().padding([.top], 3)
             Picker("", selection: $listToShow) {
-                            Text("Projects").tag(0)
-                            Text("Aliases").tag(1)
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
+                Text("Projects").tag(0)
+                Text("Aliases").tag(1)
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding([.leading], -8)
         }
     }
 
