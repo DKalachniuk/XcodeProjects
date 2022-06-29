@@ -25,12 +25,22 @@ class Alias: Identifiable, Codable {
         let file = ".zprofile"
         let fileURL = path.appendingPathComponent(file)
         
-        //reading
         do {
-            let text = try String(contentsOf: fileURL, encoding: .utf8)
-            print(text)
+            let content = try String(contentsOf: fileURL, encoding: .utf8)
+            print(content)
+            let commands = content.split(separator: "\n").map(String.init)
+            for command in commands {
+                if command.contains("alias ") {
+                    let aliases = command.split(separator: "=").map(String.init)
+                    if let aliasName = aliases.first?.replacingOccurrences(of: "alias ", with: "") {
+                        print(aliasName)
+                    }
+                }
+            }
         }
-        catch {/* error handling here */}
+        catch {
+            
+        }
         
     }
 }
