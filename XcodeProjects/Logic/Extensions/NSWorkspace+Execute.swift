@@ -35,6 +35,9 @@ private extension NSWorkspace {
             case .openWorkspace:
                 guard let url = project?.workspaceURL ?? project?.projectURL else { return }
                 NSWorkspace.shared.open(url)
+            case .openSwiftPackage:
+                guard let url = project?.swiftPackageURL else { return }
+                NSWorkspace.shared.open(url)
             case .finder:
                 guard let url = project?.urlPath else { return }
                 NSWorkspace.shared.activateFileViewerSelecting([url])

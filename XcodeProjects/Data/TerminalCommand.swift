@@ -26,6 +26,7 @@ enum TerminalCommand {
     case openInTerminal
     case sourceTree
     case openWorkspace
+    case openSwiftPackage
     case clearXcodeDerivedData
     case openXcodeDerivedData
     case clearProjectDerivedData
@@ -42,6 +43,7 @@ enum TerminalCommand {
             case .openInTerminal: return "Open in Terminal"
             case .sourceTree: return "Open in Sourcetree"
             case .openWorkspace: return "Open Workspace"
+            case .openSwiftPackage: return "Open Package.swift"
             case .clearXcodeDerivedData: return "Clear Xcode derived data"
             case .openXcodeDerivedData: return "Open derived data in Finder "
             case .clearProjectDerivedData: return "Clear derived data"
@@ -54,7 +56,7 @@ enum TerminalCommand {
         switch self {
             case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData, .podDeintegrate, .removePodfileLock, .custom, .alias:
                 return .inTerminal
-            case .finder, .openWorkspace, .openXcodeDerivedData:
+            case .finder, .openWorkspace, .openXcodeDerivedData, .openSwiftPackage:
                 return .justOpen
         }
     }
@@ -126,7 +128,7 @@ enum TerminalCommand {
 extension TerminalCommand: Equatable {
     static func ==(lhs: TerminalCommand, rhs: TerminalCommand) -> Bool {
         switch (lhs, rhs) {
-            case (.podInstall, .podInstall), (.podUpdate, .podUpdate), (.podDeintegrate, .podDeintegrate), (.removePodfileLock, .removePodfileLock), (.finder, .finder), (.openInTerminal, .openInTerminal), (.sourceTree, .sourceTree), (.openWorkspace, .openWorkspace), (.clearXcodeDerivedData, .clearXcodeDerivedData), (.openXcodeDerivedData, .openXcodeDerivedData), (.clearProjectDerivedData, .clearProjectDerivedData):
+        case (.podInstall, .podInstall), (.podUpdate, .podUpdate), (.podDeintegrate, .podDeintegrate), (.removePodfileLock, .removePodfileLock), (.finder, .finder), (.openInTerminal, .openInTerminal), (.sourceTree, .sourceTree), (.openWorkspace, .openWorkspace), (.openSwiftPackage, .openSwiftPackage), (.clearXcodeDerivedData, .clearXcodeDerivedData), (.openXcodeDerivedData, .openXcodeDerivedData), (.clearProjectDerivedData, .clearProjectDerivedData):
                 return true
             case (.custom(let lhsCommand), .custom(let rhsCommand)):
                 return lhsCommand == rhsCommand
