@@ -14,13 +14,14 @@ Switch between projects in 2 clicks. Don't write "pod install", "pod update" and
 - you have a lot of projects or modules/frameworks and you need to switch between them quickly
   
 # How to install
-Go to release section in this repo and download the binary. Drag & drop XcodeProjects.app to your Application folder. Enjoy! 
+Go to release section in this repo and download the binary. Drag & drop XcodeProjects.app to your Application folder. Enjoy!
+
 If you see this window 
 
 ![alt text](Images/xcodeProjects_cantopen.jpeg?raw=true)
 
 it is ok. No worries. It is new security measure in MacOS.
-Please click with a right button the XcodeProjects app. Then you will see
+Please click with **a right button** the XcodeProjects app. Then you will see
 
 ![alt text](Images/xcodeProjects_rightclickMenu.jpeg?raw=true)
 
