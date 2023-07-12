@@ -4,7 +4,7 @@ Switch between projects in 2 clicks. Don't write "pod install", "pod update" and
 **NEW**: Add your custom commands for a project! 
   
 # When do you need this tool
-- you want to **open** quickly specific **Xcode project**
+- you want to **open** quickly specific **Xcode project** or **Package.swift** file
 - you want to **clear derived data for a specific project only**
 - you type "pod install", "pod update" and "pod deintegrate" in the terminal too often. Do it in 2 clicks
 - you need to **remove Podfile.lock file** quickly
@@ -14,7 +14,22 @@ Switch between projects in 2 clicks. Don't write "pod install", "pod update" and
 - you have a lot of projects or modules/frameworks and you need to switch between them quickly
   
 # How to install
-Go to release section in this repo and download the binary. Drag & drop XcodeProjects.app to your Application folder. Enjoy! 
+Go to release section in this repo and download the binary. Drag & drop XcodeProjects.app to your Application folder. Enjoy!
+
+If you see this window 
+
+![alt text](Images/xcodeProjects_cantopen.jpeg?raw=true)
+
+it is ok. No worries. It is new security measure in MacOS.
+Please click with **a right button** the XcodeProjects app. Then you will see
+
+![alt text](Images/xcodeProjects_rightclickMenu.jpeg?raw=true)
+
+Click Open
+
+![alt text](Images/xcodeProjects_openMenu.jpeg?raw=true)
+
+Click Open again. That is it!
 
 # How to use 
 When you open the app for the first time you would see empty screen
