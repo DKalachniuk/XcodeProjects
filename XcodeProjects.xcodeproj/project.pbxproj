@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6EE247962A5F453A00DC2B4A /* PackageSwiftImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE247952A5F453A00DC2B4A /* PackageSwiftImage.swift */; };
 		C8088D562418E5F5001239CB /* TerminalCommandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8088D552418E5F5001239CB /* TerminalCommandButton.swift */; };
 		C80D1228241583E800CBCB0F /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D1227241583E800CBCB0F /* PreferencesView.swift */; };
 		C80D122A2415840300CBCB0F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D12292415840300CBCB0F /* Preferences.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6EE247952A5F453A00DC2B4A /* PackageSwiftImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageSwiftImage.swift; sourceTree = "<group>"; };
 		C8088D552418E5F5001239CB /* TerminalCommandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalCommandButton.swift; sourceTree = "<group>"; };
 		C80D1227241583E800CBCB0F /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		C80D12292415840300CBCB0F /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				C80E916524A39ADF0073CF3F /* ArrowImage.swift */,
 				C8D9623724AD31F000B70B23 /* ArrowImageWithHoverPopover.swift */,
 				C80E916B24A39E2C0073CF3F /* CloseHintImage.swift */,
+				6EE247952A5F453A00DC2B4A /* PackageSwiftImage.swift */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -406,7 +409,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = com.klm.mac.myProjects;
 				TargetAttributes = {
 					C8412E2524129B4F0066A8A5 = {
@@ -498,6 +501,7 @@
 				C874747226069D600091E791 /* DividerSection.swift in Sources */,
 				C8573C44249D6EA600E1F969 /* FileManger+Content.swift in Sources */,
 				C855572F24A14B30006AF499 /* ProjectNameView.swift in Sources */,
+				6EE247962A5F453A00DC2B4A /* PackageSwiftImage.swift in Sources */,
 				C8F450FF24167592002B9D69 /* NSWorkspace+Execute.swift in Sources */,
 				C8412E4B2412A23B0066A8A5 /* EventMonitor.swift in Sources */,
 				C8D9F49A25FCD5F6004C952C /* NotificationNames.swift in Sources */,
@@ -571,6 +575,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -632,6 +637,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -661,6 +667,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"XcodeProjects/Preview Content\"";
 				DEVELOPMENT_TEAM = N5V3ES565J;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -672,7 +679,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.6.1;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dkcompany.xcodeprojects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -691,6 +698,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"XcodeProjects/Preview Content\"";
 				DEVELOPMENT_TEAM = N5V3ES565J;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -702,7 +710,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.6.1;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dkcompany.xcodeprojects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -719,6 +727,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = N5V3ES565J;
 				INFOPLIST_FILE = XcodeProjectsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -742,6 +751,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = N5V3ES565J;
 				INFOPLIST_FILE = XcodeProjectsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

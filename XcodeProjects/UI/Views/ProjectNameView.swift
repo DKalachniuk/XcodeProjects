@@ -24,7 +24,8 @@ struct ProjectNameView: View {
 
             Text(self.project.name)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
-
+           
+            // open project
             Spacer()
             Button(action: {
                 AppDelegate.closePopover()
@@ -36,6 +37,19 @@ struct ProjectNameView: View {
             .padding([.trailing], 5)
             .modifier(OnHoverText())
 
+            // open package swift if exists
+            if project.hasSwiftPackage {
+                Button(action: {
+                    AppDelegate.closePopover()
+                    NSWorkspace.execute(command: .openSwiftPackage, forProject: self.project)
+                }) {
+                    PackageSwiftImage()
+                }
+                .buttonStyle(BorderlessButtonStyle())
+                .padding([.trailing], 5)
+                .modifier(OnHoverText())
+            }
+            
             Spacer().frame(width: 3)
         }
         .frame(height: 40)
