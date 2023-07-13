@@ -56,7 +56,6 @@ fileprivate extension ProfileFile {
         do {
             return try String(contentsOf: fileURL, encoding: .utf8)
         } catch {
-            print("error: \(error)")
             return nil
         }
     }
