@@ -20,7 +20,7 @@ class Alias: Identifiable, Codable {
 
 class Aliases {
     static var all: [Alias] = {
-        let profileFiles = UserDefaultsConfig.aliasesURLs.compactMap { ProfileFile.custom(name: $0.lastPathComponent, path: $0) }
+        let profileFiles = UserDefaultsConfig.aliasesURLObjects.compactMap { ProfileFile.custom(name: $0.lastPathComponent, path: $0) }
         var result: [Alias] = ProfileFile.z.aliases + ProfileFile.bash.aliases
         for profileFile in profileFiles {
             result.append(contentsOf: profileFile.aliases)

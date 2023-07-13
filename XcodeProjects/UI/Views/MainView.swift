@@ -75,11 +75,19 @@ struct MainView: View {
                         Text("Parse aliases from custom script file")
                         AddProjectButton(action: parseCustomScriptFile)
                     }
+                    let allAliases = Aliases.all
                     List {
-                        ForEach(Aliases.all) { alias in
+                        ForEach(allAliases) { alias in
                             AliasdButton(alias: alias, completion: nil)
                         }
                     }
+//                    if allAliases.isEmpty {
+//                        Group {
+//                            Spacer()
+//                            Text("No aliases were detected")
+//                            Spacer()
+//                        }.background { Color.white }
+//                    }
                 }
                 
             }
@@ -117,13 +125,14 @@ extension MainView {
         appDelegate?.closePopover(sender: nil)
 
         if dialog.runModal() == NSApplication.ModalResponse.OK {
-            let aliasesUrls = dialog.urls
-            UserDefaultsConfig.aliasesURLs = aliasesUrls
-            appDelegate?.showPopover(sender: nil)
+            let aliasesUrls = Set(dialog.urls + UserDefaultsConfig.aliasesURLObjects)
+            if let encodedAliases = try? JSONEncoder().encode(aliasesUrls) {
+                UserDefaultsConfig.aliasesURLsData = encodedAliases
+            }
         } else {
             print("something went wrong")
-            appDelegate?.showPopover(sender: nil)
         }
+        appDelegate?.showPopover(sender: nil)
     }
     
     private func addProject() {

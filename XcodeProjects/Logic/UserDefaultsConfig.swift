@@ -21,8 +21,8 @@ struct UserDefaultsConfig {
     @UserDefault("customTerminalCommands", defaultValue: nil)
     static var customTerminalCommands: Data?
     
-    @UserDefault("aliasesURLs", defaultValue: [URL]())
-    static var aliasesURLs: [URL]
+    @UserDefault("aliasesURLs", defaultValue: nil)
+    static var aliasesURLsData: Data?
 }
 
 extension UserDefaultsConfig {
@@ -39,6 +39,15 @@ extension UserDefaultsConfig {
         if let commandsData = UserDefaultsConfig.customTerminalCommands {
             do {
                 return try JSONDecoder().decode([CustomCommand].self, from: commandsData)
+            } catch { }
+        }
+        return []
+    }
+    
+    static var aliasesURLObjects: [URL] {
+        if let urls = UserDefaultsConfig.aliasesURLsData {
+            do {
+                return try JSONDecoder().decode([URL].self, from: urls)
             } catch { }
         }
         return []
