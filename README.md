@@ -2,6 +2,7 @@
 Switch between projects in 2 clicks. Don't write "pod install", "pod update" and "cd <your project>" in the terminal anymore!<br />
 **NEW**: Remove derived data of particular project!
 **NEW**: Add your custom commands for a project! 
+**NEW**: Open Package.swift file!
   
 # When do you need this tool
 - you want to **open** quickly specific **Xcode project** or **Package.swift** file
@@ -43,6 +44,8 @@ click "+" button to add folder of you project within system dialog (Hint: choose
 ![alt text](Images/example_list_of_projects_light.png?raw=true)
 
 **Click "arrows" button to open your Xcode workspace/project**
+
+**Click "swift" button to open your Package.swift in Xcode**
 
 **Click "..." button to see the menu options** 
 
