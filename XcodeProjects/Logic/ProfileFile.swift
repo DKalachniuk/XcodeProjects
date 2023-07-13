@@ -16,7 +16,10 @@ enum ProfileFile {
 
 extension ProfileFile {
     var fileURL: URL {
-        parentURL.appendingPathComponent(fileName)
+        switch self {
+        case .z, .bash: return parentURL.appendingPathComponent(fileName) // we need to add name of the file
+        case .custom: return parentURL // name of the file is already in the parent path
+        }
     }
     
     var aliases: [Alias] {
@@ -50,7 +53,12 @@ fileprivate extension ProfileFile {
     }
     
     var content: String? {
-        try? String(contentsOf: fileURL, encoding: .utf8)
+        do {
+            return try String(contentsOf: fileURL, encoding: .utf8)
+        } catch {
+            print("error: \(error)")
+            return nil
+        }
     }
 }
 
