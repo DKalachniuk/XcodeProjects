@@ -128,6 +128,7 @@ extension MainView {
             let aliasesUrls = Set(dialog.urls + UserDefaultsConfig.aliasesURLObjects)
             if let encodedAliases = try? JSONEncoder().encode(aliasesUrls) {
                 UserDefaultsConfig.aliasesURLsData = encodedAliases
+                // TODO: update all screen
             }
         } else {
             print("something went wrong")

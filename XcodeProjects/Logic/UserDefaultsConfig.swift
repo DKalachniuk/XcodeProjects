@@ -23,6 +23,9 @@ struct UserDefaultsConfig {
     
     @UserDefault("aliasesURLs", defaultValue: nil)
     static var aliasesURLsData: Data?
+    
+    @UserDefault("aliases", defaultValue: nil)
+    private static var aliases: Data?
 }
 
 extension UserDefaultsConfig {
@@ -49,6 +52,29 @@ extension UserDefaultsConfig {
             do {
                 return try JSONDecoder().decode([URL].self, from: urls)
             } catch { }
+        }
+        return []
+    }
+}
+
+extension UserDefaultsConfig {
+    
+    static func addNewAliasTerminalCommands(profileFile: ProfileFile) {
+        UserDefaultsConfig.addNewAliasTerminalCommands(profileFile.aliases)
+    }
+    
+    static func addNewAliasTerminalCommands(_ aliases: [Alias]) {
+        let allAliases = Set(UserDefaultsConfig.aliasTerminalCommands + aliases)
+        if let encodedAliases = try? JSONEncoder().encode(allAliases) {
+            UserDefaultsConfig.aliases = encodedAliases
+        }
+    }
+    
+    static var aliasTerminalCommands: [Alias] {
+        if let aliases = UserDefaultsConfig.aliases {
+            do {
+                return try JSONDecoder().decode([Alias].self, from: aliases)
+            } catch {}
         }
         return []
     }

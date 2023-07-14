@@ -8,23 +8,27 @@
 
 import Foundation
 
-class Alias: Identifiable, Codable {
-
+class Alias: Identifiable, Codable, Hashable {
+    
     var id: UUID = UUID()
     var name: String
 
     init(name: String) {
         self.name = name
     }
+    
+    static func == (lhs: Alias, rhs: Alias) -> Bool {
+        lhs.name == rhs.name && lhs.id == rhs.id
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(name)
+    }
 }
 
 class Aliases {
-    static var all: [Alias] = {
-        let profileFiles = UserDefaultsConfig.aliasesURLObjects.compactMap { ProfileFile.custom(name: $0.lastPathComponent, path: $0) }
-        var result: [Alias] = ProfileFile.z.aliases + ProfileFile.bash.aliases
-        for profileFile in profileFiles {
-            result.append(contentsOf: profileFile.aliases)
-        }
-        return result
-    }()
+    static var all: [Alias] {
+        ProfileFile.z.aliases + ProfileFile.bash.aliases + UserDefaultsConfig.aliasTerminalCommands
+    }
 }
