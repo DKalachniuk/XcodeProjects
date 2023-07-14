@@ -11,6 +11,7 @@ import SwiftUI
 struct PreferencesView: View {
     @EnvironmentObject var preferences: Preferences
     @State private var showingRemoveAllProjectsAlert = false
+    @State private var showAliases = UserDefaultsConfig.showAliases
 
     var body: some View {
         MenuButton(label: Image("gear")) {
@@ -62,9 +63,18 @@ struct PreferencesView: View {
                     showingRemoveAllProjectsAlert = true
                 }
             }
+            Group {
+                DividerSection(title: nil)
+                let text = showAliases ? "Turn Off Aliases Tab" : "Turn On Aliases Tab"
+                Button(text) {
+                    preferences.toggleShowAliases()
+                    showAliases.toggle()
+                }
 
-            DividerSection(title: nil)
-            Button(action: quit, label: { Text("Quit") })
+                DividerSection(title: nil)
+                Button(action: quit, label: { Text("Quit") })
+            }
+            
         }
         .menuButtonStyle(BorderlessButtonMenuButtonStyle())
         .alert(isPresented: $showingRemoveAllProjectsAlert, content: {

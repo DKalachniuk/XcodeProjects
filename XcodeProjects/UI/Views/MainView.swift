@@ -39,7 +39,7 @@ struct MainView: View {
 
             Divider().padding([.top], 3)
 
-            if listToShow == 0  {
+            if listToShow == 0 {
                 if projects.isEmpty {
                     Spacer()
                     if searchTerm.isEmpty {
@@ -95,13 +95,15 @@ struct MainView: View {
                 }
             }
             
-            Picker("", selection: $listToShow) {
-                Text("Projects").tag(0)
-                Text("Aliases").tag(1)
+            if preferences.showAliases {
+                Picker("", selection: $listToShow) {
+                    Text("Projects").tag(0)
+                    Text("Aliases").tag(1)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding([.leading], -8)
+                .padding()
             }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding([.leading], -8)
-            .padding()
         }
     }
     

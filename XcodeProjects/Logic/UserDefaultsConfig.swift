@@ -17,6 +17,9 @@ struct UserDefaultsConfig {
 
     @UserDefault("showProjectIcon", defaultValue: true)
     static var showProjectIcon: Bool
+    
+    @UserDefault("showAliases", defaultValue: true)
+    static var showAliases: Bool
 
     @UserDefault("customTerminalCommands", defaultValue: nil)
     static var customTerminalCommands: Data?

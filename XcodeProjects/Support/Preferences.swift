@@ -21,6 +21,7 @@ final class Preferences: ObservableObject {
     @Published private var _projects: [Project] = []
     @Published private var _customTerminalCommands: [CustomCommand] = []
     @Published private var _aliases: [Alias] = []
+    @Published private var _showAliases: Bool = UserDefaultsConfig.showAliases
 
     // is used after podfile.lock file or project's derived data was called
     // in order not to show that menu for the project again
@@ -86,6 +87,16 @@ final class Preferences: ObservableObject {
             UserDefaultsConfig.showProjectIcon = _showProjectIcon
         }
     }
+    
+    private (set) var showAliases: Bool {
+        get {
+            _showAliases
+        }
+        set (newValue) {
+            _showAliases = newValue
+            UserDefaultsConfig.showAliases = newValue
+        }
+    }
 
     private (set) var launchAtLoginEnabled: Bool {
         get {
@@ -116,6 +127,10 @@ extension Preferences {
 
     func toggleShowProjectIcon() {
         showProjectIcon.toggle()
+    }
+    
+    func toggleShowAliases() {
+        showAliases.toggle()
     }
 
     func toggleLaunchAtLogin() {

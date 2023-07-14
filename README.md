@@ -1,8 +1,9 @@
 # XcodeProjects
 Switch between projects in 2 clicks. Don't write "pod install", "pod update" and "cd <your project>" in the terminal anymore!<br />
-**NEW**: Remove derived data of particular project!
-**NEW**: Add your custom commands for a project! 
-**NEW**: Open Package.swift file!
+**NEW**: Remove derived data of particular project!<br />
+**NEW**: Add your custom commands for a project! <br />
+**NEW**: Open Package.swift file!<br />
+**NEW**: Keep you aliases and custom script's commands in one list. Switch On and Off in the Preferences <br />
   
 # When do you need this tool
 - you want to **open** quickly specific **Xcode project** or **Package.swift** file
