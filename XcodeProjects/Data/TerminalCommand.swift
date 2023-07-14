@@ -25,6 +25,7 @@ enum TerminalCommand {
     case finder
     case openInTerminal
     case sourceTree
+    case fork
     case openWorkspace
     case openSwiftPackage
     case clearXcodeDerivedData
@@ -42,6 +43,7 @@ enum TerminalCommand {
             case .finder: return "Open in Finder"
             case .openInTerminal: return "Open in Terminal"
             case .sourceTree: return "Open in Sourcetree"
+            case .fork: return "Open in Fork"
             case .openWorkspace: return "Open Workspace"
             case .openSwiftPackage: return "Open Package.swift"
             case .clearXcodeDerivedData: return "Clear Xcode derived data"
@@ -54,7 +56,7 @@ enum TerminalCommand {
 
     var executionMethod: ExecutionMethod {
         switch self {
-            case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .clearXcodeDerivedData, .clearProjectDerivedData, .podDeintegrate, .removePodfileLock, .custom, .alias:
+        case .podUpdate, .podInstall, .openInTerminal, .sourceTree, .fork, .clearXcodeDerivedData, .clearProjectDerivedData, .podDeintegrate, .removePodfileLock, .custom, .alias:
                 return .inTerminal
             case .finder, .openWorkspace, .openXcodeDerivedData, .openSwiftPackage:
                 return .justOpen
@@ -73,6 +75,8 @@ enum TerminalCommand {
                 return "cd "
             case .sourceTree:
                 return "open -a SourceTree"
+            case .fork:
+                return "open -a Fork"
             case .custom(let command):
                 return command
             case .alias(let command):
@@ -112,7 +116,7 @@ enum TerminalCommand {
         var twoLinesScript = commandString.wrappedInScript
         if self != .openInTerminal {
             twoLinesScript.append("\n")
-            if self == .sourceTree {
+            if self == .sourceTree || self == .fork {
                 commandValue += " \(project.path)"
             } 
             twoLinesScript.append(commandValue.wrappedInScript)
@@ -128,7 +132,7 @@ enum TerminalCommand {
 extension TerminalCommand: Equatable {
     static func ==(lhs: TerminalCommand, rhs: TerminalCommand) -> Bool {
         switch (lhs, rhs) {
-        case (.podInstall, .podInstall), (.podUpdate, .podUpdate), (.podDeintegrate, .podDeintegrate), (.removePodfileLock, .removePodfileLock), (.finder, .finder), (.openInTerminal, .openInTerminal), (.sourceTree, .sourceTree), (.openWorkspace, .openWorkspace), (.openSwiftPackage, .openSwiftPackage), (.clearXcodeDerivedData, .clearXcodeDerivedData), (.openXcodeDerivedData, .openXcodeDerivedData), (.clearProjectDerivedData, .clearProjectDerivedData):
+        case (.podInstall, .podInstall), (.podUpdate, .podUpdate), (.podDeintegrate, .podDeintegrate), (.removePodfileLock, .removePodfileLock), (.finder, .finder), (.openInTerminal, .openInTerminal), (.sourceTree, .sourceTree), (.fork, .fork), (.openWorkspace, .openWorkspace), (.openSwiftPackage, .openSwiftPackage), (.clearXcodeDerivedData, .clearXcodeDerivedData), (.openXcodeDerivedData, .openXcodeDerivedData), (.clearProjectDerivedData, .clearProjectDerivedData):
                 return true
             case (.custom(let lhsCommand), .custom(let rhsCommand)):
                 return lhsCommand == rhsCommand

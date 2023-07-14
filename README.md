@@ -4,7 +4,8 @@ Switch between projects in 2 clicks. Don't write "pod install", "pod update" and
 **NEW**: Add your custom commands for a project! <br />
 **NEW**: Open Package.swift file!<br />
 **NEW**: Keep you aliases and custom script's commands in one list. Switch On and Off in the Preferences <br />
-  
+**NEW**: Now you can open your project in Fork app<br />
+
 # When do you need this tool
 - you want to **open** quickly specific **Xcode project** or **Package.swift** file
 - you want to **clear derived data for a specific project only**
@@ -38,11 +39,27 @@ Switch between Projects/Aliases tabs in the bottom
 
 By default the app will parse your system .bash_profile and .zprofile files. But you can either add your alias manually or parse the existing script file for aliases.
 
+Also it is possible to drag projects around.
+
+![alt text](Images/example_drag_and_drop_dark.png?raw=true)
+
+## Options
+
+When  "..." button of the project is clicked you will see the following
+
+![alt text](Images/example_context_menu_light_openinfork.png?raw=true)
+
+![alt text](Images/example_context_menu_light.png?raw=true)
+
+![alt text](Images/example_context_menu_dark.png?raw=true)
+
 **Open in Terminal** - opens the path to the project in terminal. Handy to quickly switch to the folder of the project
 
 **Open in Finder** - opens the folder of the project in Finder
 
-**Open in Sourcetree** - opens the folder of the project in Sourcetree (if you have Sourcetree)
+**Open in Sourcetree** - opens the folder of the project in Sourcetree (if you have Sourcetree installed)
+
+**Open in Fork** - opens the folder of the project in Fork (if you have Fork installed)
 
 **Pod install** - runs "pod install" command in terminal for the project
 
@@ -63,10 +80,6 @@ By default the app will parse your system .bash_profile and .zprofile files. But
 If you have added custom commands then they would appear at the bottom of the list with option to remove the command
 
 ![alt text](Images/custom_command.png?raw=true)
-
-Also it is possible to drag projects around.
-
-![alt text](Images/example_drag_and_drop_dark.png?raw=true)
 
 # Preferences
 
