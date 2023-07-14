@@ -45,6 +45,7 @@
 		C8BE992324CA1635000D4E5E /* ProjectIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BE992224CA1635000D4E5E /* ProjectIcon.swift */; };
 		C8BE992424CA1732000D4E5E /* NSColor+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8573C4E24A0045200E1F969 /* NSColor+Codable.swift */; };
 		C8D35B3624CC2CB00075308D /* CodableColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D35B3524CC2CB00075308D /* CodableColorPicker.swift */; };
+		C8D91FB524A10A6C00B1AF7E /* TerminalCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D91FB424A10A6C00B1AF7E /* TerminalCommandTests.swift */; };
 		C8D9623824AD31F100B70B23 /* ArrowImageWithHoverPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9623724AD31F000B70B23 /* ArrowImageWithHoverPopover.swift */; };
 		C8D9623A24AD348600B70B23 /* NSWorkspace+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9623924AD348600B70B23 /* NSWorkspace+App.swift */; };
 		C8D9F49425FCCE61004C952C /* ProjectPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9F49325FCCE61004C952C /* ProjectPreferencesView.swift */; };
@@ -52,7 +53,6 @@
 		C8D9F49A25FCD5F6004C952C /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9F49925FCD5F6004C952C /* NotificationNames.swift */; };
 		C8DB027227C6DD860048157A /* CustomCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DB027127C6DD860048157A /* CustomCommand.swift */; };
 		C8DB027427C6E4410048157A /* AddCustomCommandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DB027327C6E4410048157A /* AddCustomCommandButton.swift */; };
-		C8D91FB524A10A6C00B1AF7E /* TerminalCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D91FB424A10A6C00B1AF7E /* TerminalCommandTests.swift */; };
 		C8F450F1241632D1002B9D69 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F0241632D1002B9D69 /* ProjectCell.swift */; };
 		C8F450F6241638C2002B9D69 /* TerminalCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F5241638C2002B9D69 /* TerminalCommand.swift */; };
 		C8F450FA24165C21002B9D69 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F450F924165C21002B9D69 /* UserDefaultsWrapper.swift */; };
@@ -130,6 +130,7 @@
 		C8AE96362499818200E6B080 /* CharacterSet+All.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+All.swift"; sourceTree = "<group>"; };
 		C8BE992224CA1635000D4E5E /* ProjectIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectIcon.swift; sourceTree = "<group>"; };
 		C8D35B3524CC2CB00075308D /* CodableColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableColorPicker.swift; sourceTree = "<group>"; };
+		C8D91FB424A10A6C00B1AF7E /* TerminalCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalCommandTests.swift; sourceTree = "<group>"; };
 		C8D9623724AD31F000B70B23 /* ArrowImageWithHoverPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowImageWithHoverPopover.swift; sourceTree = "<group>"; };
 		C8D9623924AD348600B70B23 /* NSWorkspace+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWorkspace+App.swift"; sourceTree = "<group>"; };
 		C8D9F49325FCCE61004C952C /* ProjectPreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectPreferencesView.swift; sourceTree = "<group>"; };
@@ -137,7 +138,6 @@
 		C8D9F49925FCD5F6004C952C /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		C8DB027127C6DD860048157A /* CustomCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCommand.swift; sourceTree = "<group>"; };
 		C8DB027327C6E4410048157A /* AddCustomCommandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomCommandButton.swift; sourceTree = "<group>"; };
-		C8D91FB424A10A6C00B1AF7E /* TerminalCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalCommandTests.swift; sourceTree = "<group>"; };
 		C8F450F0241632D1002B9D69 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		C8F450F5241638C2002B9D69 /* TerminalCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalCommand.swift; sourceTree = "<group>"; };
 		C8F450F924165C21002B9D69 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
@@ -241,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				C8D91FB624A10A6F00B1AF7E /* Data */,
-				C8D91FB224A10A4B00B1AF7E /* Logic */,
 				C8412E3F24129B530066A8A5 /* XcodeProjectsTests.swift */,
 				C8412E4124129B530066A8A5 /* Info.plist */,
 			);
@@ -346,7 +345,7 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-        C8D91FB624A10A6F00B1AF7E /* Data */ = {
+		C8D91FB624A10A6F00B1AF7E /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				C8D91FB424A10A6C00B1AF7E /* TerminalCommandTests.swift */,
@@ -768,7 +767,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dkcompany.xcodeprojects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -792,7 +791,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dkcompany.xcodeprojects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
