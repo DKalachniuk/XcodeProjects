@@ -46,4 +46,5 @@ struct RoundedCorners: View {
 extension RoundedCorners {
     static let right = RoundedCorners(color: Color.gray.opacity(0.25), tl: 0, tr: 12, bl: 0, br: 12)
     static let left = RoundedCorners(color: Color.gray.opacity(0.25), tl: 12, tr: 0, bl: 12, br: 0)
+    static let all = RoundedCorners(color: Color.gray.opacity(0.25), tl: 12, tr: 12, bl: 12, br: 12)
 }

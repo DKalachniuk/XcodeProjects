@@ -20,6 +20,8 @@ final class Preferences: ObservableObject {
     @Published private var _showProjectIcon: Bool = UserDefaultsConfig.showProjectIcon
     @Published private var _projects: [Project] = []
     @Published private var _customTerminalCommands: [CustomCommand] = []
+    @Published private var _aliases: [Alias] = []
+    @Published private var _showAliases: Bool = UserDefaultsConfig.showAliases
 
     // is used after podfile.lock file or project's derived data was called
     // in order not to show that menu for the project again
@@ -29,6 +31,7 @@ final class Preferences: ObservableObject {
         _launchAtLoginEnabled = launchAtLoginEnabled
         _projects = UserDefaultsConfig.projectObjects
         _customTerminalCommands = UserDefaultsConfig.customTerminalCommandObjects
+        _aliases = ProfileFile.z.aliases + ProfileFile.bash.aliases + UserDefaultsConfig.aliasTerminalCommands
     }
 
     private (set) var customTerminalCommands: [CustomCommand] {
@@ -54,6 +57,16 @@ final class Preferences: ObservableObject {
             }
         }
     }
+    
+    private (set) var aliases: [Alias] {
+        get {
+            _aliases
+        }
+        set (newAliases) {
+            _aliases = newAliases
+            UserDefaultsConfig.addNewAliasTerminalCommands(newAliases)
+        }
+    }
 
     private (set) var hintDisabled: Bool {
         get {
@@ -72,6 +85,16 @@ final class Preferences: ObservableObject {
         set (newShowProjectIcon) {
             _showProjectIcon = newShowProjectIcon
             UserDefaultsConfig.showProjectIcon = _showProjectIcon
+        }
+    }
+    
+    private (set) var showAliases: Bool {
+        get {
+            _showAliases
+        }
+        set (newValue) {
+            _showAliases = newValue
+            UserDefaultsConfig.showAliases = newValue
         }
     }
 
@@ -105,6 +128,10 @@ extension Preferences {
     func toggleShowProjectIcon() {
         showProjectIcon.toggle()
     }
+    
+    func toggleShowAliases() {
+        showAliases.toggle()
+    }
 
     func toggleLaunchAtLogin() {
         launchAtLoginEnabled.toggle()
@@ -112,6 +139,16 @@ extension Preferences {
 }
 
 extension Preferences {
+    
+    func addAliases(_ newAliases: [Alias]) {
+        aliases.append(contentsOf: newAliases)
+    }
+    
+    func removeAlias(_ alias: Alias) {
+        UserDefaultsConfig.removeAlias(alias)
+        aliases.removeAll(where: { $0.name == alias.name })
+    }
+    
     func addProjects(_ newProjects: [Project]) {
         projects.append(contentsOf: newProjects)
     }

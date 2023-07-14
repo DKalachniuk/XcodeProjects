@@ -42,6 +42,9 @@ struct ProjectPreferencesView: View {
                                 case .success:
                                     break
                             }
+                        case .addAlias:
+                            preferences.addAliases([Alias(name: newValue)])
+                            break
                     }
                     NotificationCenter.default.post(name: .closePreferencesController, object: nil)
                 }
@@ -60,13 +63,15 @@ private extension ProjectPreferencesView {
     var title: String {
         switch type {
             case .project: return "New name"
-        case .addTerminalCommand: return "Terminal command"
+            case .addTerminalCommand: return "Terminal command"
+            case .addAlias: return "Alias to call"
         }
     }
     var value: String {
         switch type {
             case .project: return project?.name ?? ""
             case .addTerminalCommand: return "cd <path to your project> will be added automatically"
+            case .addAlias: return ""
         }
     }
 
@@ -74,6 +79,7 @@ private extension ProjectPreferencesView {
         switch type {
             case .project: return "Rename"
             case .addTerminalCommand: return "Add new command"
+            case .addAlias: return "Add new alias"
         }
     }
 }

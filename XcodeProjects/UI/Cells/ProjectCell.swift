@@ -20,7 +20,7 @@ struct ProjectCell: View {
                     .environmentObject(preferences)
 
                 Divider()
-                    .frame(width: 1)
+                    .frame(width: 2)
                     .padding(0)
 
                 ProjectMenuView(project: self.project)
