@@ -11,6 +11,7 @@
 		6EC78A6B286C7808007F453C /* AliasButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC78A6A286C7808007F453C /* AliasButton.swift */; };
 		6EC78A6D286C9E72007F453C /* ProfileFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC78A6C286C9E72007F453C /* ProfileFile.swift */; };
 		6EE247962A5F453A00DC2B4A /* PackageSwiftImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE247952A5F453A00DC2B4A /* PackageSwiftImage.swift */; };
+		6EE2479A2A61488E00DC2B4A /* AddAliasButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE247992A61488E00DC2B4A /* AddAliasButton.swift */; };
 		C8088D562418E5F5001239CB /* TerminalCommandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8088D552418E5F5001239CB /* TerminalCommandButton.swift */; };
 		C80D1228241583E800CBCB0F /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D1227241583E800CBCB0F /* PreferencesView.swift */; };
 		C80D122A2415840300CBCB0F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D12292415840300CBCB0F /* Preferences.swift */; };
@@ -86,6 +87,7 @@
 		6EC78A6A286C7808007F453C /* AliasButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasButton.swift; sourceTree = "<group>"; };
 		6EC78A6C286C9E72007F453C /* ProfileFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFile.swift; sourceTree = "<group>"; };
 		6EE247952A5F453A00DC2B4A /* PackageSwiftImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageSwiftImage.swift; sourceTree = "<group>"; };
+		6EE247992A61488E00DC2B4A /* AddAliasButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAliasButton.swift; sourceTree = "<group>"; };
 		C8088D552418E5F5001239CB /* TerminalCommandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalCommandButton.swift; sourceTree = "<group>"; };
 		C80D1227241583E800CBCB0F /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		C80D12292415840300CBCB0F /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				C8088D552418E5F5001239CB /* TerminalCommandButton.swift */,
 				C8DB027327C6E4410048157A /* AddCustomCommandButton.swift */,
 				6EC78A6A286C7808007F453C /* AliasButton.swift */,
+				6EE247992A61488E00DC2B4A /* AddAliasButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				6EE247962A5F453A00DC2B4A /* PackageSwiftImage.swift in Sources */,
 				C8F450FF24167592002B9D69 /* NSWorkspace+Execute.swift in Sources */,
 				C8412E4B2412A23B0066A8A5 /* EventMonitor.swift in Sources */,
+				6EE2479A2A61488E00DC2B4A /* AddAliasButton.swift in Sources */,
 				C8D9F49A25FCD5F6004C952C /* NotificationNames.swift in Sources */,
 				C8A4C09B25FACA280008054A /* View+If.swift in Sources */,
 				C8456CF1249A540F00BAEF17 /* AddProjectButton.swift in Sources */,

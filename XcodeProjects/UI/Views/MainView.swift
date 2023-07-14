@@ -72,8 +72,10 @@ struct MainView: View {
                 VStack {
                     Spacer().frame(height: 10)
                     HStack(spacing: 10) {
-                        Text("Parse aliases from custom script file")
+                        Text("Add aliases from custom script file")
                         AddProjectButton(action: parseCustomScriptFile)
+                        Text("Add alias")
+                        AddAliasButton(action: addCustomAlias)
                     }
                     
                     let allAliases = preferences.aliases
@@ -165,6 +167,15 @@ extension MainView {
                                                           type: .addTerminalCommand)
         controller.window?.title = "Add custom command"
         controller.showWindow(nil)
+        AppDelegate.closePopover()
+    }
+    
+    private func addCustomAlias() {
+        let controller = ProjectPreferencesViewController(preferences: preferences,
+                                                          type: .addAlias)
+        controller.window?.title = "Add custom alias"
+        controller.showWindow(nil)
+        
         AppDelegate.closePopover()
     }
 }

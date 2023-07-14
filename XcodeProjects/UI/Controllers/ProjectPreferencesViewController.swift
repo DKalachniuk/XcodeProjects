@@ -13,10 +13,11 @@ import SwiftUI
 enum ProjectPreferencesType {
     case project
     case addTerminalCommand
+    case addAlias
     
     var size: NSSize {
-        let width = self == .addTerminalCommand ? 400 : 300
-        let height = self == .addTerminalCommand ? 190 : 140
+        let width = self == .project ? 300 : 400
+        let height = self == .project ? 140 : 190
         return NSSize(width: width, height: height)
     }
 }
