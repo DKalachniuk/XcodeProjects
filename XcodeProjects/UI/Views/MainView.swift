@@ -88,7 +88,7 @@ struct MainView: View {
                     } else {
                         List {
                             ForEach(allAliases) { alias in
-                                AliasdButton(alias: alias, completion: nil).environmentObject(self.preferences)
+                                AliasCell(alias: alias, completion: nil).environmentObject(self.preferences)
                             }
                         }
                     }
@@ -101,6 +101,7 @@ struct MainView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
             .padding([.leading], -8)
+            .padding()
         }
     }
     

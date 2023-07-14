@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6EC78A69286C7167007F453C /* Alias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC78A68286C7167007F453C /* Alias.swift */; };
-		6EC78A6B286C7808007F453C /* AliasButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC78A6A286C7808007F453C /* AliasButton.swift */; };
+		6EC78A6B286C7808007F453C /* AliasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC78A6A286C7808007F453C /* AliasCell.swift */; };
 		6EC78A6D286C9E72007F453C /* ProfileFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC78A6C286C9E72007F453C /* ProfileFile.swift */; };
 		6EE247962A5F453A00DC2B4A /* PackageSwiftImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE247952A5F453A00DC2B4A /* PackageSwiftImage.swift */; };
 		6EE2479A2A61488E00DC2B4A /* AddAliasButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE247992A61488E00DC2B4A /* AddAliasButton.swift */; };
+		6EE2479C2A61669700DC2B4A /* AliasNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE2479B2A61669700DC2B4A /* AliasNameView.swift */; };
 		C8088D562418E5F5001239CB /* TerminalCommandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8088D552418E5F5001239CB /* TerminalCommandButton.swift */; };
 		C80D1228241583E800CBCB0F /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D1227241583E800CBCB0F /* PreferencesView.swift */; };
 		C80D122A2415840300CBCB0F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D12292415840300CBCB0F /* Preferences.swift */; };
@@ -84,10 +85,11 @@
 
 /* Begin PBXFileReference section */
 		6EC78A68286C7167007F453C /* Alias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alias.swift; sourceTree = "<group>"; };
-		6EC78A6A286C7808007F453C /* AliasButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasButton.swift; sourceTree = "<group>"; };
+		6EC78A6A286C7808007F453C /* AliasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasCell.swift; sourceTree = "<group>"; };
 		6EC78A6C286C9E72007F453C /* ProfileFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFile.swift; sourceTree = "<group>"; };
 		6EE247952A5F453A00DC2B4A /* PackageSwiftImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageSwiftImage.swift; sourceTree = "<group>"; };
 		6EE247992A61488E00DC2B4A /* AddAliasButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAliasButton.swift; sourceTree = "<group>"; };
+		6EE2479B2A61669700DC2B4A /* AliasNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasNameView.swift; sourceTree = "<group>"; };
 		C8088D552418E5F5001239CB /* TerminalCommandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalCommandButton.swift; sourceTree = "<group>"; };
 		C80D1227241583E800CBCB0F /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		C80D12292415840300CBCB0F /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				C855572C24A14A00006AF499 /* ActionsMenuText.swift */,
 				C80E916724A39B570073CF3F /* HintView.swift */,
 				C874747126069D600091E791 /* DividerSection.swift */,
+				6EE2479B2A61669700DC2B4A /* AliasNameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,7 +320,6 @@
 				C8456CF0249A540F00BAEF17 /* AddProjectButton.swift */,
 				C8088D552418E5F5001239CB /* TerminalCommandButton.swift */,
 				C8DB027327C6E4410048157A /* AddCustomCommandButton.swift */,
-				6EC78A6A286C7808007F453C /* AliasButton.swift */,
 				6EE247992A61488E00DC2B4A /* AddAliasButton.swift */,
 			);
 			path = Buttons;
@@ -344,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				C8F450F0241632D1002B9D69 /* ProjectCell.swift */,
+				6EC78A6A286C7808007F453C /* AliasCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8D9F49425FCCE61004C952C /* ProjectPreferencesView.swift in Sources */,
+				6EE2479C2A61669700DC2B4A /* AliasNameView.swift in Sources */,
 				C8D9F49725FCCE80004C952C /* ProjectPreferencesViewController.swift in Sources */,
 				C8BE992424CA1732000D4E5E /* NSColor+Codable.swift in Sources */,
 				C8412E2A24129B4F0066A8A5 /* AppDelegate.swift in Sources */,
@@ -495,7 +499,7 @@
 				C855572724A14300006AF499 /* OnHover.swift in Sources */,
 				C8F450FC24165C29002B9D69 /* UserDefaultsConfig.swift in Sources */,
 				6EC78A69286C7167007F453C /* Alias.swift in Sources */,
-				6EC78A6B286C7808007F453C /* AliasButton.swift in Sources */,
+				6EC78A6B286C7808007F453C /* AliasCell.swift in Sources */,
 				C8F450FA24165C21002B9D69 /* UserDefaultsWrapper.swift in Sources */,
 				C8BE992324CA1635000D4E5E /* ProjectIcon.swift in Sources */,
 				C8F450F1241632D1002B9D69 /* ProjectCell.swift in Sources */,
@@ -695,7 +699,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dkcompany.xcodeprojects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -726,7 +730,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dkcompany.xcodeprojects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

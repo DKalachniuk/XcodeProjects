@@ -126,7 +126,7 @@ extension Preferences {
 extension Preferences {
     
     func addAliases(_ newAliases: [Alias]) {
-        aliases = newAliases
+        aliases.append(contentsOf: newAliases)
     }
     
     func removeAlias(_ alias: Alias) {
