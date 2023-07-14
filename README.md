@@ -41,7 +41,7 @@ By default the app will parse your system .bash_profile and .zprofile files. But
 
 ## Options
 
-**When  "..." button of the project is clicked you will see the following
+When  "..." button of the project is clicked you will see the following
 
 ![alt text](Images/example_context_menu_light_openinfork.png?raw=true)
 
