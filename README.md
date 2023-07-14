@@ -39,6 +39,10 @@ Switch between Projects/Aliases tabs in the bottom
 
 By default the app will parse your system .bash_profile and .zprofile files. But you can either add your alias manually or parse the existing script file for aliases.
 
+Also it is possible to drag projects around.
+
+![alt text](Images/example_drag_and_drop_dark.png?raw=true)
+
 ## Options
 
 When  "..." button of the project is clicked you will see the following
@@ -76,10 +80,6 @@ When  "..." button of the project is clicked you will see the following
 If you have added custom commands then they would appear at the bottom of the list with option to remove the command
 
 ![alt text](Images/custom_command.png?raw=true)
-
-Also it is possible to drag projects around.
-
-![alt text](Images/example_drag_and_drop_dark.png?raw=true)
 
 # Preferences
 
