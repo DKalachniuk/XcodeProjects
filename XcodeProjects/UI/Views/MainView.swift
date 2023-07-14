@@ -88,7 +88,7 @@ struct MainView: View {
                     } else {
                         List {
                             ForEach(allAliases) { alias in
-                                AliasdButton(alias: alias, completion: nil)
+                                AliasdButton(alias: alias, completion: nil).environmentObject(self.preferences)
                             }
                         }
                     }

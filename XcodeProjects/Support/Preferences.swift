@@ -129,6 +129,10 @@ extension Preferences {
         aliases = newAliases
     }
     
+    func removeAlias(_ alias: Alias) {
+        aliases.removeAll(where: { $0.name == alias.name })
+    }
+    
     func addProjects(_ newProjects: [Project]) {
         projects.append(contentsOf: newProjects)
     }

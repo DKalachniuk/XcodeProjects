@@ -10,18 +10,35 @@ import SwiftUI
 
 struct AliasdButton: View {
     let alias: Alias
+    @EnvironmentObject var preferences: Preferences
     var completion: (() -> Void)?
 
     var body: some View {
-        Button(action: {
+        
+        HStack() {
+            
+            Spacer()
+            Text(alias.name)
+            Spacer()
+            
+            MenuButton(label: ActionsMenuText()) {
+                Button(action: {
+                    preferences.removeAlias(alias)
+                }) {
+                    Text("Remove \(alias.name) from the list")
+                }
+            }
+            .menuButtonStyle(BorderlessButtonMenuButtonStyle())
+            .frame(width: 40, height: 40, alignment: .center)
+            .background(RoundedCorners.right)
+            .modifier(OnHover(tl: 0, tr: 12, bl: 0, br: 12))
+            .modifier(OnHoverText())
+        }
+        .background(RoundedCorners.all)
+        .onTapGesture {
             AppDelegate.closePopover()
             NSWorkspace.execute(command: .alias(command: alias.name))
             completion?()
-        }) {
-            HStack {
-                Text(alias.name)
-                Spacer()
-            }
         }
     }
 }
