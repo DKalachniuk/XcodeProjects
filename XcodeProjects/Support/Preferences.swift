@@ -19,15 +19,30 @@ final class Preferences: ObservableObject {
     @Published private var _hintDisabled: Bool = UserDefaultsConfig.hintDisabled
     @Published private var _showProjectIcon: Bool = UserDefaultsConfig.showProjectIcon
     @Published private var _projects: [Project] = []
+    @Published private var _customTerminalCommands: [CustomCommand] = []
+    @Published private var _aliases: [Alias] = []
+    @Published private var _showAliases: Bool = UserDefaultsConfig.showAliases
+
+    // is used after podfile.lock file or project's derived data was called
+    // in order not to show that menu for the project again
+    @Published var updateProjectMenu: Bool = false
 
     init() {
         _launchAtLoginEnabled = launchAtLoginEnabled
+        _projects = UserDefaultsConfig.projectObjects
+        _customTerminalCommands = UserDefaultsConfig.customTerminalCommandObjects
+        _aliases = ProfileFile.z.aliases + ProfileFile.bash.aliases + UserDefaultsConfig.aliasTerminalCommands
+    }
 
-        if let projectsData = UserDefaultsConfig.projects {
-            let projects = try? JSONDecoder().decode([Project].self, from: projectsData)
-            _projects = projects ?? []
-        } else {
-            _projects = []
+    private (set) var customTerminalCommands: [CustomCommand] {
+        get {
+            _customTerminalCommands
+        }
+        set (newCommands) {
+            _customTerminalCommands = newCommands
+            if let encodedCommands = try? JSONEncoder().encode(newCommands) {
+                UserDefaultsConfig.customTerminalCommands = encodedCommands
+            }
         }
     }
 
@@ -40,6 +55,16 @@ final class Preferences: ObservableObject {
             if let encodedProjects = try? JSONEncoder().encode(newProjects) {
                 UserDefaultsConfig.projects = encodedProjects
             }
+        }
+    }
+    
+    private (set) var aliases: [Alias] {
+        get {
+            _aliases
+        }
+        set (newAliases) {
+            _aliases = newAliases
+            UserDefaultsConfig.addNewAliasTerminalCommands(newAliases)
         }
     }
 
@@ -60,6 +85,16 @@ final class Preferences: ObservableObject {
         set (newShowProjectIcon) {
             _showProjectIcon = newShowProjectIcon
             UserDefaultsConfig.showProjectIcon = _showProjectIcon
+        }
+    }
+    
+    private (set) var showAliases: Bool {
+        get {
+            _showAliases
+        }
+        set (newValue) {
+            _showAliases = newValue
+            UserDefaultsConfig.showAliases = newValue
         }
     }
 
@@ -93,6 +128,10 @@ extension Preferences {
     func toggleShowProjectIcon() {
         showProjectIcon.toggle()
     }
+    
+    func toggleShowAliases() {
+        showAliases.toggle()
+    }
 
     func toggleLaunchAtLogin() {
         launchAtLoginEnabled.toggle()
@@ -100,6 +139,16 @@ extension Preferences {
 }
 
 extension Preferences {
+    
+    func addAliases(_ newAliases: [Alias]) {
+        aliases.append(contentsOf: newAliases)
+    }
+    
+    func removeAlias(_ alias: Alias) {
+        UserDefaultsConfig.removeAlias(alias)
+        aliases.removeAll(where: { $0.name == alias.name })
+    }
+    
     func addProjects(_ newProjects: [Project]) {
         projects.append(contentsOf: newProjects)
     }
@@ -115,4 +164,47 @@ extension Preferences {
     func removeAllProjects() {
         projects.removeAll()
     }
+
+    func changeProjectsColor(_ project: Project, newColor: CodableColor) {
+        guard let index = projects.firstIndex(where: { $0.id == project.id }) else {
+            return
+        }
+        project.color = newColor
+        projects[index] = project
+
+        CodableColorPicker.shared.setupUsedColors()
+    }
+    
+    func changeProjectsIcon(_ project: Project, iconPath: String?) {
+        guard let index = projects.firstIndex(where: { $0.id == project.id }) else {
+            return
+        }
+        project.iconPath = iconPath
+        projects[index] = project
+    }
+
+    func changeProjectsName(_ project: Project, newName: String) {
+        guard let index = projects.firstIndex(where: { $0.id == project.id }) else {
+            return
+        }
+        project.name = newName
+        projects[index] = project
+    }
+
+    func addNewTerminalCommand(_ command: CustomCommand) -> Result<Bool, PreferencesError> {
+        if !customTerminalCommands.contains(where: { $0.command == command.command }) {
+            customTerminalCommands.append(command)
+            return .success(true)
+        } else {
+            return .failure(.terminalCommandAlreadyExists)
+        }
+    }
+
+    func removeCustomTerminalCommand(_ command: CustomCommand){
+        customTerminalCommands.removeAll(where: { $0.command == command.command })
+    }
+}
+
+enum PreferencesError: Error {
+    case terminalCommandAlreadyExists
 }

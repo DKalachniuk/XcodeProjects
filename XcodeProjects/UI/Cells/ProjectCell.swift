@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ProjectCell: View {
-    @State var project: Project
+    let project: Project
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
@@ -20,7 +20,7 @@ struct ProjectCell: View {
                     .environmentObject(preferences)
 
                 Divider()
-                    .frame(width: 1)
+                    .frame(width: 2)
                     .padding(0)
 
                 ProjectMenuView(project: self.project)

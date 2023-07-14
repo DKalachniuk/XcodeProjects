@@ -25,7 +25,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         updateButton()
-
         popover.contentViewController = statusController
 
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
@@ -53,6 +52,12 @@ private extension AppDelegate {
 
 // MARK: - Actions
 extension AppDelegate {
+
+    static func closePopover() {
+        if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
+            appDelegate.closePopover(sender: nil)
+        }
+    }
 
     @objc
     func togglePopover(_ sender: Any?) {

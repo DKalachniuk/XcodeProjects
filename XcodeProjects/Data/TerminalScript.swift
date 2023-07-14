@@ -22,4 +22,12 @@ struct TerminalScript {
         """
         return scriptText
     }
+
+    init(command: String) {
+        self.command = command
+    }
+
+    init(toRemovePath: String) {
+        self.command = "rm -rf \(toRemovePath)".wrappedInScript
+    }
 }

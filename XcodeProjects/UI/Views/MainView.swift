@@ -11,57 +11,102 @@ import SwiftUI
 struct MainView: View {
 
     @State private var searchTerm = ""
+    //@State private var listToShow: ListToDisplay = .projects
+    @State private var listToShow: Int = 0
     @EnvironmentObject var preferences: Preferences
 
+//    enum ListToDisplay: Int {
+//        case projects = 0
+//        case aliases
+//    }
+    
     private var projects: [Project] {
         preferences.projects.filter({ searchTerm.isEmpty ? true : $0.name.lowercased().contains(searchTerm.lowercased()) })
     }
 
     var body: some View {
         VStack(spacing: 0) {
-            HStack {
-                TextField("Search", text: $searchTerm)
+            
+            HStack(spacing: 15) {
+                Spacer().frame(width: 0)
+                TextField("Search in projects", text: $searchTerm)
+                    .frame(width: 215)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                Spacer().frame(width: 10)
                 AddProjectButton(action: addProject)
-                Spacer().frame(width: 10)
+                AddCustomCommandButton(action: addCustomCommand)
                 PreferencesView()
             }.padding(EdgeInsets(top: 10, leading: 10, bottom: 5, trailing: 10))
 
             Divider().padding([.top], 3)
 
-            if projects.isEmpty {
-                Spacer()
-                if searchTerm.isEmpty {
-                    VStack {
-                        HStack {
-                            Text("Please add a project")
-                            AddProjectButton(action: addProject)
+            if listToShow == 0 || preferences.showAliases == false {
+                if projects.isEmpty {
+                    Spacer()
+                    if searchTerm.isEmpty {
+                        VStack {
+                            HStack {
+                                Text("Please add a project")
+                                AddProjectButton(action: addProject)
+                            }
                         }
-                    }
 
+                    } else {
+                        Text("No projects")
+                    }
+                    Spacer()
                 } else {
-                    Text("No projects")
+                    VStack {
+                        if self.preferences.hintDisabled == false {
+                            HintView().environmentObject(self.preferences)
+                        }
+                        List {
+                            ForEach(projects) { project in
+                                ProjectCell(project: project).environmentObject(self.preferences)
+                            }
+                            .onMove(perform: move)
+                        }
+                        .padding(0)
+                    }
                 }
-                Spacer()
             } else {
                 VStack {
-                    if self.preferences.hintDisabled == false {
-                        HintView().environmentObject(self.preferences)
+                    Spacer().frame(height: 10)
+                    HStack(spacing: 10) {
+                        Text("Add aliases from custom script file")
+                        AddProjectButton(action: parseCustomScriptFile)
+                        Text("Add alias")
+                        AddAliasButton(action: addCustomAlias)
                     }
-                    List {
-                        ForEach(projects) { project in
-                            ProjectCell(project: project).environmentObject(self.preferences)
+                    
+                    let allAliases = preferences.aliases
+                    if allAliases.isEmpty {
+                        Group {
+                            Spacer()
+                            Text("No aliases were detected. Please add them")
+                            Spacer()
                         }
-                        .onMove(perform: move)
-                        .padding(.top, 5)
+                    } else {
+                        List {
+                            ForEach(allAliases) { alias in
+                                AliasCell(alias: alias, completion: nil).environmentObject(self.preferences)
+                            }
+                        }
                     }
-                    .padding(0)
                 }
+            }
+            
+            if preferences.showAliases {
+                Picker("", selection: $listToShow) {
+                    Text("Projects").tag(0)
+                    Text("Aliases").tag(1)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding([.leading], -8)
+                .padding()
             }
         }
     }
-
+    
     func move(from source: IndexSet, to destination: Int) {
         if searchTerm.isEmpty {
             preferences.moveProjects(from: source, to: destination)
@@ -70,6 +115,31 @@ struct MainView: View {
 }
 
 extension MainView {
+    
+    private func parseCustomScriptFile() {
+        let appDelegate: AppDelegate? = NSApplication.shared.delegate as? AppDelegate
+        let dialog = NSOpenPanel()
+        dialog.title = "Choose script file to parse"
+        dialog.showsResizeIndicator = true
+        dialog.showsHiddenFiles = true
+        dialog.canChooseDirectories = false
+        dialog.canCreateDirectories = false
+        dialog.allowsMultipleSelection = true
+        dialog.canChooseFiles = true
+        dialog.becomesKeyOnlyIfNeeded = true
+
+        appDelegate?.closePopover(sender: nil)
+
+        if dialog.runModal() == NSApplication.ModalResponse.OK {
+            
+            let newProfileFiles = dialog.urls.map{ProfileFile.custom(name: $0.lastPathComponent, path: $0.standardizedFileURL)}
+            preferences.addAliases(newProfileFiles.flatMap{$0.aliases})
+        } else {
+            print("something went wrong")
+        }
+        appDelegate?.showPopover(sender: nil)
+    }
+    
     private func addProject() {
         let appDelegate: AppDelegate? = NSApplication.shared.delegate as? AppDelegate
         let dialog = NSOpenPanel()
@@ -93,5 +163,22 @@ extension MainView {
             print("something went wrong")
             appDelegate?.showPopover(sender: nil)
         }
+    }
+    
+    private func addCustomCommand() {
+        let controller = ProjectPreferencesViewController(preferences: preferences,
+                                                          type: .addTerminalCommand)
+        controller.window?.title = "Add custom command"
+        controller.showWindow(nil)
+        AppDelegate.closePopover()
+    }
+    
+    private func addCustomAlias() {
+        let controller = ProjectPreferencesViewController(preferences: preferences,
+                                                          type: .addAlias)
+        controller.window?.title = "Add custom alias"
+        controller.showWindow(nil)
+        
+        AppDelegate.closePopover()
     }
 }

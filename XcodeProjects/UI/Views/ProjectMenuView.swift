@@ -10,34 +10,107 @@ import SwiftUI
 
 struct ProjectMenuView: View {
 
-    @State var project: Project
+    let project: Project
     @EnvironmentObject var preferences: Preferences
     @State private var hover = false
 
     var body: some View {
         MenuButton(label: ActionsMenuText()) {
-            TerminalCommandButton(project: self.project, command: .openInTerminal)
-            TerminalCommandButton(project: self.project, command: .finder)
+            TerminalCommandButton(project: project, command: .openInTerminal)
+            TerminalCommandButton(project: project, command: .finder)
 
             if NSWorkspace.shared.sourceTreeAppInstalled {
-                TerminalCommandButton(project: self.project, command: .sourceTree)
+                TerminalCommandButton(project: project, command: .sourceTree)
             }
 
-            VStack { Divider() }
             if project.hasCocoapods {
-                TerminalCommandButton(project: self.project, command: .podInstall)
-                TerminalCommandButton(project: self.project, command: .podUpdate)
-                VStack { Divider() }
+                DividerSection(title: "Cocoapods")
+                TerminalCommandButton(project: project, command: .podInstall)
+                TerminalCommandButton(project: project, command: .podUpdate)
+                TerminalCommandButton(project: project, command: .podDeintegrate)
+                if project.hasPodfileLock {
+                    TerminalCommandButton(project: project, command: .removePodfileLock) {
+                        preferences.updateProjectMenu = true
+                    }
+                }
+
+            }
+
+            customCommandButtons()
+
+            DividerSection(title: "Preferences")
+            if project.hasDerivedData {
+                TerminalCommandButton(project: project,
+                                      command: .clearProjectDerivedData,
+                                      customName: "Clear \(project.name) derived data folder") {
+                    preferences.updateProjectMenu = true
+                }
             }
 
             Button(action: {
-                self.preferences.removeProject(self.project)
+                let controller = ProjectPreferencesViewController(project: project,
+                                                                  preferences: preferences,
+                                                                  type: .project)
+                controller.window?.title = "\(self.project.name)'s preferences"
+                controller.showWindow(nil)
+                AppDelegate.closePopover()
             }) {
-                Text("Remove \(self.project.name) from the list")
+                Text("Rename project")
+            }
+            
+            if project.iconPath != nil {
+                Button(action: {
+                    self.preferences.changeProjectsIcon(self.project, iconPath: nil)
+                }) {
+                    Text("Remove project's icon")
+                }
+            }
+
+            Button(action: {
+                preferences.removeProject(project)
+            }) {
+                Text("Remove \(project.name) from the list")
             }
         }
             .menuButtonStyle(BorderlessButtonMenuButtonStyle())
 
+    }
+}
+
+extension ProjectMenuView {
+
+    func customCommandButtons() -> some View {
+        VStack {
+            if !preferences.customTerminalCommands.isEmpty {
+                DividerSection(title: "Custom commands")
+                ForEach(preferences.customTerminalCommands, id: \.self) { customCommand in
+                    CustomTerminalCommandButton(command: customCommand,
+                                                project: project).environmentObject(preferences)
+                }
+            }
+        }
+    }
+}
+
+struct CustomTerminalCommandButton: View {
+    let command: CustomCommand
+    let project: Project
+    @EnvironmentObject var preferences: Preferences
+
+    var body: some View {
+        MenuButton(label: Text(command.name)) {
+            TerminalCommandButton(project: project,
+                                  command: .custom(command: command.fullCommand(for: project)))
+            Button(action: {
+                preferences.removeCustomTerminalCommand(command)
+            }) {
+                HStack(spacing: 4) {
+                    Text("Remove \(command.name)")
+                    Image(systemName: "minus.circle.fill")
+                        .frame(width: 10, height: 10)
+                }
+            }
+        }
     }
 }
 

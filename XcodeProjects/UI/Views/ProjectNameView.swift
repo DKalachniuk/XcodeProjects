@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ProjectNameView: View {
-    @State var project: Project
+    let project: Project
     @EnvironmentObject var preferences: Preferences
 
     var body: some View {
@@ -19,14 +19,16 @@ struct ProjectNameView: View {
                 .frame(width: 8)
 
             if self.preferences.showProjectIcon {
-                ProjectIcon(project: project)
+                ProjectIcon(project: project).environmentObject(preferences)
             }
 
             Text(self.project.name)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
-
+           
+            // open project
             Spacer()
             Button(action: {
+                AppDelegate.closePopover()
                 NSWorkspace.execute(command: .openWorkspace, forProject: self.project)
             }) {
                 ArrowImageWithHoverPopover(project: self.project)
@@ -35,6 +37,19 @@ struct ProjectNameView: View {
             .padding([.trailing], 5)
             .modifier(OnHoverText())
 
+            // open package swift if exists
+            if project.hasSwiftPackage {
+                Button(action: {
+                    AppDelegate.closePopover()
+                    NSWorkspace.execute(command: .openSwiftPackage, forProject: self.project)
+                }) {
+                    PackageSwiftImage()
+                }
+                .buttonStyle(BorderlessButtonStyle())
+                .padding([.trailing], 5)
+                .modifier(OnHoverText())
+            }
+            
             Spacer().frame(width: 3)
         }
         .frame(height: 40)

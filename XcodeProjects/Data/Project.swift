@@ -9,12 +9,13 @@
 import Foundation
 import AppKit
 
-struct Project: Identifiable, Codable {
+class Project: Identifiable, Codable {
 
-    let id: UUID = UUID()
-    let name: String
+    var id: UUID = UUID()
+    var name: String
     let path: String
-    let color: CodableColor
+    var color: CodableColor
+    var iconPath: String?
 
     init(name: String, path: String) {
         self.name = name
@@ -22,7 +23,7 @@ struct Project: Identifiable, Codable {
         self.color = CodableColorPicker.shared.pickRandomColor()
     }
 
-    init?(url: URL) {
+    convenience init?(url: URL) {
         guard let name = url.path.lastComponent else {
             return nil
         }
@@ -38,22 +39,46 @@ extension Project {
     }
 
     var workspaceURL: URL? {
-        FileManager.default.getWorkspaceFrom(project: self)
+        FileManager.default.getWorkspaceFrom(for: self)
+    }
+    
+    var swiftPackageURL: URL? {
+        FileManager.default.getSwiftPackageFrom(for: self)
     }
 
     var projectURL: URL? {
-        FileManager.default.getXcodeProjFrom(project: self)
+        FileManager.default.getXcodeProjFrom(for: self)
+    }
+
+    var podfileLockPath: String? {
+        FileManager.default.getPodfileLockFrom(for: self)?.absoluteString.removeFilePath
+    }
+
+    var hasPodfileLock: Bool {
+        podfileLockPath != nil
+    }
+
+    var derivedDataPath: String? {
+        FileManager.default.getXcodeDerivedData(for: self)?.absoluteString.removeFilePath
+    }
+
+    var hasDerivedData: Bool {
+        derivedDataPath != nil
     }
 
     var hasXcodeProject: Bool {
         (workspaceURL ?? projectURL) != nil
+    }
+    
+    var hasSwiftPackage: Bool {
+        swiftPackageURL != nil
     }
 }
 
 extension Project {
 
     var hasCocoapods: Bool {
-        FileManager.default.getPodfile(project: self) != nil
+        FileManager.default.getPodfile(for: self) != nil
     }
 }
 

@@ -10,6 +10,10 @@ import Foundation
 
 extension String {
     var lastComponent: Substring? {
-        self.split(separator: "/").last
+        split(separator: "/").last
+    }
+
+    var removeFilePath: String? {
+        replacingOccurrences(of: "file://", with: "")
     }
 }
