@@ -15,24 +15,6 @@ Switch between projects in 2 clicks. Don't write "pod install", "pod update" and
 - you want to **execute custom command for a project**
 - you have a lot of projects or modules/frameworks and you need to switch between them quickly
   
-# How to install
-Go to release section in this repo and download the binary. Drag & drop XcodeProjects.app to your Application folder. Enjoy!
-
-If you see this window 
-
-![alt text](Images/xcodeProjects_cantopen.jpeg?raw=true)
-
-it is ok. No worries. It is new security measure in MacOS.
-Please click with **a right button** the XcodeProjects app. Then you will see
-
-![alt text](Images/xcodeProjects_rightclickMenu.jpeg?raw=true)
-
-Click Open
-
-![alt text](Images/xcodeProjects_openMenu.jpeg?raw=true)
-
-Click Open again. That is it!
-
 # How to use 
 When you open the app for the first time you would see empty screen
 
@@ -50,7 +32,11 @@ click "+" button to add folder of you project within system dialog (Hint: choose
 
 **Click "..." button to see the menu options** 
 
-![alt text](Images/example_context_menu_dark.png?raw=true)
+Switch between Projects/Aliases tabs in the bottom
+
+![alt text](Images/example_list_of_aliases_light.png?raw=true)
+
+By default the app will parse your system .bash_profile and .zprofile files. But you can either add your alias manually or parse the existing script file for aliases.
 
 **Open in Terminal** - opens the path to the project in terminal. Handy to quickly switch to the folder of the project
 
@@ -69,6 +55,8 @@ click "+" button to add folder of you project within system dialog (Hint: choose
 **Clear derived data** - removes project's derived data folder
 
 **Rename project** - opens new window to rename the project. Note: renames in the Xcode Projects app only - not physical folder/project etc.
+
+**Switch On/Off Aliases Tab** - switches on/off the picker to show projects and aliases
 
 **Remove from the list** - removes project from the list
 
@@ -99,6 +87,24 @@ Also it is possible to drag projects around.
 **Add custom command** - add custom command for all projects
 
 > Hint: Click on project icon to change its color
+
+# How to install
+Go to release section in this repo and download the binary. Drag & drop XcodeProjects.app to your Application folder. Enjoy!
+
+If you see this window 
+
+![alt text](Images/xcodeProjects_cantopen.jpeg?raw=true)
+
+it is ok. No worries. It is new security measure in MacOS.
+Please click with **a right button** the XcodeProjects app. Then you will see
+
+![alt text](Images/xcodeProjects_rightclickMenu.jpeg?raw=true)
+
+Click Open
+
+![alt text](Images/xcodeProjects_openMenu.jpeg?raw=true)
+
+Click Open again. That is it!
 
 # Support
 Just simple star ⭐️ will make my life happier :) 

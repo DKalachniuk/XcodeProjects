@@ -29,7 +29,7 @@ struct MainView: View {
             
             HStack(spacing: 15) {
                 Spacer().frame(width: 0)
-                TextField("Search", text: $searchTerm)
+                TextField("Search in projects", text: $searchTerm)
                     .frame(width: 215)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 AddProjectButton(action: addProject)
@@ -39,7 +39,7 @@ struct MainView: View {
 
             Divider().padding([.top], 3)
 
-            if listToShow == 0 {
+            if listToShow == 0 || preferences.showAliases == false {
                 if projects.isEmpty {
                     Spacer()
                     if searchTerm.isEmpty {
