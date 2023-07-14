@@ -58,7 +58,7 @@ extension UserDefaultsConfig {
         UserDefaultsConfig.addNewAliasTerminalCommands(profileFile.aliases)
     }
     
-    private static func addNewAliasTerminalCommands(_ aliases: [Alias]) {
+    static func addNewAliasTerminalCommands(_ aliases: [Alias]) {
         let allAliases = Set(UserDefaultsConfig.aliasTerminalCommands + aliases)
         if let encodedAliases = try? JSONEncoder().encode(allAliases) {
             UserDefaultsConfig.aliases = encodedAliases

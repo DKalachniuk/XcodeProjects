@@ -76,7 +76,7 @@ struct MainView: View {
                         AddProjectButton(action: parseCustomScriptFile)
                     }
                     
-                    let allAliases = Aliases.all
+                    let allAliases = preferences.aliases
                     if allAliases.isEmpty {
                         Group {
                             Spacer()
@@ -128,8 +128,7 @@ extension MainView {
         if dialog.runModal() == NSApplication.ModalResponse.OK {
             
             let newProfileFiles = dialog.urls.map{ProfileFile.custom(name: $0.lastPathComponent, path: $0.standardizedFileURL)}
-            UserDefaultsConfig.addNewAliasTerminalCommands(profileFiles: newProfileFiles)
-            // TODO: update all screen
+            preferences.addAliases(newProfileFiles.flatMap{$0.aliases})
         } else {
             print("something went wrong")
         }

@@ -26,9 +26,3 @@ class Alias: Identifiable, Codable, Hashable {
         hasher.combine(name)
     }
 }
-
-class Aliases {
-    static var all: [Alias] {
-        ProfileFile.z.aliases + ProfileFile.bash.aliases + UserDefaultsConfig.aliasTerminalCommands
-    }
-}

@@ -20,6 +20,7 @@ final class Preferences: ObservableObject {
     @Published private var _showProjectIcon: Bool = UserDefaultsConfig.showProjectIcon
     @Published private var _projects: [Project] = []
     @Published private var _customTerminalCommands: [CustomCommand] = []
+    @Published private var _aliases: [Alias] = []
 
     // is used after podfile.lock file or project's derived data was called
     // in order not to show that menu for the project again
@@ -29,6 +30,7 @@ final class Preferences: ObservableObject {
         _launchAtLoginEnabled = launchAtLoginEnabled
         _projects = UserDefaultsConfig.projectObjects
         _customTerminalCommands = UserDefaultsConfig.customTerminalCommandObjects
+        _aliases = ProfileFile.z.aliases + ProfileFile.bash.aliases + UserDefaultsConfig.aliasTerminalCommands
     }
 
     private (set) var customTerminalCommands: [CustomCommand] {
@@ -52,6 +54,16 @@ final class Preferences: ObservableObject {
             if let encodedProjects = try? JSONEncoder().encode(newProjects) {
                 UserDefaultsConfig.projects = encodedProjects
             }
+        }
+    }
+    
+    private (set) var aliases: [Alias] {
+        get {
+            _aliases
+        }
+        set (newAliases) {
+            _aliases = Array(Set(_aliases + newAliases))
+            UserDefaultsConfig.addNewAliasTerminalCommands(_aliases)
         }
     }
 
@@ -112,6 +124,11 @@ extension Preferences {
 }
 
 extension Preferences {
+    
+    func addAliases(_ newAliases: [Alias]) {
+        aliases = newAliases
+    }
+    
     func addProjects(_ newProjects: [Project]) {
         projects.append(contentsOf: newProjects)
     }
