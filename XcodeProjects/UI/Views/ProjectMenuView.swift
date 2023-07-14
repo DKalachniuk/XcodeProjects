@@ -16,11 +16,18 @@ struct ProjectMenuView: View {
 
     var body: some View {
         MenuButton(label: ActionsMenuText()) {
-            TerminalCommandButton(project: project, command: .openInTerminal)
-            TerminalCommandButton(project: project, command: .finder)
-
-            if NSWorkspace.shared.sourceTreeAppInstalled {
-                TerminalCommandButton(project: project, command: .sourceTree)
+            Group {
+                TerminalCommandButton(project: project, command: .openInTerminal)
+                TerminalCommandButton(project: project, command: .finder)
+            }
+        
+            Group {
+                if NSWorkspace.shared.sourceTreeAppInstalled {
+                    TerminalCommandButton(project: project, command: .sourceTree)
+                }
+                if NSWorkspace.shared.forkAppInstalled {
+                    TerminalCommandButton(project: project, command: .fork)
+                }
             }
 
             if project.hasCocoapods {

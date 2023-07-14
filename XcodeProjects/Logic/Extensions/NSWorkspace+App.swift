@@ -12,4 +12,8 @@ extension NSWorkspace {
     var sourceTreeAppInstalled: Bool {
         (NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.torusknot.SourceTreeNotMAS") != nil)
     }
+    
+    var forkAppInstalled: Bool {
+        (NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.DanPristupov.Fork") != nil)
+    }
 }
