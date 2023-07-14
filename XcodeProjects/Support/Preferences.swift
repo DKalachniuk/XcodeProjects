@@ -62,8 +62,8 @@ final class Preferences: ObservableObject {
             _aliases
         }
         set (newAliases) {
-            _aliases = Array(Set(_aliases + newAliases))
-            UserDefaultsConfig.addNewAliasTerminalCommands(_aliases)
+            _aliases = newAliases
+            UserDefaultsConfig.addNewAliasTerminalCommands(newAliases)
         }
     }
 
@@ -130,6 +130,7 @@ extension Preferences {
     }
     
     func removeAlias(_ alias: Alias) {
+        UserDefaultsConfig.removeAlias(alias)
         aliases.removeAll(where: { $0.name == alias.name })
     }
     

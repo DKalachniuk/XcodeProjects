@@ -65,6 +65,15 @@ extension UserDefaultsConfig {
         }
     }
     
+    static func removeAlias(_ alias: Alias) {
+        var allAliases = UserDefaultsConfig.aliasTerminalCommands
+        allAliases.removeAll(where: { $0.name == alias.name })
+        
+        if let encodedAliases = try? JSONEncoder().encode(allAliases) {
+            UserDefaultsConfig.aliases = encodedAliases
+        }
+    }
+    
     static var aliasTerminalCommands: [Alias] {
         if let aliases = UserDefaultsConfig.aliases {
             do {
